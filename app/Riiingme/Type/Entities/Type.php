@@ -1,6 +1,6 @@
 <?php namespace Riiingme\Type\Entities;
 
-use Droit\Common\BaseModel as BaseModel;
+use Riiingme\Common\BaseModel as BaseModel;
 
 class Type extends BaseModel{
 
@@ -17,5 +17,17 @@ class Type extends BaseModel{
      * @var array
      */
     protected $fillable = array('titre');
+
+    /**
+     * Validation rules
+     */
+    protected static $rules = array(
+    );
+
+    /**
+     * Validation messages
+     */
+    protected static $messages = array(
+    );
 
 }

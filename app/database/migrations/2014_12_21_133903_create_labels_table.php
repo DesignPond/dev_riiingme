@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMetasTable extends Migration {
+class CreateLabelsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,14 @@ class CreateMetasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('metas', function(Blueprint $table)
+		Schema::create('labels', function(Blueprint $table)
 		{
+
 			$table->increments('id');
-            $table->text('meta');
-            $table->integer('user_id');
-            $table->integer('type_id');
-            $table->integer('groupe_id');
+			$table->text('label');
+			$table->integer('user_id');
+			$table->integer('type_id');
+			$table->integer('groupe_id');
 
 		});
 	}
@@ -31,7 +32,7 @@ class CreateMetasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('metas');
+		Schema::drop('labels');
 	}
 
 }

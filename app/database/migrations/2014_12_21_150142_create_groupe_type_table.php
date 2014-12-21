@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRiiinglinkLabelsTable extends Migration {
+class CreateGroupeTypeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateRiiinglinkLabelsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('riiinglink_labels', function(Blueprint $table)
+		Schema::create('groupe_type', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('user_label_id');
-            $table->integer('riiinglink_id');
+			$table->integer('groupe_id')->unsigned()->index();
+			$table->integer('type_id')->unsigned()->index();
 		});
 	}
-
 
 	/**
 	 * Reverse the migrations.
@@ -28,7 +27,7 @@ class CreateRiiinglinkLabelsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('riiinglink_labels');
+		Schema::drop('groupe_type');
 	}
 
 }

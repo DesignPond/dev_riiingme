@@ -9,30 +9,24 @@ class MetaEloquent implements MetaInterface {
 
         $this->meta = $meta;
     }
+
     public function getAll(){
 
-        return $this->meta->all();
+        return $this->meta->with(array('metas'))->get();
     }
+
+    public function findByLink($riiinglink){
+
+        return $this->meta->where('riiinglink_id','=',$riiinglink)->get();
+    }
+
     public function find($id){
 
         return $this->meta->with(array('metas'))->findOrFail($id);
     }
 
-    public function create(array $data){
+    public function getRang($riiinglink_id,$groupe_id){
 
-        $meta = $this->meta->create([
-            'meta'      => $data['id'],
-            'user_id'   => $data['user_id'],
-            'type_id'   => $data['type_id'],
-            'groupe_id' => $data['groupe_id'],
-            'rang'      => $data['rang']
-        ]);
-
-        if(!$meta){
-            return false;
-        }
-
-        return $meta;
+        return $this->meta->where('riiinglink_id','=',$riiinglink_id)->where('groupe_id','=',$groupe_id)->max('rang');
     }
-
 }

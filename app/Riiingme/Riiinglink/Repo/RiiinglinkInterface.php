@@ -1,6 +1,6 @@
-<?php namespace App\Link\Repo;
+<?php namespace App\Riiinglink\Repo;
 
-interface LinkInterface {
+interface RiiinglinkInterface {
 
     public function getAll();
     public function find($id);

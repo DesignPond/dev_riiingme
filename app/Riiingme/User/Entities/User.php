@@ -1,6 +1,7 @@
 <?php namespace Riiingme\User\Entities;
 
-use Droit\Common\BaseModel as BaseModel;
+use Riiingme\Common\BaseModel as BaseModel;
+
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
@@ -33,13 +34,25 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     protected $hidden = array('password', 'remember_token');
 
     /**
+     * Validation rules
+     */
+    protected static $rules = array(
+    );
+
+    /**
+     * Validation messages
+     */
+    protected static $messages = array(
+    );
+
+    /**
      * Metas belongs to user
      *
      * @var query
      */
-    public function metas(){
+    public function labels(){
 
-        return $this->hasMany('Riiingme\Meta\Entities\Meta');
+        return $this->hasMany('Riiingme\Label\Entities\Label');
     }
 
     /**
@@ -47,9 +60,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
      *
      * @var query
      */
-    public function links(){
+    public function riiinglink(){
 
-        return $this->belongsToMany('Riiingme\Link\Entities\Riiinglink', 'users', 'host_id', 'invited_id');
+        return $this->belongsToMany('Riiingme\Riiinglink\Entities\Riiinglink', 'users', 'host_id', 'invited_id');
     }
 
 }

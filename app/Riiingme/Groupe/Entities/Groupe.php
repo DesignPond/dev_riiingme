@@ -1,6 +1,6 @@
 <?php namespace Riiingme\Groupe\Entities;
 
-use Droit\Common\BaseModel as BaseModel;
+use Riiingme\Common\BaseModel as BaseModel;
 
 class Groupe extends BaseModel{
 
@@ -10,5 +10,17 @@ class Groupe extends BaseModel{
      * @var array
      */
     protected $fillable = array('titre', 'status');
+
+    /**
+     * Validation rules
+     */
+    protected static $rules = array(
+    );
+
+    /**
+     * Validation messages
+     */
+    protected static $messages = array(
+    );
 
 }

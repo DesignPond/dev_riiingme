@@ -1,7 +1,7 @@
-<?php namespace Droit\Common;
+<?php namespace Riiingme\Common;
 
 use Laracasts\Commander\Events\EventGenerator;
-use Droit\Exceptions\FormValidationException as FormValidationException;
+use Riiingme\Exceptions\FormValidationException as FormValidationException;
 use Eloquent;
 
 class BaseModel extends Eloquent{

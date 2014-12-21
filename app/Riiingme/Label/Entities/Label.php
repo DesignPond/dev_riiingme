@@ -1,8 +1,8 @@
-<?php namespace Riiingme\Meta\Entities;
+<?php namespace Riiingme\Label\Entities;
 
 use Riiingme\Common\BaseModel as BaseModel;
 
-class Meta extends BaseModel{
+class Label extends BaseModel{
 
     /**
      * No timestamps
@@ -16,7 +16,7 @@ class Meta extends BaseModel{
      *
      * @var array
      */
-    protected $fillable = array('riiinglink_id', 'meta_id');
+    protected $fillable = array('user_id', 'meta', 'type_id', 'groupe_id', 'rang');
 
     /**
      * Validation rules
@@ -29,5 +29,15 @@ class Meta extends BaseModel{
      */
     protected static $messages = array(
     );
+
+    /**
+     * Metas belongs to user
+     *
+     * @var query
+     */
+    public function user(){
+
+        return $this->belongsTo('Riiingme\User\Entities\User');
+    }
 
 }

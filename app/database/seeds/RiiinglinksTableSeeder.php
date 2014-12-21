@@ -9,17 +9,17 @@ class RiiinglinksTableSeeder extends Seeder {
 	public function run()
 	{
 
-        App\Link\Entities\Riiinglink::create([
+        Riiingme\Riiinglink\Entities\Riiinglink::create([
             'host_id'    => 1,
             'invited_id' => 2,
         ]);
 
-        App\Link\Entities\Riiinglink::create([
+        Riiingme\Riiinglink\Entities\Riiinglink::create([
             'host_id'    => 1,
             'invited_id' => 3,
         ]);
 
-        App\Link\Entities\Riiinglink::create([
+        Riiingme\Riiinglink\Entities\Riiinglink::create([
             'host_id'    => 1,
             'invited_id' => 4,
         ]);

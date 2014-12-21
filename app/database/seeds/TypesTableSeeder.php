@@ -12,8 +12,10 @@ class TypesTableSeeder extends Seeder {
         $types = array(
             array( 'titre' => 'Prénom'),
             array( 'titre' => 'Nom'),
+            array( 'titre' => 'Email'),
             array( 'titre' => 'Entreprise'),
-            array( 'titre' => 'à l\'attention de'),
+            array( 'titre' => 'Profession'),
+            array( 'titre' => 'c/o'),
             array( 'titre' => 'Rue'),
             array( 'titre' => 'Numéro'),
             array( 'titre' => 'NPA'),
@@ -22,6 +24,7 @@ class TypesTableSeeder extends Seeder {
             array( 'titre' => 'Téléphone fixe'),
             array( 'titre' => 'Téléphone portable'),
             array( 'titre' => 'Date de naissance'),
+            array( 'titre' => 'Site web'),
             array( 'titre' => 'Photo')
         );
 

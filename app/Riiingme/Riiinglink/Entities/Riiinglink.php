@@ -1,6 +1,6 @@
-<?php namespace Riiingme\Link\Entities;
+<?php namespace Riiingme\Riiinglink\Entities;
 
-use Droit\Common\BaseModel as BaseModel;
+use Riiingme\Common\BaseModel as BaseModel;
 
 class Riiinglink extends BaseModel{
 
@@ -10,6 +10,18 @@ class Riiinglink extends BaseModel{
      * @var array
      */
     protected $fillable = array('host_id', 'invited_id');
+
+    /**
+     * Validation rules
+     */
+    protected static $rules = array(
+    );
+
+    /**
+     * Validation messages
+     */
+    protected static $messages = array(
+    );
 
     /**
      * Invited infos belongs to host user through link
@@ -36,9 +48,9 @@ class Riiinglink extends BaseModel{
      *
      * @var query
      */
-    public function metas(){
+    public function labels(){
 
-        return $this->belongsToMany('Riiingme\Meta\Entities\Meta', 'riiinglink_metas')->withPivot('groupe_id', 'rang');
+        return $this->belongsToMany('Riiingme\Label\Entities\Label', 'metas')->withPivot('groupe_id', 'rang');
     }
 
 

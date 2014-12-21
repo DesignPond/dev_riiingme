@@ -3,11 +3,11 @@
 use Illuminate\Support\ServiceProvider;
 
 use Riiingme\User\Entities\User;
+use Riiingme\Label\Entities\Label;
 use Riiingme\Meta\Entities\Meta;
-use Riiingme\Meta\Entities\Riiinglink_meta;
 use Riiingme\Type\Entities\Type;
 use Riiingme\Groupe\Entities\Groupe;
-use Riiingme\Link\Entities\Riiinglink;
+use Riiingme\Riiinglink\Entities\Riiinglink;
 
 class RiiinglinkServiceProvider extends ServiceProvider {
 
@@ -20,10 +20,10 @@ class RiiinglinkServiceProvider extends ServiceProvider {
     {
         $this->registerUserService();
         $this->registerMetaService();
-        $this->registerMetalinkService();
+        $this->registerLabelService();
         $this->registerTypeService();
         $this->registerGroupeService();
-        $this->registerLinkService();
+        $this->registerRiiinglinkService();
     }
 
     /**
@@ -40,22 +40,22 @@ class RiiinglinkServiceProvider extends ServiceProvider {
     /**
      * Metas
      */
-    protected function registerMetaService(){
+    protected function registerLabelService(){
 
-        $this->app->bind('\Riiingme\Meta\Repo\MetaInterface', function()
+        $this->app->bind('\Riiingme\Label\Repo\LabelInterface', function()
         {
-            return new \Riiingme\Meta\Repo\MetaEloquent(new Meta);
+            return new \Riiingme\Label\Repo\LabelEloquent(new Label);
         });
     }
 
     /**
      * Link metas
      */
-    protected function registerMetalinkService(){
+    protected function registerMetaService(){
 
-        $this->app->bind('\Riiingme\Meta\Repo\LinkmetaInterface', function()
+        $this->app->bind('\Riiingme\Meta\Repo\MetaInterface', function()
         {
-            return new \Riiingme\Meta\Repo\LinkmetaEloquent(new Riiinglink_meta);
+            return new \Riiingme\Meta\Repo\MetaEloquent(new Meta);
         });
     }
 
@@ -84,11 +84,11 @@ class RiiinglinkServiceProvider extends ServiceProvider {
     /**
      * Riiinglink
      */
-    protected function registerLinkService(){
+    protected function registerRiiinglinkService(){
 
-        $this->app->bind('\Riiingme\Link\Repo\LinkInterface', function()
+        $this->app->bind('\Riiingme\Riiinglink\Repo\RiiinglinkInterface', function()
         {
-            return new \Riiingme\Link\Repo\LinkEloquent(new Riiinglink);
+            return new \Riiingme\Riiinglink\Repo\RiiinglinkEloquent(new Riiinglink);
         });
     }
 }

@@ -9,6 +9,7 @@ class GroupesTableSeeder extends Seeder {
         DB::table('groupes')->truncate();
 
         $groupes = array(
+            array('titre' => 'Informations' , 'status' => 'principal'),
             array('titre' => 'Adresse privé' , 'status' => 'principal'),
             array('titre' => 'Adresse professionnelle' , 'status' => 'principal')
         );

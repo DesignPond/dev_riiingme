@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUserLabelsTable extends Migration {
+class CreateMetasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,14 @@ class CreateUserLabelsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_labels', function(Blueprint $table)
+		Schema::create('metas', function(Blueprint $table)
 		{
+
 			$table->increments('id');
-            $table->string('titre');
-            $table->integer('user_id');
+			$table->bigInteger('riiinglink_id');
+			$table->bigInteger('label_id');
+			$table->integer('rang');
+
 		});
 	}
 
@@ -28,7 +31,7 @@ class CreateUserLabelsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_labels');
+		Schema::drop('metas');
 	}
 
 }

@@ -3,6 +3,7 @@
 interface MetaInterface {
 
     public function getAll();
+    public function findByLink($riiinglink);
     public function find($id);
-    public function create(array $data);
+    public function getRang($riiinglink_id,$groupe_id);
 }

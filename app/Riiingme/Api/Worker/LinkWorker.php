@@ -1,9 +1,9 @@
 <?php namespace Riiingme\Api\Worker;
 
 use Riiingme\Api\Helpers\ApiHelper;
-use Riiingme\Link\Repo\LinkInterface;
-use Riiingme\Meta\Repo\LinkmetaInterface;
+use Riiingme\Riiinglink\Repo\RiiinglinkInterface;
 use Riiingme\Meta\Repo\MetaInterface;
+use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 
@@ -17,7 +17,7 @@ class LinkWorker{
 
     protected $apiHelper;
 
-    public function __construct( TypeInterface $type, GroupeInterface $groupe, LinkInterface $link, MetaInterface $meta,LinkmetaInterface $linkmetas)
+    public function __construct( TypeInterface $type, GroupeInterface $groupe, RiiinglinkInterface $link, LabelInterface $meta,MetaInterface $linkmetas)
     {
         $this->type      = $type;
         $this->groupe    = $groupe;
