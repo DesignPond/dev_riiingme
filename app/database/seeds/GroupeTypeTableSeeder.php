@@ -35,7 +35,7 @@ class GroupeTypeTableSeeder extends Seeder {
 			array( 'groupe_id' => 3, 'type_id' => 12 ),
 			array( 'groupe_id' => 3, 'type_id' => 13 ),
 			array( 'groupe_id' => 3, 'type_id' => 15 ),
-			array( 'groupe_id' => 3, 'type_id' => 1 ),
+			array( 'groupe_id' => 3, 'type_id' => 3 ),
 		);
 
 		// Uncomment the below to run the seeder

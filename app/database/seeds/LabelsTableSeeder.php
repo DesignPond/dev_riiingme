@@ -8,11 +8,29 @@ class LabelsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		$metas1 = array('','Cindy','Leschaud','DesignPond','','Ruelle de l\'hôtel de ville','3','2520','La Neuveville','Suisse','032 751 38 07','078 690 00 23','01.10.1982','cindy.jpg');
-		$metas2 = array('','Cindy','Leschaud','Unine, Faculté de droit','','Av. du 1er Mars','26','2000','Neuchâtel','Suisse','032 718 21 30','078 690 00 23','01.10.1982','cindy.jpg');
-		$metas3 = array('','Coralie','Leschaud','Orange','Marc Leschaud','La Voirde','19','2735','Bévilard','Suisse','032 492 51 39','076 587 82 10','27.09.1995','coralie.jpg');
+		$prive = array(3,6,7,8,9,10,11,12,13,14,15,16);
+		$prof  = array(3,4,5,7,8,9,10,11,12,13,15,1);
 
-		foreach(range( 1, 13 ) as $index)
+		$metas1 = array('','Cindy','Leschaud', 'cindy.leschaud@gmail.com',
+			'DesignPond','Web developpeur','',
+			'Ruelle de l\'hôtel de ville','3','2520','La Neuveville','Suisse',
+			'032 751 38 07','078 690 00 23',
+			'1982-10-01','http://wwww.desingpond.ch','cindy.jpg');
+
+		$metas2 = array('','Cindy','Leschaud','cindy.leschaud@unine.ch',
+			'Unine', 'Web developpeur','Faculté de droit',
+			'Av. du 1er Mars','26','2000','Neuchâtel','Suisse',
+			'032 718 21 30','078 690 00 23',
+			'1982-10-01','http://wwww.unine.ch','cindy.jpg');
+
+
+		$metas3 = array('','Coralie','Leschaud','cindy.leschaud@unine.ch',
+			'Orange', 'ARC','Marc Leschaud',
+			'La Voirde','19','2735','Bévilard','Suisse',
+			'032 318 21 40','078 543 06 23',
+			'1995-09-27','http://wwww.orange.ch','coralie.jpg');
+
+		foreach($prive as $index)
 		{
 			Riiingme\Label\Entities\Label::create([
 				'label'     => $metas1[$index],
@@ -22,7 +40,7 @@ class LabelsTableSeeder extends Seeder {
 			]);
 		}
 
-		foreach(range( 1, 13 ) as $index)
+		foreach($prof as $index)
 		{
 			Riiingme\Label\Entities\Label::create([
 				'label'     => $metas2[$index],
@@ -32,7 +50,7 @@ class LabelsTableSeeder extends Seeder {
 			]);
 		}
 
-		foreach(range( 1, 13 ) as $index)
+		foreach($prive as $index)
 		{
 			Riiingme\Label\Entities\Label::create([
 				'label'      => $metas3[$index],
