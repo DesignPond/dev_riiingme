@@ -1,4 +1,4 @@
-<?php namespace App\User\Repo;
+<?php namespace Riiingme\User\Repo;
 
 interface UserInterface {
 

@@ -2,42 +2,31 @@
 
 use Riiingme\Api\Helpers\ApiHelper;
 
-use Riiingme\User\Repo\UserInterface;
-use Riiingme\Meta\Repo\MetaInterface;
 use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 
-class MetasController extends BaseController {
+class LabelsController extends BaseController {
 
-    protected $user;
     protected $type;
     protected $groupe;
-    protected $meta;
+    protected $label;
 
-    public function __construct( UserInterface $user, TypeInterface $type, GroupeInterface $groupe, MetaInterface $meta)
+    public function __construct( TypeInterface $type, GroupeInterface $groupe, LabelInterface $label)
     {
-        $this->user   = $user;
         $this->type   = $type;
         $this->groupe = $groupe;
-        $this->meta   = $meta;
+        $this->label  = $label;
 
         $this->apiHelper = new ApiHelper;
     }
+
 	/**
-	 *
-     * @Get("/metas/user/{id}")
+	 * Show the form for creating a new resource.
 	 */
-	public function user($id)
+	public function index()
 	{
-        $user = $this->user->find($id);
-
-        if(!$user->metas->isEmpty())
-        {
-            return array( 'metas' => $this->apiHelper->uniqueMetas($user->metas));
-        }
-
-        return [];
+		return $this->label->getAll();
 	}
 
 	/**

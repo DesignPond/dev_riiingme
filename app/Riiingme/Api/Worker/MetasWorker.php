@@ -7,24 +7,25 @@ use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 
-class LinkWorker{
+class LabelWorker{
 
     protected $type;
     protected $groupe;
-    protected $link;
+    protected $riiinglink;
     protected $meta;
-    protected $linkmetas;
+    protected $label;
 
     protected $apiHelper;
 
-    public function __construct( TypeInterface $type, GroupeInterface $groupe, RiiinglinkInterface $link, LabelInterface $meta,MetaInterface $linkmetas)
+    public function __construct( TypeInterface $type, GroupeInterface $groupe, RiiinglinkInterface $riiinglink, LabelInterface $label, MetaInterface $meta)
     {
-        $this->type      = $type;
-        $this->groupe    = $groupe;
-        $this->link      = $link;
-        $this->meta      = $meta;
-        $this->linkmetas = $linkmetas;
-        $this->apiHelper = new ApiHelper;
+        $this->type       = $type;
+        $this->groupe     = $groupe;
+        $this->riiinglink = $riiinglink;
+        $this->label      = $label;
+        $this->meta       = $meta;
+
+        $this->apiHelper  = new ApiHelper;
     }
 
     public function dispatchGroups($link){

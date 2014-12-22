@@ -1,4 +1,4 @@
-<?php namespace App\Label\Repo;
+<?php namespace Riiingme\Label\Repo;
 
 interface LabelInterface {
 

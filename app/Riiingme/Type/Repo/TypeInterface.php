@@ -1,4 +1,4 @@
-<?php namespace App\Type\Repo;
+<?php namespace Riiingme\Type\Repo;
 
 interface TypeInterface {
 
