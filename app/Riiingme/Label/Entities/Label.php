@@ -31,13 +31,33 @@ class Label extends BaseModel{
     );
 
     /**
-     * Metas belongs to user
+     * Labels belongs to user
      *
      * @var query
      */
     public function user(){
 
         return $this->belongsTo('Riiingme\User\Entities\User');
+    }
+
+    /**
+     * Labels has one to type
+     *
+     * @var query
+     */
+    public function type(){
+
+        return $this->belongsTo('Riiingme\Type\Entities\Type');
+    }
+
+    /**
+     * Labels belongs to one groupe
+     *
+     * @var query
+     */
+    public function groupe(){
+
+        return $this->belongsTo('Riiingme\Groupe\Entities\Groupe');
     }
 
 }

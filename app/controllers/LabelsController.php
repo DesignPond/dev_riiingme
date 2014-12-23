@@ -1,10 +1,7 @@
 <?php
 
 use Riiingme\Api\Helpers\ApiHelper;
-
-use Riiingme\Label\Repo\LabelInterface;
-use Riiingme\Type\Repo\TypeInterface;
-use Riiingme\Groupe\Repo\GroupeInterface;
+use Riiingme\Api\Worker\LabelWorker;
 
 class LabelsController extends BaseController {
 
@@ -12,10 +9,8 @@ class LabelsController extends BaseController {
     protected $groupe;
     protected $label;
 
-    public function __construct( TypeInterface $type, GroupeInterface $groupe, LabelInterface $label)
+    public function __construct( LabelWorker $label)
     {
-        $this->type   = $type;
-        $this->groupe = $groupe;
         $this->label  = $label;
 
         $this->apiHelper = new ApiHelper;
@@ -26,7 +21,6 @@ class LabelsController extends BaseController {
 	 */
 	public function index()
 	{
-		return $this->label->getAll();
 	}
 
 	/**
@@ -57,7 +51,9 @@ class LabelsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		echo '<pre>';
+		print_r($this->label->labels($id));
+		echo '</pre>';
 	}
 
 	/**

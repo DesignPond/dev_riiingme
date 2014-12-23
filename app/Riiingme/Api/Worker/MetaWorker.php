@@ -7,7 +7,7 @@ use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 
-class LabelWorker{
+class MetaWorker{
 
     protected $type;
     protected $groupe;
