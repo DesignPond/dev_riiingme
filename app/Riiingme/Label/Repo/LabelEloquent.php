@@ -15,7 +15,7 @@ class LabelEloquent implements LabelInterface {
     }
     public function find($id){
 
-        return $this->label->with(array('metas'))->findOrFail($id);
+        return $this->label->with(array('type','groupe'))->findOrFail($id);
     }
 
     public function findByUser($user){
@@ -26,16 +26,31 @@ class LabelEloquent implements LabelInterface {
     public function create(array $data){
 
         $label = $this->label->create([
-            'meta'      => $data['id'],
+            'label'     => $data['label'],
             'user_id'   => $data['user_id'],
             'type_id'   => $data['type_id'],
-            'groupe_id' => $data['groupe_id'],
-            'rang'      => $data['rang']
+            'groupe_id' => $data['groupe_id']
         ]);
 
         if(!$label){
             return false;
         }
+
+        return $label;
+    }
+
+    public function update(array $data){
+
+        $label = $this->label->findOrFail($data['id']);
+
+        if( ! $label )
+        {
+            return false;
+        }
+
+        $label->label = $data['label'];
+
+        $label->save();
 
         return $label;
     }

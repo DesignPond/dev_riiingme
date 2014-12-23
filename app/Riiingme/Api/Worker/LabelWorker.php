@@ -1,7 +1,8 @@
 <?php namespace Riiingme\Api\Worker;
 
+use Riiingme\Api\Transformer\LabelTransformer;
+use League\Fractal;
 use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
 
 use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
@@ -34,8 +35,14 @@ class LabelWorker{
         return $this->groupe->getAll()->lists('titre','id');
     }
 
-    public function index(){
-        return $this->label->getAll();
+    public function getLabel($id){
+
+        return $this->label->find($id);
+    }
+
+    public function updateLabel($data){
+
+        return $this->label->update($data);
     }
 
     public function labels($user){
@@ -45,41 +52,17 @@ class LabelWorker{
         return $this->prepareLabels($labels);
     }
 
-    public function prepareLabels($labels){
-
-        $labels = $labels->toArray();
-        // Pass this array (collection) into a resource, which will also have a "Transformer"
-        // This "Transformer" can be a callback or a new instance of a Transformer object
-        // We type hint for array, because each item in the $books var is an array
-        $resource = new Collection($labels, function(array $labels) {
-            return [
-                'id'      => (int) $labels['id'],
-                'label'   => $labels['label'],
-                'type'  => [
-                    'id'    => $labels['type']['id'],
-                    'titre' => $labels['type']['titre'],
-                ],
-                'groupe'  => [
-                    'id'    => $labels['groupe']['id'],
-                    'titre' => $labels['groupe']['titre'],
-                ],
-                'links'   => [
-                    [
-                        'rel' => 'self',
-                        'uri' => '/labels/'.$labels['user_id'],
-                    ]
-                ]
-            ];
-        });
-
-        // Turn all of that into a JSON string
-        return $this->fractal->createData($resource)->toJson();
-
-    }
-
     public function getLabelsForUser($user){
 
         return $this->label->findByUser($user);
     }
 
+    public function prepareLabels($labels){
+
+        $resource = new Fractal\Resource\Collection($labels, new LabelTransformer);
+
+        // Turn all of that into a JSON string
+        return $this->fractal->createData($resource)->toJson();
+
+    }
 }
