@@ -28,14 +28,6 @@ class LabelsController extends ApiController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 */
-	public function create()
-	{
-
-	}
-
-	/**
 	 * Store a newly created resource in storage.
 	 * POST /metas
 	 *
@@ -43,7 +35,22 @@ class LabelsController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		$rules = array(
+			'label'     => 'required',
+			'user_id'   => 'required',
+			'type_id'   => 'required',
+			'groupe_id' => 'required'
+		);
+
+		$validator = Validator::make( Input::all(), $rules );
+
+		if( !$validator->passes() ) {
+			return $this->errorWrongArgs('Mauvais arguments');
+		}
+
+		$label = $this->label->createLabel( Input::all() );
+
+		return $this->respondWithItem($label, new LabelTransformer);
 	}
 
 	/**
@@ -59,18 +66,6 @@ class LabelsController extends ApiController {
 
 		return $this->respondWithItem($label, new LabelTransformer);
 
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /metas/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
 	}
 
 	/**
@@ -95,20 +90,29 @@ class LabelsController extends ApiController {
 			return $this->errorWrongArgs('Mauvais arguments');
 		}
 
-		return  $this->label->updateLabel($data);
+		$label = $this->label->updateLabel($data);
+
+		return  $this->respondWithArray(array('ok'));
 
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /metas/{id}
+	 * DELETE /labels/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		//
+
+		if(!$this->label->deleteLabel($id)){
+
+			return $this->errorWrongArgs('Problème avec la suppresion');
+		}
+
+		return  $this->respondWithArray(array('ok'));
+
 	}
 
 }

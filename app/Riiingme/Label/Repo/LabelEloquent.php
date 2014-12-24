@@ -9,10 +9,7 @@ class LabelEloquent implements LabelInterface {
 
         $this->label = $label;
     }
-    public function getAll(){
 
-        return $this->label->all();
-    }
     public function find($id){
 
         return $this->label->with(array('type','groupe'))->findOrFail($id);
@@ -53,6 +50,18 @@ class LabelEloquent implements LabelInterface {
         $label->save();
 
         return $label;
+    }
+
+    public function delete($id){
+
+        $label = $this->label->find($id);
+
+        if( ! $label )
+        {
+            return false;
+        }
+
+        return $label->delete();
     }
 
 }

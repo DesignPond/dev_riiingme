@@ -40,9 +40,19 @@ class LabelWorker{
         return $this->label->find($id);
     }
 
+    public function createLabel($data){
+
+        return $this->label->create($data);
+    }
+
     public function updateLabel($data){
 
         return $this->label->update($data);
+    }
+
+    public function deleteLabel($id){
+
+        return $this->label->delete($id);
     }
 
     public function labels($user){

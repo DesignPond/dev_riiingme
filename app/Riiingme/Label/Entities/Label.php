@@ -16,7 +16,7 @@ class Label extends BaseModel{
      *
      * @var array
      */
-    protected $fillable = array('user_id', 'meta', 'type_id', 'groupe_id', 'rang');
+    protected $fillable = array('user_id', 'label', 'type_id', 'groupe_id');
 
     /**
      * Validation rules
