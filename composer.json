@@ -17,6 +17,7 @@
 	    "behat/mink-extension": "~2.0@dev",
 	    "behat/mink-selenium2-driver":  "~1.1",
 	  	"mockery/mockery": "0.9.1",
+	    "guzzle/guzzle": "2.4.*",
 	  	"way/generators": "2.*",
 	  	"fzaninotto/faker": "v1.3.0"
 	},
