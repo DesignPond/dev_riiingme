@@ -24,11 +24,17 @@ class LabelsController extends ApiController {
 	 * @param  int $user_id
 	 * @return json
 	 */
-	public function index($user_id)
+	public function index($user_id = null)
 	{
-		$labels = $this->label->getLabelsForUser($user_id);
+		if($user_id)
+		{
+			$labels = $this->label->getLabelsForUser($user_id);
 
-		return $this->respondWithCollection($labels, new LabelTransformer);
+			return  $this->respondWithCollection($labels, new LabelTransformer);
+		}
+
+		return $this->errorWrongArgs('Argument manque');
+
 	}
 
 	/**
@@ -69,7 +75,11 @@ class LabelsController extends ApiController {
 
 		$label = $this->label->getLabel($id);
 
-		return $this->respondWithItem($label, new LabelTransformer);
+		if($label){
+			return $this->respondWithItem($label, new LabelTransformer);
+		}
+
+		return  $this->respondWithArray(array('data' => []));
 
 	}
 

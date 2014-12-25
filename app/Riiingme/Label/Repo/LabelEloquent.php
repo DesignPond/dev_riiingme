@@ -12,7 +12,7 @@ class LabelEloquent implements LabelInterface {
 
     public function find($id){
 
-        return $this->label->with(array('type','groupe'))->findOrFail($id);
+        return $this->label->with(array('type','groupe'))->find($id);
     }
 
     public function findByUser($user){
