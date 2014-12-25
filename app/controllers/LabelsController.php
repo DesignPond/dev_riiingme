@@ -18,7 +18,11 @@ class LabelsController extends ApiController {
     }
 
 	/**
-	 * Show the form for creating a new resource.
+	 * List all labels for user
+	 * GET /labels
+	 *
+	 * @param  int $user_id
+	 * @return json
 	 */
 	public function index($user_id)
 	{
@@ -28,10 +32,10 @@ class LabelsController extends ApiController {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 * POST /metas
+	 * Store a new label for user
+	 * POST /labels
 	 *
-	 * @return Response
+	 * @return json
 	 */
 	public function store()
 	{
@@ -54,10 +58,11 @@ class LabelsController extends ApiController {
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /labels
+	 * Return a specified label
+	 * GET /labels/{id}
 	 *
-	 * @return Response
+	 * @param  int $id
+	 * @return json
 	 */
 	public function show($id)
 	{
@@ -69,11 +74,11 @@ class LabelsController extends ApiController {
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * Return the specified label
 	 * PUT /labels/{id}
 	 *
 	 * @param  int  $id
-	 * @return Response
+	 * @return json
 	 */
 	public function update($id)
 	{
@@ -97,11 +102,11 @@ class LabelsController extends ApiController {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Remove the specified label
 	 * DELETE /labels/{id}
 	 *
 	 * @param  int  $id
-	 * @return Response
+	 * @return json
 	 */
 	public function destroy($id)
 	{

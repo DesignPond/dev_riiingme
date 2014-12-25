@@ -1,11 +1,12 @@
 default:
-    autoload:
-        '': %paths.base%/app/tests/features/bootstrap
-    suites:
-       default:
-         paths:
-            - %paths.base%/app/tests/features/api
-    extensions:
-        Behat\MinkExtension:
-            base_url: http://riiingme.app
-            selenium2: ~
+  paths:
+    features: %behat.paths.base%/app/tests/features/api
+    bootstrap: %behat.paths.base%/app/tests/features/bootstrap
+  context:
+    parameters:
+        base_url: http://riiingme.app
+        guzzle: true
+  extensions:
+    Behat\MinkExtension\Extension:
+      goutte: ~
+      base_url: http://riiingme.app
