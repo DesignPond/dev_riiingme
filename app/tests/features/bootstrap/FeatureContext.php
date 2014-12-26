@@ -89,7 +89,7 @@ class FeatureContext extends MinkContext
                 case 'POST':
                     $this->response = $this
                         ->client
-                        ->$method($resource, null, $this->requestPayload);
+                        ->$method($resource, [] , $this->requestPayload);
                     break;
 
                 default:
@@ -220,6 +220,24 @@ class FeatureContext extends MinkContext
             $count,
             $this->arrayGet($payload, $property),
             "Asserting the [$property] property contains [$count] items: ".json_encode($payload)
+        );
+    }
+
+    /**
+     * @Given /^the "([^"]*)" property contains "([^"]*)"$/
+     */
+    public function thePropertyContainsString($property,$expectedValue)
+    {
+        $payload = $this->getScopePayload();
+
+        $this->thePropertyIsAString($property);
+
+        $actualValue = $this->arrayGet($payload, $property);
+
+        assertSame(
+            $actualValue,
+            $expectedValue,
+            "Asserting the [$property] property in current scope [{$this->scope}] contains a string equalling [$expectedValue]."
         );
     }
 

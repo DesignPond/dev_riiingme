@@ -9,6 +9,7 @@ use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 use Riiingme\Api\Helpers\ApiHelper;
 
+
 class LabelWorker{
 
     protected $type;

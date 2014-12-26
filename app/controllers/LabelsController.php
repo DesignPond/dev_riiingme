@@ -2,19 +2,24 @@
 
 use Riiingme\Api\Transformer\LabelTransformer;
 use Riiingme\Api\Worker\LabelWorker;
-use Riiingme\Validation\LabelUpdateValidation;
+
+use Riiingme\Validation\LabelCreateValidation as LabelCreateValidation;
+use Riiingme\Validation\LabelUpdateValidation as LabelUpdateValidation;
+use Laracasts\Validation\FormValidationException;
 
 class LabelsController extends ApiController {
 
     protected $label;
-	protected $validator;
+	protected $creation;
+	protected $update;
 
-    public function __construct( LabelWorker $label, LabelUpdateValidation $validator)
+    public function __construct( LabelWorker $label, LabelCreateValidation $creation, LabelUpdateValidation $update)
     {
 		parent::__construct();
 
         $this->label     = $label;
-		$this->validator = $validator;
+		$this->creation  = $creation;
+		$this->update    = $update;
     }
 
 	/**
@@ -24,11 +29,11 @@ class LabelsController extends ApiController {
 	 * @param  int $user_id
 	 * @return json
 	 */
-	public function index($user_id = null)
+	public function index()
 	{
-		if($user_id)
+		if(Input::get('user_id'))
 		{
-			$labels = $this->label->getLabelsForUser($user_id);
+			$labels = $this->label->getLabelsForUser(Input::get('user_id'));
 
 			return  $this->respondWithCollection($labels, new LabelTransformer);
 		}
@@ -45,22 +50,20 @@ class LabelsController extends ApiController {
 	 */
 	public function store()
 	{
-		$rules = array(
-			'label'     => 'required',
-			'user_id'   => 'required',
-			'type_id'   => 'required',
-			'groupe_id' => 'required'
-		);
 
-		$validator = Validator::make( Input::all(), $rules );
-
-		if( !$validator->passes() ) {
+		try
+		{
+			$this->creation->validate(Input::all());
+		}
+		catch (FormValidationException $e)
+		{
 			return $this->errorWrongArgs('Mauvais arguments');
 		}
 
 		$label = $this->label->createLabel( Input::all() );
 
 		return $this->respondWithItem($label, new LabelTransformer);
+
 	}
 
 	/**
@@ -92,22 +95,22 @@ class LabelsController extends ApiController {
 	 */
 	public function update($id)
 	{
-		$data = array('id' => $id, 'label' => Input::get('label'), 'user_id' => Input::get('user_id') );
 
-		$rules = array(
-			'label'   => 'required',
-			'user_id' => 'required'
-		);
+		$data = Input::all();
+		$data['id'] = $id;
 
-		$validator = Validator::make( $data, $rules );
-
-		if( !$validator->passes() ) {
+		try
+		{
+			$this->update->validate($data);
+		}
+		catch (FormValidationException $e)
+		{
 			return $this->errorWrongArgs('Mauvais arguments');
 		}
 
 		$label = $this->label->updateLabel($data);
 
-		return  $this->respondWithArray(array('ok'));
+		return $this->respondWithItem($label, new LabelTransformer);
 
 	}
 
@@ -123,10 +126,10 @@ class LabelsController extends ApiController {
 
 		if(!$this->label->deleteLabel($id)){
 
-			return $this->errorWrongArgs('Problème avec la suppresion');
+			return $this->errorWrongArgs('Problème avec la suppression');
 		}
 
-		return  $this->respondWithArray(array('ok'));
+		return  $this->respondWithArray(array('data' => "ok"));
 
 	}
 

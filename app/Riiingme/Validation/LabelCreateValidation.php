@@ -2,15 +2,16 @@
 
 use Laracasts\Validation\FormValidator;
 
-class LabelUpdateValidation extends FormValidator{
+class LabelCreateValidation extends FormValidator{
 
     /*
      * Validation rules
     */
     protected $rules = array(
-        'id'        => 'exists:labels',
         'label'     => 'required',
-        'user_id'   => 'required'
+        'user_id'   => 'required',
+        'type_id'   => 'required',
+        'groupe_id' => 'required'
     );
 
     /*
@@ -18,7 +19,9 @@ class LabelUpdateValidation extends FormValidator{
     */
     protected $messages = array(
         'label.required'     => 'Le label est requis',
-        'user_id.required'   => 'L\'utilisateur est requis'
+        'user_id.required'   => 'L\'utilisateur est requis',
+        'type_id.required'   => 'Le type est requis',
+        'groupe_id.required' => 'Le groupe est requis'
     );
 
 }
