@@ -3,6 +3,8 @@
 use Riiingme\Api\Transformer\LabelTransformer;
 use Riiingme\Api\Worker\LabelWorker;
 
+use LucaDegasperi\OAuth2Server\Authorizer;
+
 use Riiingme\Validation\LabelCreateValidation as LabelCreateValidation;
 use Riiingme\Validation\LabelUpdateValidation as LabelUpdateValidation;
 use Laracasts\Validation\FormValidationException;
@@ -12,14 +14,17 @@ class LabelsController extends ApiController {
     protected $label;
 	protected $creation;
 	protected $update;
+	protected $authorizer;
 
-    public function __construct( LabelWorker $label, LabelCreateValidation $creation, LabelUpdateValidation $update)
+    public function __construct(Authorizer $authorizer, LabelWorker $label, LabelCreateValidation $creation, LabelUpdateValidation $update)
     {
 		parent::__construct();
 
-        $this->label     = $label;
-		$this->creation  = $creation;
-		$this->update    = $update;
+		$this->authorizer = $authorizer;
+        $this->label      = $label;
+		$this->creation   = $creation;
+		$this->update     = $update;
+
     }
 
 	/**
