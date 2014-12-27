@@ -1,110 +1,122 @@
 <?php
 
-use Riiingme\Api\Helpers\ApiHelper;
+use Riiingme\Api\Transformer\MetaTransformer;
+use Riiingme\Api\Worker\MetaWorker;
 
-use Riiingme\User\Repo\UserInterface;
-use Riiingme\Meta\Repo\MetaInterface;
-use Riiingme\Label\Repo\LabelInterface;
-use Riiingme\Type\Repo\TypeInterface;
-use Riiingme\Groupe\Repo\GroupeInterface;
+use Riiingme\Validation\MetaCreateValidation as MetaCreateValidation;
+use Riiingme\Validation\MetaUpdateValidation as MetaUpdateValidation;
+use Laracasts\Validation\FormValidationException;
 
-class MetasController extends BaseController {
 
-    protected $user;
-    protected $type;
-    protected $groupe;
+class MetasController extends ApiController {
+
     protected $meta;
+	protected $creation;
+	protected $update;
 
-    public function __construct( UserInterface $user, TypeInterface $type, GroupeInterface $groupe, MetaInterface $meta)
+    public function __construct( MetaWorker $meta, MetaCreateValidation $creation, MetaUpdateValidation $update)
     {
-        $this->user   = $user;
-        $this->type   = $type;
-        $this->groupe = $groupe;
-        $this->meta   = $meta;
+		parent::__construct();
 
-        $this->apiHelper = new ApiHelper;
+		$this->meta      = $meta;
+		$this->creation  = $creation;
+		$this->update    = $update;
+
     }
+
 	/**
+	 * List all metas for Riiinglink
+	 * GET /metas
 	 *
-     * @Get("/metas/user/{id}")
+	 * @param  int $riiinglink
+	 * @return json
 	 */
-	public function user($id)
+	public function index()
 	{
-        $user = $this->user->find($id);
+		if(Input::get('riiinglink_id'))
+		{
+			$metas = $this->meta->getMetasForRiiinglink(Input::get('riiinglink_id'));
 
-        if(!$user->metas->isEmpty())
-        {
-            return array( 'metas' => $this->apiHelper->uniqueMetas($user->metas));
-        }
+			return  $this->respondWithCollection($metas, new MetaTransformer);
+		}
 
-        return [];
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 */
-	public function create()
-	{
+		return $this->errorWrongArgs('Argument manque');
 
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a new label for user
 	 * POST /metas
 	 *
-	 * @return Response
+	 * @return json
 	 */
 	public function store()
 	{
-		//
+
+		try
+		{
+			$this->creation->validate(Input::all());
+		}
+		catch (FormValidationException $e)
+		{
+			return $this->errorWrongArgs('Il manque des arguments');
+		}
+
+		$meta = $this->meta->createMeta( Input::all() );
+
+		return $this->respondWithItem($meta, new MetaTransformer);
+
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Return a specified label
 	 * GET /metas/{id}
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @param  int $id
+	 * @return json
 	 */
 	public function show($id)
 	{
-		//
+
+		$meta = $this->meta->getMeta($id);
+
+		if($meta){
+			return $this->respondWithItem($meta, new MetaTransformer);
+		}
+
+		return  $this->respondWithArray(array('data' => []));
+
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
-	 * GET /metas/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
+	 * Return the specified label
 	 * PUT /metas/{id}
 	 *
 	 * @param  int  $id
-	 * @return Response
+	 * @return json
 	 */
 	public function update($id)
 	{
-		//
+		return $this->errorUnauthorized();
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Remove the specified label
 	 * DELETE /metas/{id}
 	 *
 	 * @param  int  $id
-	 * @return Response
+	 * @return json
 	 */
 	public function destroy($id)
 	{
-		//
+
+		if(!$this->meta->deleteMeta($id)){
+
+			return $this->errorNotFound();
+		}
+
+		return  $this->respondWithArray(array('data' => "ok"));
+
 	}
 
 }

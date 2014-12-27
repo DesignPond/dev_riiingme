@@ -13,7 +13,7 @@ class OAuthController extends Controller
 
         $this->beforeFilter('auth', ['only' => ['getAuthorize', 'postAuthorize']]);
         $this->beforeFilter('csrf', ['only' => 'postAuthorize']);
-        $this->beforeFilter('check-authorization-params', ['only' => ['getAuthorize', 'postAuthorize']]);
+        $this->beforeFilter('check-authorization-params', ['only' => ['get_authorize', 'authorize']]);
     }
 
     public function access_token()
@@ -21,18 +21,12 @@ class OAuthController extends Controller
          return Response::json($this->authorizer->issueAccessToken());
     }
 
-    public function getAuthorize()
+    public function get_authorize()
     {
         return View::make('authorization-form', $this->authorizer->getAuthCodeRequestParams());
     }
 
-
-    public function access()
-    {
-        return View::make('authorization-form', $this->authorizer->getAuthCodeRequestParams());
-    }
-
-    public function postAuthorize()
+    public function authorize()
     {
         // get the user id
         $params['user_id'] = Auth::user()->id;

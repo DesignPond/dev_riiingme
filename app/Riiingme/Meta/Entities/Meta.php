@@ -16,7 +16,7 @@ class Meta extends BaseModel{
      *
      * @var array
      */
-    protected $fillable = array('riiinglink_id', 'meta_id');
+    protected $fillable = array('riiinglink_id', 'label_id');
 
     /**
      * Validation rules
@@ -29,5 +29,16 @@ class Meta extends BaseModel{
      */
     protected static $messages = array(
     );
+
+    /**
+     * Metas belongs to one label
+     *
+     * @var query
+     */
+    public function labels(){
+
+        return $this->hasOne('Riiingme\Label\Entities\Label', 'id', 'label_id');
+    }
+
 
 }

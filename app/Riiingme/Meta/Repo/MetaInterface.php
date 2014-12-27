@@ -1,9 +1,10 @@
-<?php namespace App\Meta\Repo;
+<?php namespace Riiingme\Meta\Repo;
 
 interface MetaInterface {
 
     public function getAll();
-    public function findByLink($riiinglink);
     public function find($id);
-    public function getRang($riiinglink_id,$groupe_id);
+    public function findByRiiinglink($riiinglink);
+    public function create(array $data);
+    public function delete($id);
 }

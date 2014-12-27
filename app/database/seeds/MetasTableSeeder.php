@@ -7,53 +7,28 @@ class MetasTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$faker = Faker::create();
+		DB::table('metas')->truncate();
 
-		$prive = array(3,6,7,8,9,10,11,12,13,14,15,16);
-		$prof  = array(3,4,5,7,8,9,10,11,12,13,15,1);
+		$user_1 = Riiingme\Label\Entities\Label::where('user_id','=',1)->get();
 
-		foreach($prive as $index)
+		foreach($user_1 as $label)
 		{
 			Riiingme\Meta\Entities\Meta::create([
 				'riiinglink_id' => 1,
-				'label_id'      => $index,
-				'rang'          => $index
+				'label_id'      => $label->id
 			]);
 		}
 
-		foreach($prof as $index)
+		$user_2 = Riiingme\Label\Entities\Label::where('user_id','=',2)->get();
+
+		foreach($user_2 as $label)
 		{
 			Riiingme\Meta\Entities\Meta::create([
-				'riiinglink_id' => 1,
-				'label_id'      => $index,
-				'rang'          => $index
+				'riiinglink_id' => 4,
+				'label_id'      => $label->id
 			]);
 		}
 
-		foreach($prive as $index)
-		{
-			Riiingme\Meta\Entities\Meta::create([
-				'riiinglink_id' => 2,
-				'label_id'      => $index,
-				'rang'          => $index
-			]);
-		}
-
-		foreach(range(1, 2) as $index)
-		{
-			Riiingme\Meta\Entities\Meta::create([
-				'riiinglink_id'  => 1,
-				'label_id'       => $index,
-			]);
-			Riiingme\Meta\Entities\Meta::create([
-				'riiinglink_id'  => 2,
-				'label_id'       => $index,
-			]);
-			Riiingme\Meta\Entities\Meta::create([
-				'riiinglink_id'  => 3,
-				'label_id'       => $index,
-			]);
-		}
 	}
 
 }

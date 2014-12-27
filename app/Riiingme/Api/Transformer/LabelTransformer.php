@@ -22,7 +22,7 @@ class LabelTransformer extends Fractal\TransformerAbstract
             'links'   => [
                 [
                     'rel' => 'self',
-                    'uri' => '/labels/'.$label->user_id,
+                    'uri' => '/labels?user_id='.$label->user_id,
                 ]
             ],
         ];

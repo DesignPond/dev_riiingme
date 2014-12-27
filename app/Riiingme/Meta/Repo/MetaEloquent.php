@@ -12,21 +12,42 @@ class MetaEloquent implements MetaInterface {
 
     public function getAll(){
 
-        return $this->meta->with(array('metas'))->get();
-    }
-
-    public function findByLink($riiinglink){
-
-        return $this->meta->where('riiinglink_id','=',$riiinglink)->get();
+        return $this->meta->with(array('labels'))->get();
     }
 
     public function find($id){
 
-        return $this->meta->with(array('metas'))->findOrFail($id);
+        return $this->meta->with(array('labels'))->find($id);
     }
 
-    public function getRang($riiinglink_id,$groupe_id){
+    public function findByRiiinglink($riiinglink){
 
-        return $this->meta->where('riiinglink_id','=',$riiinglink_id)->where('groupe_id','=',$groupe_id)->max('rang');
+        return $this->meta->where('riiinglink_id','=',$riiinglink)->with(array('labels'))->orderBy('id')->get();
+    }
+
+    public function create(array $data){
+
+        $meta = $this->meta->create([
+            'riiinglink_id' => $data['riiinglink_id'],
+            'label_id'      => $data['label_id']
+        ]);
+
+        if(!$meta){
+            return false;
+        }
+
+        return $meta;
+    }
+
+    public function delete($id){
+
+        $meta = $this->meta->find($id);
+
+        if( ! $meta )
+        {
+            return false;
+        }
+
+        return $meta->delete();
     }
 }
