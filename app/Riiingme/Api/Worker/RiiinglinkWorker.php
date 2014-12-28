@@ -11,7 +11,7 @@ class RiiinglinkWorker{
         $this->riiinglink = $riiinglink;
     }
 
-    public function getRiiinglink($riiinglink){
+    public function getRiiinglink($id){
 
         return $this->riiinglink->find($id);
     }

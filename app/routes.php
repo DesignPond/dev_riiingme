@@ -14,23 +14,33 @@ Route::group(array('prefix' => 'v1'), function()
 {
     Route::resource('labels', 'LabelsController');
     Route::resource('metas', 'MetasController');
+
+    Route::get('riiinglinks/invite', 'RiiinglinksController@invite');
+    Route::resource('riiinglinks', 'RiiinglinksController');
 });
 
 // filter before "'before' => 'oauth'"
 Route::post('access_token', 'OAuthController@access_token');
 
 
+use League\Fractal;
+use Riiingme\Api\Transformer\RiiinglinkLabelTransformer;
 
 Route::get('test', function()
 {
     $user_1 = Riiingme\Riiinglink\Entities\Riiinglink::with(array('invited','labels' => function ($query)
     {
-        $query->join('types','types.id','=','labels.type_id')->select('labels.*','types.titre');
+        $query->join('types','types.id','=','labels.type_id');
+        $query->join('groupes','groupes.id','=','labels.groupe_id')->select('labels.*','types.titre as type','groupes.titre as groupe');
 
     }))->find(1);
 
+    $labels = $user_1->labels;
+
+    $resource = new Fractal\Resource\Collection($labels, new RiiinglinkLabelTransformer);
+
     echo '<pre>';
-    print_r($user_1->labels->lists('label','titre'));
+    print_r((array) $resource);
     echo '</pre>';
 });
 

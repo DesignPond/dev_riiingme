@@ -50,6 +50,10 @@ class ApiController extends BaseController
     {
         $resource = new Item($item, $callback);
 
+        if (isset($_GET['include'])) {
+            $this->fractal->parseIncludes($_GET['include']);
+        }
+
         $rootScope = $this->fractal->createData($resource);
 
         return $this->respondWithArray($rootScope->toArray());

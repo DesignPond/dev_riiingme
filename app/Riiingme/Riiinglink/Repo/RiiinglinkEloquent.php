@@ -15,9 +15,10 @@ class RiiinglinkEloquent implements RiiinglinkInterface {
     }
     public function find($id){
 
-        return $this->riiinglink->with(array('host','invited','metas'=> function ($query)
+        return $this->riiinglink->with(array('invited','labels' => function ($query)
         {
-            $query->join('types','types.id','=','metas.type_id');
+            $query->join('types','types.id','=','labels.type_id');
+            $query->join('groupes','groupes.id','=','labels.groupe_id')->select('labels.*','types.titre as type','groupes.titre as groupe');
 
         }))->find($id);
     }
@@ -27,7 +28,12 @@ class RiiinglinkEloquent implements RiiinglinkInterface {
      */
     public function findByHost($id){
 
-        return $this->riiinglink->where('host_id','=',$id)->with(array('invited','riiinglinks'))->get();
+        return $this->riiinglink->where('host_id','=',$id)->with(array('invited','labels' => function ($query)
+        {
+            $query->join('types','types.id','=','labels.type_id');
+            $query->join('groupes','groupes.id','=','labels.groupe_id')->select('labels.*','types.titre','groupes.titre');
+
+        }))->get();
     }
 
     /**
@@ -35,7 +41,12 @@ class RiiinglinkEloquent implements RiiinglinkInterface {
      */
     public function findInvited($id){
 
-        return $this->riiinglink->where('invited_id','=',$id)->with(array('riiinglinks'))->get();
+        return $this->riiinglink->where('invited_id','=',$id)->with(array('labels' => function ($query)
+        {
+            $query->join('types','types.id','=','labels.type_id');
+            $query->join('groupes','groupes.id','=','labels.groupe_id')->select('labels.*','types.titre','groupes.titre');
+
+        }))->get();
     }
 
     public function create(array $data){

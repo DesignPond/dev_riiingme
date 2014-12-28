@@ -14,17 +14,33 @@ class ApiHelper{
         return $mapped;
     }
 
-    public function uniqueMetas($metas){
+    public function uniqueMetas($labels){
 
-        $uniques = array();
+        $data = array();
 
-        foreach($metas as $meta)
+        foreach($labels as $label)
         {
-            $uniques[$meta->groupe_id][] = $meta;
+            $data[$label->groupe_id][] = $label;
         }
 
-        return $uniques;
+        return $data;
+    }
+
+    public function transFormLabelsForRiiinglink($labels){
+
+        $data = array();
+
+        foreach($labels as $index => $label)
+        {
+            $data[$index]['id']        = $label->id;
+            $data[$index]['label']     = $label->label;
+            $data[$index]['type']      = $label->type;
+            $data[$index]['groupe_id'] = $label->groupe_id;
+        }
+
+        return $data;
     }
 
 }
+
 
