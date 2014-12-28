@@ -1,6 +1,6 @@
-Feature: Labels
+Feature: Metas
 
-  Scenario: Returning a collection of metas
+  Scenario: Returning a collection of metas fo a riiinglink
     When I request "GET /v1/metas?riiinglink_id=1"
     Then I get a "200" response
     And scope into the first "data" property

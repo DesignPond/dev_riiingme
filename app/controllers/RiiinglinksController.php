@@ -1,135 +1,108 @@
 <?php
 
-use Riiingme\Api\Worker\LinkWorker;
-use Riiingme\User\Repo\UserInterface;
+use Riiingme\Api\Transformer\RiiinglinkTransformer;
+use Riiingme\Api\Worker\RiiinglinkWorker;
 
-class RiiinglinksController extends BaseController {
+use Riiingme\Validation\RiiinglinkCreateValidation as RiiinglinkCreateValidation;
+use Laracasts\Validation\FormValidationException;
 
-    protected $user;
-    protected $worker;
+class RiiinglinksController extends ApiController {
 
-    public function __construct(UserInterface $user, LinkWorker $worker )
+    public function __construct(RiiinglinkWorker $riiinglink, RiiinglinkCreateValidation $creation)
     {
-        $this->user   = $user;
-        $this->worker = $worker;
+        parent::__construct();
+
+        $this->riiinglink = $riiinglink;
+        $this->creation   = $creation;
+
     }
 
     /**
-	 * Display a listing of the resource.
-	 * GET /riiinglink
-	 *
-     * @Get("/riiinglinks/user/{id}")
-	 */
-	public function lists($id)
-	{
-        $link       = $this->worker->riinglink($id);
-        $riiinglink = $this->worker->prepareLink($link);
-
-        return array( 'riiinglink' => $riiinglink );
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /riiinglink
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-     * @Get("/riiinglink/{id}")
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-        $link       = $this->worker->riinglink($id);
-        $riiinglink = $this->worker->prepareLink($link);
-
-        return array( 'riiinglink' => $riiinglink );
-	}
-
-    /**
-     * @Get("/riiinglink/usedMetas/{id}")
+     * List all riiinglinks for user
+     * GET /riiinglinks
+     *
+     * @param  int $host_id is auth->id
+     * @return json
      */
-    public function usedMetas($id)
+    public function index()
     {
-        $link       = $this->worker->riinglink($id);
-        $usedMetas  = $this->worker->usedMetas($link);
+        // The authentification is not used for now we are faking a user id
+        $id = 1;
 
-        return array( 'usedMetas' => $usedMetas );
-    }
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /riiinglink/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /riiinglink/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-    /**
-     * @Post("/metas/insert")
-     */
-    public function insert(){
-
-        $rang = $this->worker->maxRang(\Input::get('riiinglink_id'),\Input::get('groupe_id'));
-        $rang = $rang + 1;
-
-        return  $this->worker->attachMeta(\Input::get('id'),\Input::get('riiinglink_id'),array('rang' => $rang, 'groupe_id' => \Input::get('groupe_id')));
-    }
-
-    /**
-     * Display the specified resource.
-     * @Get("/riiinglinksimple/{id}")
-     */
-    public function riiinglink($id){
-
-        $link       = $this->worker->riinglink($id);
-        $riiinglink = $this->worker->prepareLink($link);
-
-        $groups  = $this->worker->getGroupes();
-        $grouped = array();
-
-        if(!$link->metas->isEmpty())
+        try
         {
-            foreach($link->metas as $meta)
-            {
-                print_r($meta->pivot->groupe_id);
-                foreach($groups as $id => $group)
-                {
-                    if( $meta->pivot->groupe_id == $id)
-                    {
-                        $grouped[$group][] = $meta;
-                    }
-                }
-            }
+            $riiinglinks = $this->riiinglink->getRiiinglinksForHost($id);
+
+            return  $this->respondWithCollection($riiinglinks, new RiiinglinkTransformer);
+        }
+        catch (FormValidationException $e)
+        {
+            return $this->errorWrongArgs('Argument manque');
         }
 
-        echo '<pre>';
-        print_r( $riiinglink );
-        echo '</pre>';
+    }
+
+    /**
+     * Store a new riiinglink for user
+     * POST /riiinglinks
+     *
+     * @return json
+     */
+    public function store()
+    {
+
+        try
+        {
+            $this->creation->validate(Input::all());
+        }
+        catch (FormValidationException $e)
+        {
+            return $this->errorWrongArgs('Il manque des arguments');
+        }
+
+        $riiinglink = $this->riiinglink->createLabel( Input::all() );
+
+        return $this->respondWithItem($riiinglink, new RiiinglinkTransformer);
+
+    }
+
+    /**
+     * Return a specified riiinglink
+     * GET /riiinglinks/{id}
+     *
+     * @param  int $id
+     * @return json
+     */
+    public function show($id)
+    {
+
+        $riiinglink = $this->riiinglink->getRiiinglink($id);
+
+        if($riiinglink){
+            return $this->respondWithItem($riiinglink, new RiiinglinkTransformer);
+        }
+
+        return  $this->respondWithArray(array('data' => []));
+
+    }
+
+    /**
+     * Remove the specified riiinglink
+     * DELETE /riiinglinks/{id}
+     *
+     * @param  int  $id
+     * @return json
+     */
+    public function destroy($id)
+    {
+
+        if(!$this->riiinglink->deleteRiiinglink($id)){
+
+            return $this->errorNotFound();
+        }
+
+        return  $this->respondWithArray(array('data' => "ok"));
+
     }
 
 }

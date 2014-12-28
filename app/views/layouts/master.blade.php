@@ -23,7 +23,7 @@
 <!-- css => responsive sheet -->
 <link href="<?php echo asset('css/responsive.css');?>" media="screen" rel="stylesheet" type="text/css">
 
-  <link href="<?php echo asset('css/dist/red.css');?>" rel="stylesheet">
+  <link href="<?php echo asset('css/dist/blue.css');?>" rel="stylesheet">
 <!--
   <link href="<?php echo asset('css/dist/blue.css');?>" rel="stylesheet">
   <link href="<?php echo asset('css/dist/brown.css');?>" rel="stylesheet">
@@ -76,7 +76,7 @@
 
               <div class="logoWrapper">
                 <h1 class="logo">
-                  <a class="clearfix" href="/" title="Riiingme"><img src="images/logos/logo2-red.png" /></a>
+                  <a class="clearfix" href="/" title="Riiingme"><img src="images/logos/logo2-blue.png" /></a>
                 </h1><!-- end of logo -->
               </div><!-- end of logoWrapper -->
 

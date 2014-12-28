@@ -4,7 +4,6 @@ use Riiingme\Api\Transformer\MetaTransformer;
 use Riiingme\Api\Worker\MetaWorker;
 
 use Riiingme\Validation\MetaCreateValidation as MetaCreateValidation;
-use Riiingme\Validation\MetaUpdateValidation as MetaUpdateValidation;
 use Laracasts\Validation\FormValidationException;
 
 
@@ -14,13 +13,12 @@ class MetasController extends ApiController {
 	protected $creation;
 	protected $update;
 
-    public function __construct( MetaWorker $meta, MetaCreateValidation $creation, MetaUpdateValidation $update)
+    public function __construct( MetaWorker $meta, MetaCreateValidation $creation)
     {
 		parent::__construct();
 
 		$this->meta      = $meta;
 		$this->creation  = $creation;
-		$this->update    = $update;
 
     }
 

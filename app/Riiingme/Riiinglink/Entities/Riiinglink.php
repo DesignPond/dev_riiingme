@@ -50,7 +50,7 @@ class Riiinglink extends BaseModel{
      */
     public function labels(){
 
-        return $this->belongsToMany('Riiingme\Label\Entities\Label', 'metas')->withPivot('groupe_id', 'rang');
+        return $this->belongsToMany('Riiingme\Label\Entities\Label', 'metas');
     }
 
 
