@@ -48,6 +48,7 @@
 .mainNav .navTabs .register .formWrapper form button,
 .mainNav .navTabs .register .formWrapper form input[type="submit"],
 .mainNav .navTabs .login a,
+.mainNav .navTabs .login > button,
 .mainNav .navTabs .login .opened,
 .mainNav .navTabs .login .formWrapper,
 .mainNav .navTabs .menuSocial a:hover,
@@ -248,12 +249,4 @@ h6,
 /* border top */
 .mainNav .navTabs > li .dropDown {
   border-top-color: #f8ba01;
-}
-
-.mainNav .navTabs .login > button{
-    background: #243266;
-}
-.mainNav .navTabs .login > button:hover
-{
-    background: #f8ba01;
 }

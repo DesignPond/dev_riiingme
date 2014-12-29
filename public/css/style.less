@@ -1,6 +1,10 @@
 // --- colors styles --------------------- 
 // main dark color
-@dark : #21242e;
+@dark : #243266;
+
+@footerblue :#10162d;
+
+@darker :#0b0f1e;
 
 // light color 
 @light : #fff;
@@ -36,8 +40,6 @@
 
 // color 9 = Purple
 @yellow : #f8ba01;
-
-
 
 // text colors
 // content color of slider
@@ -124,9 +126,9 @@
 }
 
 
-@import url('css/bootstrap.css');
-@import url('css/css3-animations.css');
-@import url('css/font-awesome.css');
+@import url('bootstrap.css');
+@import url('css3-animations.css');
+@import url('font-awesome.css');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext');
 
 
@@ -1846,7 +1848,7 @@ hr,
 }
 /* mouse grab icon */
 .grabbing {
-  cursor: url('images/grabbing.png') 8 8, move;
+  cursor: url('../images/grabbing.png') 8 8, move;
 }
 /* fix */
 .owl-carousel .owl-wrapper,
@@ -2650,12 +2652,12 @@ hr,
 }
 
 .logo {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 0px;
 
   a {
     float: left;
-    height: 33px;
+    height: 65px;
     display: block;
     overflow: hidden;
 
@@ -3136,22 +3138,22 @@ hr,
     }
   }
   .servicesBg-1 {
-    background-image: url('images/service-1.png');
+    background-image: url('../images/service-1.png');
   }
   .servicesBg-2 {
-    background-image: url('images/service-2.png');
+    background-image: url('../images/service-2.png');
   }
   .servicesBg-3 {
-    background-image: url('images/service-3.png');
+    background-image: url('../images/service-3.png');
   }
   .servicesBg-4 {
-    background-image: url('images/service-4.png');
+    background-image: url('../images/service-4.png');
   }
   .servicesBg-5 {
-    background-image: url('images/service-5.png');
+    background-image: url('../images/service-5.png');
   }
   .servicesBg-6 {
-    background-image: url('images/service-6.png');
+    background-image: url('../images/service-6.png');
   }
 
   a {
@@ -3244,7 +3246,7 @@ hr,
     margin-bottom: 20px;
     .round(50%);
     .transitionEaseInOut;
-    background: #fff url('images/plan-icon-pink.png') center center no-repeat;
+    background: #fff url('../images/plan-icon-pink.png') center center no-repeat;
   }
   
   .pricingHeader {
@@ -3882,14 +3884,14 @@ img.fnone{float:none !important}
   }
 
   .factIcon1 {
-    background: @dark url('images/fact-1-pink.png') no-repeat center center;
+    background: @dark url('../images/fact-1-pink.png') no-repeat center center;
   }
   .factIcon2 {
-    background: @dark url('images/fact-2-pink.png') no-repeat center center;
+    background: @dark url('../images/fact-2-pink.png') no-repeat center center;
   }.factIcon3 {
-    background: @dark url('images/fact-3-pink.png') no-repeat center center;
+    background: @dark url('../images/fact-3-pink.png') no-repeat center center;
   }.factIcon4 {
-    background: @dark url('images/fact-4-pink.png') no-repeat center bottom;
+    background: @dark url('../images/fact-4-pink.png') no-repeat center bottom;
   }
   
   .factTitle {
@@ -5616,7 +5618,7 @@ img.fnone{float:none !important}
 /* Top Footer */
 .topFooter {
   padding: 80px 0px;
-  background-color: @dark;
+  background-color: @darker;
 
   .footerWidget {
     .footerWidgetHeader {
@@ -5695,10 +5697,9 @@ img.fnone{float:none !important}
   }
 }
 
-
 /* Bottom Footer */
 .bottomFooter {
-  background-color: #2b2f3b;
+  background-color: @footerblue;
   
   .copyrights {
     p {
@@ -6012,7 +6013,7 @@ img.fnone{float:none !important}
 
     .singleOffer {
       padding: 20px;
-      background: url('images/offer.jpg') center center no-repeat;
+      background: url('../images/offer.jpg') center center no-repeat;
       background-size: 100% 100%;
       position: relative;
 
@@ -6805,7 +6806,7 @@ img.fnone{float:none !important}
 /* --- Page info  --------------------- */
 .pageInfo {
   padding: 45px 0;
-  background: url('images/page-info-bg.png') no-repeat;
+  background: url('../images/page-info-bg.png') no-repeat;
   background-attachment: fixed;
   position: relative;
   border-bottom: 1px solid #30333c;
@@ -6903,22 +6904,22 @@ img.fnone{float:none !important}
 /* follow */
 .colorFulSocial {
   li.facebook a {
-    background: url('images/share-btns.png') 0 0 no-repeat;
+    background: url('../images/share-btns.png') 0 0 no-repeat;
   }
   li.twitter a {
-    background: url('images/share-btns.png') 0 -32px no-repeat;
+    background: url('../images/share-btns.png') 0 -32px no-repeat;
   }
   li.googleplus a {
-    background: url('images/share-btns.png') 0 -64px no-repeat;
+    background: url('../images/share-btns.png') 0 -64px no-repeat;
   }
   li.email a {
-    background: url('images/share-btns.png') 0 -96px no-repeat;
+    background: url('../images/share-btns.png') 0 -96px no-repeat;
   }
   li.youtube a {
-    background: url('images/share-btns.png') 0 -128px no-repeat;
+    background: url('../images/share-btns.png') 0 -128px no-repeat;
   }
   li.pinterest a {
-    background: url('images/share-btns.png') 0 -160px no-repeat;
+    background: url('../images/share-btns.png') 0 -160px no-repeat;
   }
 }
 
@@ -6988,7 +6989,7 @@ img.fnone{float:none !important}
       display: block;
       text-align: center;
       line-height: 32px;
-      background-image: url('images/social-list.png');
+      background-image: url('../images/social-list.png');
       background-repeat: no-repeat;
       color: @light;
     }
@@ -7268,7 +7269,7 @@ img.fnone{float:none !important}
       .round();
       height: 38px;
       line-height: 38px;
-      background-image: url('images/social-list-large.png');
+      background-image: url('../images/social-list-large.png');
     }
     a.facebook {
       background-position: 0px 0px;
@@ -8368,11 +8369,11 @@ img.fnone{float:none !important}
 }
 
 .body-boxed {
-  background: transparent url('images/patterns/bg8.png') repeat left top;
+  background: transparent url('../images/patterns/bg8.png') repeat left top;
 }
 /* body boxed 2 */
 .body-boxed-2 {
-  background: transparent url('images/bg-body.jpg') no-repeat center center fixed;
+  background: transparent url('../images/bg-body.jpg') no-repeat center center fixed;
   background-size: 100% 100%;
 
   .allWrapper {

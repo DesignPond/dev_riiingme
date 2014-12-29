@@ -10,7 +10,10 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		// The authentification is not used for now, we are faking a user id
+		$id = 1;
+
+		return View::make('site.users.index');
 	}
 
 	/**

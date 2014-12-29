@@ -9,7 +9,7 @@ class SiteController extends BaseController {
      */
     public function index()
     {
-        return View::make('site/index');
+        return View::make('site.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class SiteController extends BaseController {
      */
     public function about()
     {
-        return View::make('site/about');
+        return View::make('site.about');
     }
 
     /**
@@ -29,7 +29,7 @@ class SiteController extends BaseController {
      */
     public function contact()
     {
-        return View::make('site/contact');
+        return View::make('site.contact');
     }
 
 }

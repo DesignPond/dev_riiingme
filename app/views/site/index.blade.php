@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('content')
 
+
+  <!-- homepage header -->
+  @include('partials.header')
+
  <!-- Welcome -->
  <section class="welcome welcome2 section mainSection scrollAnchor lightSection" id="welcome">
     <div class="sectionWrapper">

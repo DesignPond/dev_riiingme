@@ -1,6 +1,6 @@
-@import url('css/bootstrap.css');
-@import url('css/css3-animations.css');
-@import url('css/font-awesome.css');
+@import url('bootstrap.css');
+@import url('css3-animations.css');
+@import url('font-awesome.css');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext');
 /*=============================================================================
   
@@ -261,8 +261,6 @@ p {
   font-weight: 500;
   margin-bottom: 15px;
 }
-
-
 p:last-child {
   margin-bottom: 0px;
 }
@@ -1145,10 +1143,6 @@ hr,
   display: inline-block;
 }
 /* --- contents --------------------- */
-
-#slider{
-    margin-top: 93px;
-}
 .section {
   position: relative;
 }
@@ -1158,13 +1152,8 @@ hr,
 }
 /* darkSection */
 .darkSection {
-  background-color: #0B0F1E;
+  background-color: #243266;
 }
-
-.sliderSection{
-    background: #223264;
-}
-
 .darkSection .sectionTitle .sectionHeader {
   color: #ffffff;
 }
@@ -1596,9 +1585,8 @@ hr,
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
-  display: block;
+  display: none;
   width: 100%;
-  z-index: 10;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
   position: relative;
@@ -1790,7 +1778,7 @@ hr,
 }
 /* mouse grab icon */
 .grabbing {
-  cursor: url('images/grabbing.png') 8 8, move;
+  cursor: url('../images/grabbing.png') 8 8, move;
 }
 /* fix */
 .owl-carousel .owl-wrapper,
@@ -2278,41 +2266,41 @@ hr,
   top: 0px;
   width: 100%;
   height: 100%;
- /* background-color: rgba(36, 50, 102, 0.85);*/
+  background-color: rgba(36, 50, 102, 0.85);
   z-index: 10;
 }
 /* slider captions */
 .slider .sliderStyle1 .captions {
+  position: absolute;
   width: 100%;
+  height: 50%;
+  top: 50%;
+  left: 0%;
+  margin: -8% 0px 0px 0px;
   z-index: 100;
 }
-
-#captions{
-  margin-top: 20%;
-}
-
 .captions h2 {
   color: #fff;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 50px;
   text-align: center;
-  opacity: 1;
+  opacity: 0;
   margin-bottom: 30px;
 }
 .captions p {
   font-size: 16px;
-  color: #f5f5f5;
+  color: #c5c5c5;
   line-height: 22px;
   font-weight: 400;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-  opacity: 1;
+  opacity: 0;
 }
 .captions .links {
-  opacity: 1;
+  opacity: 0;
 }
 .captions .links a {
   height: 50px;
@@ -2371,7 +2359,7 @@ hr,
   display: inline-block;
 }
 .captions .slideContents.slideContents.animated.col-md-6 {
-  opacity: 1;
+  opacity: 0;
 }
 /* slider style 1 animation */
 .owl-item.active .captions h2,
@@ -2558,12 +2546,12 @@ hr,
   background: transparent;
   position: relative;
   height: 94px;
-  z-index: 1000;
-  border-bottom: 1px solid #243266;
+  border-bottom: 1px solid #d9d9d9;
   background-color: #ffffff;
 }
 .header .scrollHeaderWrapper {
-  height: 92px;
+  border-bottom: 1px solid #ccc;
+  height: 93px;
 }
 .header + .offset {
   display: none;
@@ -2584,7 +2572,7 @@ hr,
   float: left;
 }
 .logo {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 0px;
 }
 .logo a {
@@ -2664,11 +2652,6 @@ hr,
   -khtml-border-radius: 2px 2px 2px 2px;
   border-radius: 2px 2px 2px 2px;
 }
-
-.mainNav li.login{
-   margin-left: 100px;
-}
-
 .mainNav .navTabs > li .active {
   background-color: #ff6b6b;
   color: #ffffff !important;
@@ -3084,22 +3067,22 @@ hr,
   display: inline-block;
 }
 .singleService .servicesBg-1 {
-  background-image: url('images/service-1.png');
+  background-image: url('../images/service-1.png');
 }
 .singleService .servicesBg-2 {
-  background-image: url('images/service-2.png');
+  background-image: url('../images/service-2.png');
 }
 .singleService .servicesBg-3 {
-  background-image: url('images/service-3.png');
+  background-image: url('../images/service-3.png');
 }
 .singleService .servicesBg-4 {
-  background-image: url('images/service-4.png');
+  background-image: url('../images/service-4.png');
 }
 .singleService .servicesBg-5 {
-  background-image: url('images/service-5.png');
+  background-image: url('../images/service-5.png');
 }
 .singleService .servicesBg-6 {
-  background-image: url('images/service-6.png');
+  background-image: url('../images/service-6.png');
 }
 .singleService a {
   background-color: #243266;
@@ -3191,7 +3174,7 @@ hr,
   -ms-transition: all 0.4s ease-in-out;
   -khtml-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background: #ffffff url('images/plan-icon-pink.png') center center no-repeat;
+  background: #ffffff url('../images/plan-icon-pink.png') center center no-repeat;
 }
 .pricingTable .pricingHeader {
   border: 1px solid #ff6b6b;
@@ -3214,7 +3197,7 @@ hr,
 }
 .pricingTable .pricingHeader .pricingTitle span {
   margin-top: 5px;
-  font-weight: bold;
+  font-weight: normal;
   display: block;
   font-size: 13px;
 }
@@ -3228,9 +3211,9 @@ hr,
   display: block;
   background-color: #243266;
   color: #ffffff !important;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
-  width: 100px;
+  width: 110px;
   height: 55px;
   line-height: 55px;
   text-align: center;
@@ -3274,12 +3257,11 @@ hr,
   font-size: 14px;
 }
 .pricingTable .pricingBody li .generalLink {
-  padding: 14px 8px;
-  font-size: 15px;
+  padding: 16px 10px;
+  font-size: 17px;
   color: #ffffff;
   font-weight: 700;
   width: 100%;
-  background: #243266;
 }
 .pricingTable .pricingBody li .orderNow {
   background-color: #ff6b6b;
@@ -3986,16 +3968,16 @@ img.fnone {
   vertical-align: middle;
 }
 .fact .factIcon1 {
-  background: #243266 url('images/fact-1-pink.png') no-repeat center center;
+  background: #243266 url('../images/fact-1-pink.png') no-repeat center center;
 }
 .fact .factIcon2 {
-  background: #243266 url('images/fact-2-pink.png') no-repeat center center;
+  background: #243266 url('../images/fact-2-pink.png') no-repeat center center;
 }
 .fact .factIcon3 {
-  background: #243266 url('images/fact-3-pink.png') no-repeat center center;
+  background: #243266 url('../images/fact-3-pink.png') no-repeat center center;
 }
 .fact .factIcon4 {
-  background: #243266 url('images/fact-4-pink.png') no-repeat center bottom;
+  background: #243266 url('../images/fact-4-pink.png') no-repeat center bottom;
 }
 .fact .factTitle {
   font-weight: 700;
@@ -5528,17 +5510,26 @@ img.fnone {
 /* Top Footer */
 .topFooter {
   padding: 80px 0px;
-  background-color: #0B0F1E;
+  background-color: #0b0f1e;
 }
 .topFooter .footerWidget .footerWidgetHeader {
-  color: #10162D;
+  color: #ff6b6b;
   font-weight: 700;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #393f4f;
   position: relative;
 }
-
+.topFooter .footerWidget .footerWidgetHeader:after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 4px;
+  left: 0;
+  bottom: -1px;
+  position: absolute;
+  background-color: #393f4f;
+}
 .topFooter .footerWidget .footerAboutContent {
   margin-bottom: 30px;
 }
@@ -5571,8 +5562,8 @@ img.fnone {
   font-size: 13px;
   line-height: 19.5px;
   font-family: 'Open Sans', 'Helvetica', 'Tahoma', 'Arial', sans-serif;
-  color: #e2e2e2;
-  font-weight: 600;
+  color: #7a7c82;
+  font-weight: 500;
   display: block;
 }
 .topFooter .footerWidget .getInTouchList li span a {
@@ -5581,15 +5572,9 @@ img.fnone {
 .topFooter .footerWidget .getInTouchList li .text {
   color: #ffffff;
 }
-
-.topFooter p , .topFooter li, .topFooter li a {
-    color: #e2e2e2;
-    font-weight: 600;
-}
-
 /* Bottom Footer */
 .bottomFooter {
-  background-color: #10162D;
+  background-color: #10162d;
 }
 .bottomFooter .copyrights p {
   color: #ffffff;
@@ -5692,8 +5677,7 @@ img.fnone {
 .style-2 .header {
   position: absolute;
   width: 100%;
-  top: 0px;
-  border-top: 3px solid #2f4479;
+  top: 45px;
 }
 .style-2 .header.fixer {
   position: absolute;
@@ -5710,6 +5694,9 @@ img.fnone {
   display: block;
 }
 /* --- Slider --------------------- */
+.slider .homeSlider_2 .captions {
+  top: 58%;
+}
 .homeSlider_2 .captions .links a {
   background-color: #ff6b6b;
   color: #ffffff;
@@ -5847,7 +5834,7 @@ img.fnone {
 }
 .aboutBox .aboutBoxBody .singleOffer {
   padding: 20px;
-  background: url('images/offer.jpg') center center no-repeat;
+  background: url('../images/offer.jpg') center center no-repeat;
   background-size: 100% 100%;
   position: relative;
 }
@@ -5857,7 +5844,7 @@ img.fnone {
   top: 0;
   left: 0;
   position: absolute;
-  background-color: rgba(33, 36, 46, 0.95);
+  background-color: rgba(36, 50, 102, 0.95);
   z-index: 0;
 }
 .aboutBox .aboutBoxBody .singleOffer .offerTitle {
@@ -6489,7 +6476,7 @@ img.fnone {
 /* --- Page info  --------------------- */
 .pageInfo {
   padding: 45px 0;
-  background: url('images/page-info-bg.png') no-repeat;
+  background: url('../images/page-info-bg.png') no-repeat;
   background-attachment: fixed;
   position: relative;
   border-bottom: 1px solid #30333c;
@@ -6573,22 +6560,22 @@ img.fnone {
 }
 /* follow */
 .colorFulSocial li.facebook a {
-  background: url('images/share-btns.png') 0 0 no-repeat;
+  background: url('../images/share-btns.png') 0 0 no-repeat;
 }
 .colorFulSocial li.twitter a {
-  background: url('images/share-btns.png') 0 -32px no-repeat;
+  background: url('../images/share-btns.png') 0 -32px no-repeat;
 }
 .colorFulSocial li.googleplus a {
-  background: url('images/share-btns.png') 0 -64px no-repeat;
+  background: url('../images/share-btns.png') 0 -64px no-repeat;
 }
 .colorFulSocial li.email a {
-  background: url('images/share-btns.png') 0 -96px no-repeat;
+  background: url('../images/share-btns.png') 0 -96px no-repeat;
 }
 .colorFulSocial li.youtube a {
-  background: url('images/share-btns.png') 0 -128px no-repeat;
+  background: url('../images/share-btns.png') 0 -128px no-repeat;
 }
 .colorFulSocial li.pinterest a {
-  background: url('images/share-btns.png') 0 -160px no-repeat;
+  background: url('../images/share-btns.png') 0 -160px no-repeat;
 }
 /* --- ShortCodes --------------------- */
 /* --- newsletter --------------------- */
@@ -6646,7 +6633,7 @@ img.fnone {
   display: block;
   text-align: center;
   line-height: 32px;
-  background-image: url('images/social-list.png');
+  background-image: url('../images/social-list.png');
   background-repeat: no-repeat;
   color: #ffffff;
 }
@@ -6919,7 +6906,7 @@ img.fnone {
   border-radius: 2px 2px 2px 2px;
   height: 38px;
   line-height: 38px;
-  background-image: url('images/social-list-large.png');
+  background-image: url('../images/social-list-large.png');
 }
 .socialList.largeSocialList li a.facebook {
   background-position: 0px 0px;
@@ -7705,46 +7692,46 @@ img.fnone {
 }
 /* SHADOW */
 .flip-clock-wrapper ul.play li.flip-clock-before .up .shadow {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, #000000));
-  background: linear, top, rgba(0, 0, 0, 0.1) 0%, #000000 100%;
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, black));
+  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
   -webkit-animation: show 0.5s linear both;
   -moz-animation: show 0.5s linear both;
   animation: show 0.5s linear both;
 }
 .flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, #000000));
-  background: linear, top, rgba(0, 0, 0, 0.1) 0%, #000000 100%;
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
-  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, #000000 100%;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, black));
+  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
   -webkit-animation: hide 0.5s 0.3s linear both;
   -moz-animation: hide 0.5s 0.3s linear both;
   animation: hide 0.5s 0.3s linear both;
 }
 /*DOWN*/
 .flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
-  background: -moz-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0.1)));
-  background: linear, top, #000000 0%, rgba(0, 0, 0, 0.1) 100%;
-  background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: -ms-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: linear, to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
   -webkit-animation: show 0.5s linear both;
   -moz-animation: show 0.5s linear both;
   animation: show 0.5s linear both;
 }
 .flip-clock-wrapper ul.play li.flip-clock-active .down .shadow {
-  background: -moz-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, rgba(0, 0, 0, 0.1)));
-  background: linear, top, #000000 0%, rgba(0, 0, 0, 0.1) 100%;
-  background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: -ms-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: linear, to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, rgba(0, 0, 0, 0.1)));
+  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
   -webkit-animation: hide 0.5s 0.3s linear both;
   -moz-animation: hide 0.5s 0.3s linear both;
   animation: hide 0.5s 0.2s linear both;
@@ -7888,11 +7875,11 @@ img.fnone {
   left: 50%;
 }
 .body-boxed {
-  background: transparent url('images/patterns/bg8.png') repeat left top;
+  background: transparent url('../images/patterns/bg8.png') repeat left top;
 }
 /* body boxed 2 */
 .body-boxed-2 {
-  background: transparent url('images/bg-body.jpg') no-repeat center center fixed;
+  background: transparent url('../images/bg-body.jpg') no-repeat center center fixed;
   background-size: 100% 100%;
 }
 .body-boxed-2 .allWrapper {
