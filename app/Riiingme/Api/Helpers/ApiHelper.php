@@ -26,16 +26,33 @@ class ApiHelper{
         return $data;
     }
 
-    public function transFormLabelsForRiiinglink($labels){
+    public function dispatchRiiinglinkInGroup($riiinklink){
 
         $data = array();
 
-        foreach($labels as $index => $label)
+        if(isset($riiinklink->labels))
         {
-            $data[$index]['id']        = $label->id;
-            $data[$index]['label']     = $label->label;
-            $data[$index]['type']      = $label->type;
-            $data[$index]['groupe_id'] = $label->groupe_id;
+            $labels = $riiinklink->labels;
+
+            foreach($labels as $meta)
+            {
+                $data[$meta->groupe_id][] = $meta;
+            }
+        }
+
+        return $data;
+    }
+
+    public function dispatchLabelsInGroups($labels){
+
+        $data = array();
+
+        if(!empty($labels))
+        {
+            foreach($labels as $meta)
+            {
+                $data[$meta->groupe_id][$meta->id] = $meta;
+            }
         }
 
         return $data;

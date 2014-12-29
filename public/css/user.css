@@ -1,0 +1,61 @@
+.riinglink {
+  display: block;
+  width: 50%;
+  float: left;
+  font-weight: 700;
+}
+.partage-host {
+  background: #243266;
+  color: #ffffff;
+  padding: 10px;
+}
+.partage-invited {
+  background: #3498db;
+  color: #ffffff;
+  padding: 10px;
+}
+.partage-group {
+  margin-bottom: 20px;
+}
+.partage-group:last-child {
+  margin-bottom: 0;
+}
+.partage-group li {
+  width: 100%;
+  margin: 0 0 3px 0;
+  height: 26px;
+  padding: 0;
+  background: #172040;
+  display: none;
+}
+.partage-group li:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px #1d2953;
+  box-shadow: 1px 1px 1px 1px #1d2953;
+}
+.partage-group li.used {
+  background: #283871;
+  display: block;
+}
+.partage-group li:after {
+  content: ".";
+  clear: both;
+  visibility: hidden;
+}
+.partage-group li span,
+.partage-group li strong {
+  font-size: 12px;
+  padding: 4px 5px 3px 5px;
+  display: block;
+  float: left;
+}
+.partage-group li span {
+  width: 35%;
+  text-align: right;
+  color: #a9b4e0;
+}
+.partage-group li strong {
+  width: 65%;
+}
+.partage-user {
+  margin-bottom: 20px;
+}

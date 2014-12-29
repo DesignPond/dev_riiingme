@@ -26,7 +26,9 @@ Route::post('access_token', 'OAuthController@access_token');
 
 
 use League\Fractal;
+use League\Fractal\Manager;
 use Riiingme\Api\Transformer\RiiinglinkLabelTransformer;
+use Riiingme\Api\Worker\LabelWorker;
 
 Route::get('test', function()
 {
@@ -37,9 +39,12 @@ Route::get('test', function()
 
     }))->find(1);
 
+    $fractal = new Manager();
+
     $labels = $user_1->labels;
 
-    $resource = new Fractal\Resource\Collection($labels, new RiiinglinkLabelTransformer);
+    $resource  = new Fractal\Resource\Collection($labels, new RiiinglinkLabelTransformer);
+
 
     echo '<pre>';
     print_r((array) $resource);

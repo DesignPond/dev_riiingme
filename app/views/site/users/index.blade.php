@@ -7,17 +7,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-md-12 sectionTitle">
-                    <h2 class="sectionHeader">
-                        Riiinglink
-                    </h2><!-- end of sectionHeader -->
-                </div><!-- end of section title -->
-
-            </div><!-- end of row -->
-
-            <div class="row factsContents">
-
-                <div class="col-md-2">
+                <div class="col-md-6 text-center partage-user">
                     <div class="fact singleFact factBox">
                         <div class="factIcon factIcon1"></div>
                         <h4 class="factTitle">
@@ -25,26 +15,55 @@
                         </h4>
                     </div><!-- end of fact -->
                 </div><!-- end of facts wrapper -->
-
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="riinglink partage-host"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="riinglink partage-invited"></div>
-                        </div>
-                    </div>
-                </div><!-- end of fact img -->
-
-                <div class="col-md-2">
-                    <div class="fact singleFact factBox">
+                <div class="col-md-6 text-center">
+                    <div class="fact singleFact factBox partage-user">
                         <div class="factIcon factIcon3"></div>
                         <h4 class="factTitle">
                             <a href="#">Coralie Leschaud</a>
                         </h4>
                     </div><!-- end of fact -->
                 </div><!-- end of facts wrapper -->
+            </div><!-- end of row -->
+
+            <?php
+            //print_r($riiinglink2->labels);
+            ?>
+            <div class="row factsContents">
+
+                <div class="col-md-12">
+                    <div class="riinglink">
+                        <div class="partage-host">
+
+                            @if(!empty($grouped))
+
+                                @foreach($grouped as $group)
+                                    <ul class="partage-group">
+                                    @foreach($group as $label)
+                                        <li <?php echo (in_array($label->id, $metas) ? 'class="used"' : '' ); ?>><span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong></li>
+                                    @endforeach
+                                    </ul>
+                                @endforeach
+
+                            @endif
+                        </div>
+                    </div>
+                    <div class="riinglink">
+                        <div class="partage-invited">
+                            @if(!empty($riiinglink2))
+
+                                @foreach($riiinglink2 as $linkgroupe)
+                                    <ul class="partage-group">
+                                        @foreach($linkgroupe as $label2)
+                                            <li class="used"><span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong></li>
+                                        @endforeach
+                                    </ul>
+                                @endforeach
+
+                            @endif
+                        </div>
+                    </div>
+                </div><!-- end of fact img -->
+
             </div><!-- end of row -->
 
         </div><!-- end of container -->
@@ -64,107 +83,6 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.</p>
                 </div><!-- end of section title -->
             </div><!-- end of row -->
-
-            <div class="row">
-                <div class="featuresCarousel carousel owl-carousel featuresGallary">
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-sun-o"></i></div>
-                            <h4 class="featureName"><a href="#">Free Instant Setup!</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-building-o"></i></div>
-                            <h4 class="featureName"><a href="#">Awesome Control Panel</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-lock"></i></div>
-                            <h4 class="featureName"><a href="#">Secure Your Website</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-desktop"></i></div>
-                            <h4 class="featureName"><a href="#">Free Website Builder</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-sun-o"></i></div>
-                            <h4 class="featureName"><a href="#">Free Instant Setup!</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-building-o"></i></div>
-                            <h4 class="featureName"><a href="#">Awesome Control Panel</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-lock"></i></div>
-                            <h4 class="featureName"><a href="#">Secure Your Website</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-desktop"></i></div>
-                            <h4 class="featureName"><a href="#">Free Website Builder</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-sun-o"></i></div>
-                            <h4 class="featureName"><a href="#">Free Instant Setup!</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-building-o"></i></div>
-                            <h4 class="featureName"><a href="#">Awesome Control Panel</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-lock"></i></div>
-                            <h4 class="featureName"><a href="#">Secure Your Website</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                    <div class="col-md-3 col-sm-6 item feature singleFeatureWrapper">
-                        <div class="singleFeature">
-                            <div class="featureIcon"><i class="animated fa fa-desktop"></i></div>
-                            <h4 class="featureName"><a href="#">Free Website Builder</a></h4>
-                            <p class="featureDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div><!-- end of single feature -->
-                    </div><!-- end of single feature wrapper -->
-
-                </div><!-- end of features gallary -->
 
             </div><!-- end of row -->
         </div><!-- end of container -->

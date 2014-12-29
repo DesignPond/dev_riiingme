@@ -4,6 +4,7 @@ use Riiingme\Label\Repo\LabelInterface;
 use Riiingme\Type\Repo\TypeInterface;
 use Riiingme\Groupe\Repo\GroupeInterface;
 
+use Riiingme\Api\Helpers\ApiHelper;
 
 class LabelWorker{
 
@@ -16,6 +17,8 @@ class LabelWorker{
         $this->type       = $type;
         $this->groupe     = $groupe;
         $this->label      = $label;
+
+        $this->apiHelper  = new ApiHelper;
     }
 
     public function getTypes(){
@@ -50,5 +53,13 @@ class LabelWorker{
 
         return $this->label->findByUser($user);
     }
+
+    public function getLabelsForUserInGroups($user){
+
+        $labels = $this->getLabelsForUser($user);
+
+        return $this->apiHelper->dispatchLabelsInGroups($labels);
+    }
+
 
 }

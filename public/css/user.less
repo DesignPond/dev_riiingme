@@ -1,0 +1,80 @@
+@dark : #243266;
+@blue : #3498db;
+@footerblue :#10162d;
+@darker :#0b0f1e;
+@light : #fff;
+@lightGray : #f5f6f8;
+@darkGray : #393f4f;
+
+
+.riinglink {
+  display: block;
+  width: 50%;
+  float: left;
+  font-weight: 700;
+}
+.partage-host {
+  background: @dark;
+  color: #ffffff;
+  padding: 10px;
+}
+.partage-invited {
+  background: @blue;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.partage-group{
+  margin-bottom: 20px;
+}
+
+.partage-group:last-child{
+  margin-bottom: 0;
+}
+
+.partage-group li{
+  width: 100%;
+  margin: 0 0 3px 0;
+  height: 26px;
+  padding: 0;
+  background: darken(@dark, 10%);
+  display: none;
+}
+
+.partage-group li:hover{
+    -webkit-box-shadow: 1px 1px 1px 1px darken(@dark, 5%);
+    box-shadow: 1px 1px 1px 1px darken(@dark, 5%);
+}
+
+.partage-group li.used{
+  background: lighten(@dark, 3%);
+  display: block;
+}
+
+.partage-group li:after{
+  content: ".";
+  clear: both;
+  visibility: hidden;
+}
+
+.partage-group li span,
+.partage-group li strong{
+  font-size: 12px;
+  padding: 4px 5px 3px 5px;
+  display: block;
+  float: left;
+}
+
+.partage-group li span{
+  width: 35%;
+  text-align: right;
+  color:lighten(@dark, 50%);
+}
+
+.partage-group li strong{
+  width: 65%;
+}
+
+.partage-user{
+  margin-bottom: 20px;
+}

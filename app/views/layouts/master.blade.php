@@ -20,6 +20,7 @@
 
 <!-- css => style sheet -->
 <link href="<?php echo asset('css/style.css');?>" media="screen" rel="stylesheet" type="text/css">
+  <link href="<?php echo asset('css/user.css');?>" media="screen" rel="stylesheet" type="text/css">
 <!-- css => responsive sheet -->
 <link href="<?php echo asset('css/responsive.css');?>" media="screen" rel="stylesheet" type="text/css">
 <link href="<?php echo asset('css/dist/blue.css');?>" rel="stylesheet">
@@ -65,20 +66,6 @@
           <div class="topMenu navBar">
             <div class="container">
               <div class="row">
-
-                <ul class="topSocial socialNav col-md-6 col-sm-12">
-                  <li class="facebook"><a href="#"><i class="animated fa fa-facebook"></i></a></li>
-                  <li class="twitter"><a href="#"><i class="animated fa fa-twitter"></i></a></li>
-                  <li class="lang">
-                    <form  method="POST" class="langForm">
-                      <select name="language" id="language">
-                        <option disabled="disabled" value="NoSeclect">Language</option>
-                        <option value="En">English</option>
-                        <option value="Fr">French</option>
-                      </select>
-                    </form><!-- end of lang form -->
-                  </li><!-- end of lang -->
-                </ul><!-- end of top social -->
 
               </div><!-- end of row -->
             </div><!-- end of container -->

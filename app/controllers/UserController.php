@@ -1,6 +1,28 @@
 <?php
 
+use Riiingme\Api\Worker\RiiinglinkWorker;
+use Riiingme\Api\Worker\LabelWorker;
+
+use Riiingme\Api\Helpers\ApiHelper;
+
 class UserController extends \BaseController {
+
+	protected $riiinglink;
+	protected $label;
+
+	public function __construct(RiiinglinkWorker $riiinglink, LabelWorker $label)
+	{
+		$this->riiinglink = $riiinglink;
+		$this->label      = $label;
+
+		$this->apiHelper  = new ApiHelper;
+
+		$types   = $this->label->getTypes('titre','id');
+		$groupes = $this->label->getGroupes('titre','id');
+
+		View::share('types', $types);
+		View::share('groupes', $groupes);
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -13,7 +35,15 @@ class UserController extends \BaseController {
 		// The authentification is not used for now, we are faking a user id
 		$id = 1;
 
-		return View::make('site.users.index');
+		$riiinglink = $this->riiinglink->getRiiinglink(1);
+		$grouped    = $this->label->getLabelsForUserInGroups(1);
+
+		$metas = ( isset($riiinglink->labels) ? $riiinglink->labels->lists('id') : [] );
+
+		$riiinglink2  = $this->riiinglink->getRiiinglink(4);
+		$riiinglink2  = $this->apiHelper->dispatchRiiinglinkInGroup($riiinglink2);
+
+		return View::make('site.users.index')->with(array('riiinglink' => $riiinglink, 'grouped' => $grouped, 'metas' => $metas, 'riiinglink2' => $riiinglink2 ));
 	}
 
 	/**
