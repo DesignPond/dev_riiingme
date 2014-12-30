@@ -6,6 +6,17 @@
 @lightGray : #f5f6f8;
 @darkGray : #393f4f;
 
+.riiinglinkIcon{
+  height: 150px;
+}
+
+.riiinglinkIcon img{
+  height: 60px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .userPicto{
   text-align: center;
 }
@@ -64,28 +75,59 @@
 
 .partage-host,
 .partage-invited{
-  min-height: 755px;
+  min-height: 745px;
   position: relative;
+  padding: 20px 0 20px 40px;
+  color: #ffffff;
+}
+
+.groupe-icons{
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  display: block;
+  width:40px;
+  height: 40px;
+}
+
+.partage-icon{
+  position: relative;
+  margin-bottom:20px;
+}
+
+.partage-icon:last-child{
+  margin-bottom: 0;
+}
+
+.groupe-icons .groupe-icon-info {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width:35px;
+  height: 35px;
+  text-align: center;
+  transition: all 0.3s linear 0s;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-1 {
+  background-image: url("../images/icons/info.svg");
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-2 {
+  background-image: url("../images/icons/adresse.svg");
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-3 {
+  background-image: url("../images/icons/work.svg");
 }
 
 .partage-host {
   background: @dark;
-  color: #ffffff;
-  padding: 10px;
 }
 
 .partage-invited {
   background: @blue;
-  color: #ffffff;
-  padding: 10px;
-}
-
-.partage-group{
-  margin-bottom:20px;
-}
-
-.partage-group:last-child{
-  margin-bottom: 0;
 }
 
 .partage-group li{
