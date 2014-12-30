@@ -8,19 +8,19 @@
 
             <div class="row">
                 <div class="col-md-6 text-center partage-user">
-                    <div class="fact singleFact factBox">
-                        <div class="factIcon factIcon1"></div>
-                        <h4 class="factTitle">
-                            <a href="#">Cindy Leschaud</a>
-                        </h4>
+                    <div class="userPicto userPicto-host">
+                        <div class="thumb rotate">
+                            <img src="{{ asset('users/user_1.jpg') }}" alt="" />
+                        </div>
+                        <h4 class="factTitle">Cindy Leschaud</h4>
                     </div><!-- end of fact -->
                 </div><!-- end of facts wrapper -->
-                <div class="col-md-6 text-center">
-                    <div class="fact singleFact factBox partage-user">
-                        <div class="factIcon factIcon3"></div>
-                        <h4 class="factTitle">
-                            <a href="#">Coralie Leschaud</a>
-                        </h4>
+                <div class="col-md-6 text-center partage-user">
+                    <div class="userPicto userPicto-invited">
+                        <div class="thumb rotate">
+                            <img src="{{ asset('users/user_2.jpg') }}" alt="" />
+                        </div>
+                        <h4 class="factTitle">Coralie Leschaud</h4>
                     </div><!-- end of fact -->
                 </div><!-- end of facts wrapper -->
             </div><!-- end of row -->

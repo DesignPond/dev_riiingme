@@ -6,6 +6,54 @@
 @lightGray : #f5f6f8;
 @darkGray : #393f4f;
 
+.userPicto{
+  text-align: center;
+}
+
+.userPicto h4{
+  text-align: center;
+}
+
+.userPicto .thumb {
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background: #fff;
+  height: 100px;
+  width: 100px;
+}
+
+.userPicto .thumb img {
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.userPicto-host h4{
+  color: @dark;
+}
+
+.userPicto-invited h4{
+  color: @blue;
+}
+
+.userPicto-host .thumb{
+  border: 2px solid lighten(@dark, 6%);;
+}
+
+.userPicto-invited .thumb{
+  border: 2px solid lighten(@blue, 6%);
+}
+
+.userPicto-host .thumb img{
+  border: 8px solid @dark;
+}
+
+.userPicto-invited .thumb img{
+  border: 8px solid @blue;
+}
 
 .riinglink {
   display: block;
@@ -13,11 +61,19 @@
   float: left;
   font-weight: 700;
 }
+
+.partage-host,
+.partage-invited{
+  min-height: 755px;
+  position: relative;
+}
+
 .partage-host {
   background: @dark;
   color: #ffffff;
   padding: 10px;
 }
+
 .partage-invited {
   background: @blue;
   color: #ffffff;
@@ -25,7 +81,7 @@
 }
 
 .partage-group{
-  margin-bottom: 20px;
+  margin-bottom:20px;
 }
 
 .partage-group:last-child{
@@ -33,28 +89,53 @@
 }
 
 .partage-group li{
-  width: 100%;
-  margin: 0 0 3px 0;
+  width: 90%;
+  margin: 3px auto;
   height: 26px;
-  padding: 0;
   background: darken(@dark, 10%);
   display: none;
 }
 
-.partage-group li:hover{
-    -webkit-box-shadow: 1px 1px 1px 1px darken(@dark, 5%);
-    box-shadow: 1px 1px 1px 1px darken(@dark, 5%);
+/*
+.partage-host .partage-group li{
+    -webkit-box-shadow: 1px 1px 1px 0 darken(@dark, 2%);
+    box-shadow: 1px 1px 1px 0 darken(@dark, 2%);
+}
+
+.partage-invited .partage-group li{
+  -webkit-box-shadow: 1px 1px 1px 0 darken(@blue, 3%);
+  box-shadow: 1px 1px 1px 0 darken(@blue, 3%);
+}
+*/
+
+.partage-host .partage-group li:hover{
+  -webkit-box-shadow: 1px 1px 1px 1px darken(@dark, 6%);
+  box-shadow: 1px 1px 1px 1px darken(@dark, 6%);
+}
+
+.partage-invited .partage-group li:hover{
+  -webkit-box-shadow: 1px 1px 1px 2px darken(@blue, 8%);
+  box-shadow: 1px 1px 1px 2px darken(@blue, 8%);
 }
 
 .partage-group li.used{
-  background: lighten(@dark, 3%);
   display: block;
 }
 
-.partage-group li:after{
-  content: ".";
-  clear: both;
-  visibility: hidden;
+.partage-host .partage-group li.used{
+  background: lighten(@dark, 3%);
+}
+
+.partage-invited .partage-group li.used{
+  background: lighten(@blue, 3%);
+}
+
+.partage-host .partage-group li.active{
+  background: lighten(@dark, 8%);
+}
+
+.partage-invited .partage-group li.active{
+  background: lighten(@blue, 8%);
 }
 
 .partage-group li span,
@@ -68,7 +149,14 @@
 .partage-group li span{
   width: 35%;
   text-align: right;
+}
+
+.partage-host .partage-group li.used span{
   color:lighten(@dark, 50%);
+}
+
+.partage-invited .partage-group li.used span{
+  color:darken(@blue, 22%);
 }
 
 .partage-group li strong{
@@ -77,4 +165,22 @@
 
 .partage-user{
   margin-bottom: 20px;
+}
+
+.rotate{
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+  overflow:hidden;
+}
+
+.rotate:hover {
+  -webkit-transform:rotate(360deg);
+  -moz-transform:rotate(360deg);
+  -o-transform:rotate(360deg);
 }
