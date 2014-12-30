@@ -104,7 +104,7 @@
     <!-- JavaScript Files ================================================== -->
     <script src="<?php echo asset('js/compiler.js');?>" type="text/javascript"></script>
     <script src="<?php echo asset('js/scripts.js');?>" type="text/javascript"></script>
-
+    <script src="<?php echo asset('js/riiinglink.js');?>" type="text/javascript"></script>
     <!-- BootStrap JavaScript ================================================== -->
     <script src="<?php echo asset('js/bootstrap.js');?>" type="text/javascript"></script>
 

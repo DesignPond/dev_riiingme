@@ -31,8 +31,15 @@
             <?php
             //print_r($riiinglink2->labels);
             ?>
-            <div class="row factsContents">
 
+            <div class="row factsContents">
+                <div class="col-md-12">
+                    <a href="#" class="generalLink updateRiiinglink">update</a>
+                    <a href="#" class="generalLink finishRiiinglink">finish</a>
+                </div><!-- end of facts wrapper -->
+            </div><!-- end of row -->
+
+            <div class="row factsContents">
                 <div class="col-md-12">
                     <div class="riinglink">
                         <div class="partage-host">
@@ -45,7 +52,7 @@
                                             <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
                                         </div>
 
-                                        <ul class="partage-group">
+                                        <ul id="riiinglinkList" class="partage-group">
                                             @foreach($group as $label)
                                                 <li <?php echo (in_array($label->id, $metas) ? 'class="used"' : '' ); ?>><span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong></li>
                                             @endforeach
