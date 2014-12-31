@@ -44,7 +44,7 @@ class Riiinglink extends BaseModel{
     }
 
     /**
-     * Metas belongs to user
+     * Metas through labels belongs to user
      *
      * @var query
      */
@@ -53,5 +53,15 @@ class Riiinglink extends BaseModel{
         return $this->belongsToMany('Riiingme\Label\Entities\Label', 'metas');
     }
 
+
+    /**
+     * Metas for riiinglink
+     *
+     * @var query
+     */
+    public function metas(){
+
+        return $this->belongsToMany('Riiingme\Meta\Entities\Meta');
+    }
 
 }

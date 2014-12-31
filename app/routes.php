@@ -12,6 +12,8 @@ Route::get('contact', array('as' => 'contact', 'uses' => 'SiteController@contact
 
 Route::resource('user', 'UserController');
 
+Route::post('updateMetas', 'RiiinglinksController@updateMetas');
+
 Route::group(array('prefix' => 'v1'), function()
 {
     Route::resource('labels', 'LabelsController');
@@ -32,22 +34,10 @@ use Riiingme\Api\Worker\LabelWorker;
 
 Route::get('test', function()
 {
-    $user_1 = Riiingme\Riiinglink\Entities\Riiinglink::with(array('invited','labels' => function ($query)
-    {
-        $query->join('types','types.id','=','labels.type_id');
-        $query->join('groupes','groupes.id','=','labels.groupe_id')->select('labels.*','types.titre as type','groupes.titre as groupe');
-
-    }))->find(1);
-
-    $fractal = new Manager();
-
-    $labels = $user_1->labels;
-
-    $resource  = new Fractal\Resource\Collection($labels, new RiiinglinkLabelTransformer);
-
+    $user_1 = Riiingme\Riiinglink\Entities\Riiinglink::with(array('metas'))->find(1);
 
     echo '<pre>';
-    print_r((array) $resource);
+    print_r((array) $user_1);
     echo '</pre>';
 });
 

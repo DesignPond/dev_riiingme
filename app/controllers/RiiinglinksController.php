@@ -145,4 +145,24 @@ class RiiinglinksController extends ApiController {
 
     }
 
+    /**
+     * Update metas
+     *
+     * @param  array $data
+     * @return json
+     */
+    public function updateMetas()
+    {
+
+        parse_str(Input::get('riiinglink'), $data);
+        //print_r($searcharray); // Only for print array
+        $id    = $data['riiinglink_id'];
+        $metas = $data['metas'];
+
+        $this->riiinglink->setMetasForRiiinglink($id,$metas);
+
+        return Response::json( $metas, 200 );
+
+    }
+
 }

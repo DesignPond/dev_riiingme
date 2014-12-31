@@ -40,10 +40,10 @@ class UserController extends \BaseController {
 
 		$metas = ( isset($riiinglink->labels) ? $riiinglink->labels->lists('id') : [] );
 
-		$riiinglink2  = $this->riiinglink->getRiiinglink(4);
-		$riiinglink2  = $this->apiHelper->dispatchRiiinglinkInGroup($riiinglink2);
+		$invited      = $this->riiinglink->getRiiinglink(4);
+		$riiinglink2  = $this->apiHelper->dispatchRiiinglinkInGroup($invited);
 
-		return View::make('site.users.index')->with(array('riiinglink' => $riiinglink, 'grouped' => $grouped, 'metas' => $metas, 'riiinglink2' => $riiinglink2 ));
+		return View::make('site.users.index')->with(array('riiinglink' => $riiinglink, 'grouped' => $grouped, 'metas' => $metas, 'riiinglink2' => $riiinglink2, 'invited' => $invited ));
 	}
 
 	/**

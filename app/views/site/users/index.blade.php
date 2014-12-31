@@ -10,7 +10,15 @@
                 <div class="col-md-5 text-center partage-user">
                     <div class="userPicto userPicto-host">
                         <div class="thumb rotate">
-                            <img class="riiinglinkIcon" src="{{ asset('users/user_1.jpg') }}" alt="" />
+                            <?php
+
+                                $photo = $riiinglink->labels->filter(function($item) {
+                                    return $item->type_id == 16;
+                                })->first();
+
+                                $host = (isset( $photo->label ) ?  $photo->label : 'avatar.jpg');
+                            ?>
+                            <img class="riiinglinkIcon" src="{{ asset('users/'.$host.'') }}" alt="" />
                         </div>
                         <h4 class="factTitle">Cindy Leschaud</h4>
                     </div><!-- end of fact -->
@@ -21,7 +29,16 @@
                 <div class="col-md-5 text-center partage-user">
                     <div class="userPicto userPicto-invited">
                         <div class="thumb rotate">
-                            <img src="{{ asset('users/user_2.jpg') }}" alt="" />
+                            <?php
+
+                                $photo2 = $invited->labels->filter(function($item) {
+                                    return $item->type_id == 16;
+                                })->first();
+
+                                $invite = (isset( $photo2->label ) ?  $photo2->label : 'avatar.jpg');
+                            ?>
+                            <img src="{{ asset('users/'.$invite.'') }}" alt="" />
+
                         </div>
                         <h4 class="factTitle">Coralie Leschaud</h4>
                     </div><!-- end of fact -->
@@ -29,38 +46,47 @@
             </div><!-- end of row -->
 
             <?php
-            //print_r($riiinglink2->labels);
+                echo '<pre>';
+                //print_r($riiinglink2);
+                echo '</pre>';
             ?>
 
             <div class="row factsContents">
                 <div class="col-md-12">
-                    <a href="#" class="generalLink updateRiiinglink">update</a>
-                    <a href="#" class="generalLink finishRiiinglink">finish</a>
+                    <a href="#" class="btn btn-warning updateRiiinglink">update</a>
+                    <a href="#" class="btn btn-success finishRiiinglink">finish</a>
                 </div><!-- end of facts wrapper -->
             </div><!-- end of row -->
-
+            <br/>
             <div class="row factsContents">
                 <div class="col-md-12">
                     <div class="riinglink">
                         <div class="partage-host">
+                            <form id="formRiiinglink">
 
-                            @if(!empty($grouped))
-                                @foreach($grouped as $index => $group)
+                                <input type="hidden" name="riiinglink_id" value="{{ $riiinglink->id }}">
 
-                                    <div class="partage-icon">
-                                        <div class="groupe-icons">
-                                            <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
+                                @if(!empty($grouped))
+                                    @foreach($grouped as $index => $group)
+
+                                        <div class="partage-icon">
+                                            <div class="groupe-icons">
+                                                <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
+                                            </div>
+
+                                            <ul id="riiinglinkList" class="partage-group">
+                                                @foreach($group as $label)
+                                                    <li class="Rlink <?php echo (in_array($label->id, $metas) ? ' used ' : '' ); ?>">
+                                                        <span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong>
+                                                        <input <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </div>
 
-                                        <ul id="riiinglinkList" class="partage-group">
-                                            @foreach($group as $label)
-                                                <li <?php echo (in_array($label->id, $metas) ? 'class="used"' : '' ); ?>><span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-
-                                @endforeach
-                            @endif
+                                    @endforeach
+                                @endif
+                            </form>
                         </div>
                     </div>
                     <div class="riinglink">
@@ -76,7 +102,9 @@
 
                                         <ul class="partage-group">
                                             @foreach($linkgroupe as $label2)
-                                                <li class="used"><span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong></li>
+                                                <li class="used">
+                                                    <span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -100,6 +128,7 @@
 
             <div class="row">
                 <div class="col-md-12 sectionTitle">
+
                     <h2 class="sectionHeader">
                         Don’t Hesitate, Seven Host Provide Awesome &amp; Perfect Features For You
                         <span class="generalBorder"></span>

@@ -40,4 +40,12 @@ class RiiinglinkWorker{
 
         return $this->riiinglink->findInvited($host_id);
     }
+
+    public function setMetasForRiiinglink($id,$metas){
+
+        $riiinglink = $this->riiinglink->find($id);
+        $riiinglink->labels()->sync($metas);
+
+    }
+
 }

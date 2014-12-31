@@ -6,6 +6,30 @@
 @lightGray : #f5f6f8;
 @darkGray : #393f4f;
 
+/*
+* Sticky header
+*/
+
+.fixedHeader .scrollHeaderWrapper{
+  height: 64px;
+}
+
+.header.fixedHeader{
+  height: 64px;
+}
+
+.fixedHeader .logo{
+  margin-top: 14px;
+}
+
+.fixedHeader .logo a,.fixedHeader .logo a img{
+  height: 45px;
+}
+
+.fixedHeader .mainNav{
+  padding-top: 15px;
+}
+
 .riiinglinkIcon{
   height: 150px;
 }
@@ -150,12 +174,12 @@
 }
 */
 
-.partage-host .partage-group li:hover{
+.isEditable .partage-host .partage-group li:hover{
   -webkit-box-shadow: 1px 1px 1px 1px darken(@dark, 6%);
   box-shadow: 1px 1px 1px 1px darken(@dark, 6%);
 }
 
-.partage-invited .partage-group li:hover{
+.isEditable .partage-invited .partage-group li:hover{
   -webkit-box-shadow: 1px 1px 1px 2px darken(@blue, 8%);
   box-shadow: 1px 1px 1px 2px darken(@blue, 8%);
 }
