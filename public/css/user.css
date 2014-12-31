@@ -73,7 +73,7 @@
 }
 .partage-host,
 .partage-invited {
-  min-height: 745px;
+  height: auto;
   position: relative;
   padding: 20px 0 20px 40px;
   color: #ffffff;
@@ -125,17 +125,6 @@
   background: #172040;
   display: none;
 }
-/*
-.partage-host .partage-group li{
-    -webkit-box-shadow: 1px 1px 1px 0 darken(@dark, 2%);
-    box-shadow: 1px 1px 1px 0 darken(@dark, 2%);
-}
-
-.partage-invited .partage-group li{
-  -webkit-box-shadow: 1px 1px 1px 0 darken(@blue, 3%);
-  box-shadow: 1px 1px 1px 0 darken(@blue, 3%);
-}
-*/
 .isEditable .partage-host .partage-group li:hover {
   -webkit-box-shadow: 1px 1px 1px 1px #1c274f;
   box-shadow: 1px 1px 1px 1px #1c274f;

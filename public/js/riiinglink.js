@@ -1,11 +1,31 @@
+
+function setHeightPartage(){
+
+    var maxHeight = -1;
+
+    $('.partage-riiinglink').each(function() {
+        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+    });
+
+    $('.partage-riiinglink').each(function() {
+        $(this).height(maxHeight);
+    });
+
+    console.log(maxHeight);
+}
+
 (function($)
 {
     $(".updateRiiinglink").on('click',function(e){
         e.preventDefault();
         $(this).hide();
         $("#riiinglinkList li").show();
+
+        setHeightPartage();
+
         $(".finishRiiinglink").show();
         $("#riiinglinkList").addClass("isEditable");
+
     });
 
     $(".finishRiiinglink").on('click',function(e){
@@ -14,8 +34,6 @@
         $(".updateRiiinglink").show();
         $("#riiinglinkList li").not(".used").hide();
         $("#riiinglinkList").removeClass("isEditable");
-
-        console.log( $('#formRiiinglink').serialize() );
 
         var riiinglink = $('#formRiiinglink').serialize();
 
@@ -26,16 +44,18 @@
             success : function(data) {
                 if(data == 'ok')
                 {
-                    console.log(data);
+                    //console.log(data);
+                    setHeightPartage();
                 }
             }
         });
 
     });
 
-
+    setHeightPartage();
 
 })(jQuery);
+
 
 /*
  * A jQuery plugin

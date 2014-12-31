@@ -61,7 +61,7 @@
             <div class="row factsContents">
                 <div class="col-md-12">
                     <div class="riinglink">
-                        <div class="partage-host">
+                        <div class="partage-host partage-riiinglink">
                             <form id="formRiiinglink">
 
                                 <input type="hidden" name="riiinglink_id" value="{{ $riiinglink->id }}">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="riinglink">
-                        <div class="partage-invited">
+                        <div class="partage-invited partage-riiinglink">
                             @if(!empty($riiinglink2))
 
                                 @foreach($riiinglink2 as $index => $linkgroupe)
