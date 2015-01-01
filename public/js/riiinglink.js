@@ -1,30 +1,13 @@
-
-function setHeightPartage(){
-
-    var maxHeight = -1;
-
-    $('.partage-riiinglink').each(function() {
-        maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-    });
-
-    $('.partage-riiinglink').each(function() {
-        $(this).height(maxHeight);
-    });
-
-    console.log(maxHeight);
-}
-
 (function($)
 {
     $(".updateRiiinglink").on('click',function(e){
         e.preventDefault();
         $(this).hide();
-        $("#riiinglinkList li").show();
-
-        setHeightPartage();
+        $(".riiinglinkList li").show();
 
         $(".finishRiiinglink").show();
-        $("#riiinglinkList").addClass("isEditable");
+        $(".riiinglinkList").addClass("isEditable");
+        $(".partage-host").addClass("inEdit");
 
     });
 
@@ -32,8 +15,9 @@ function setHeightPartage(){
         e.preventDefault();
         $(this).hide();
         $(".updateRiiinglink").show();
-        $("#riiinglinkList li").not(".used").hide();
-        $("#riiinglinkList").removeClass("isEditable");
+        $(".riiinglinkList li").not(".used").hide();
+        $(".riiinglinkList").removeClass("isEditable");
+        $(".partage-host").removeClass("inEdit");
 
         var riiinglink = $('#formRiiinglink').serialize();
 
@@ -45,14 +29,11 @@ function setHeightPartage(){
                 if(data == 'ok')
                 {
                     //console.log(data);
-                    setHeightPartage();
                 }
             }
         });
 
     });
-
-    setHeightPartage();
 
 })(jQuery);
 
@@ -90,7 +71,7 @@ function setHeightPartage(){
             $inputs.hide();
 
             var parent = $el.attr('id');
-                parent = '#' + parent + ' li';
+                parent = '.' + parent + ' li';
 
 
             var $Rlink	= $(".Rlink");
@@ -237,7 +218,7 @@ function setHeightPartage(){
         onDestroy: function() {}
     };
 
-    $('#riiinglinkList').riiinglink();
+    $('.riiinglinkList').riiinglink();
 
 
     $.fn.zInput = function(){

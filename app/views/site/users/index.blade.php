@@ -21,6 +21,10 @@
                             <img class="riiinglinkIcon" src="{{ asset('users/'.$host.'') }}" alt="" />
                         </div>
                         <h4 class="factTitle">Cindy Leschaud</h4>
+                        <p>
+                            <a href="#" class="btn btn-warning updateRiiinglink">update</a>
+                            <a href="#" class="btn btn-success finishRiiinglink">finish</a>
+                        </p>
                     </div><!-- end of fact -->
                 </div><!-- end of facts wrapper -->
                 <div class="col-md-2 text-center riiinglinkIcon">
@@ -52,68 +56,63 @@
             ?>
 
             <div class="row factsContents">
-                <div class="col-md-12">
-                    <a href="#" class="btn btn-warning updateRiiinglink">update</a>
-                    <a href="#" class="btn btn-success finishRiiinglink">finish</a>
-                </div><!-- end of facts wrapper -->
-            </div><!-- end of row -->
-            <br/>
-            <div class="row factsContents">
-                <div class="col-md-12">
-                    <div class="riinglink">
-                        <div class="partage-host partage-riiinglink">
-                            <form id="formRiiinglink">
+                <div class="col-md-12 riiinglink">
 
-                                <input type="hidden" name="riiinglink_id" value="{{ $riiinglink->id }}">
+                    <div class="partage-host partage-riiinglink">
+                        <form id="formRiiinglink">
 
-                                @if(!empty($grouped))
-                                    @foreach($grouped as $index => $group)
+                            <input type="hidden" name="riiinglink_id" value="{{ $riiinglink->id }}">
 
-                                        <div class="partage-icon">
-                                            <div class="groupe-icons">
-                                                <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
-                                            </div>
-
-                                            <ul id="riiinglinkList" class="partage-group">
-                                                @foreach($group as $label)
-                                                    <li class="Rlink <?php echo (in_array($label->id, $metas) ? ' used ' : '' ); ?>">
-                                                        <span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong>
-                                                        <input <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-
-                                    @endforeach
-                                @endif
-                            </form>
-                        </div>
-                    </div>
-                    <div class="riinglink">
-                        <div class="partage-invited partage-riiinglink">
-                            @if(!empty($riiinglink2))
-
-                                @foreach($riiinglink2 as $index => $linkgroupe)
+                            @if(!empty($grouped))
+                                @foreach($grouped as $index => $group)
 
                                     <div class="partage-icon">
                                         <div class="groupe-icons">
                                             <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
                                         </div>
 
-                                        <ul class="partage-group">
-                                            @foreach($linkgroupe as $label2)
-                                                <li class="used">
-                                                    <span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong>
+                                        <ul class="riiinglinkList partage-group">
+                                            @foreach($group as $label)
+                                                <li class="Rlink <?php echo (in_array($label->id, $metas) ? ' used ' : '' ); ?>">
+                                                    <span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong>
+                                                    <div class="switch">
+                                                        <input class="cmn-toggle cmn-toggle-round-flat" <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
+                                                        <label for="cmn-toggle-4"></label>
+                                                    </div>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </div>
 
                                 @endforeach
-
                             @endif
-                        </div>
+                        </form>
                     </div>
+
+                    <div class="partage-invited partage-riiinglink">
+                        @if(!empty($riiinglink2))
+
+                            @foreach($riiinglink2 as $index => $linkgroupe)
+
+                                <div class="partage-icon">
+                                    <div class="groupe-icons">
+                                        <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
+                                    </div>
+
+                                    <ul class="partage-group">
+                                        @foreach($linkgroupe as $label2)
+                                            <li class="used">
+                                                <span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                            @endforeach
+
+                        @endif
+                    </div>
+
                 </div><!-- end of fact img -->
 
             </div><!-- end of row -->
@@ -128,6 +127,11 @@
 
             <div class="row">
                 <div class="col-md-12 sectionTitle">
+
+                    <div class="switch">
+                        <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                        <label for="cmn-toggle-4"></label>
+                    </div>
 
                     <h2 class="sectionHeader">
                         Don’t Hesitate, Seven Host Provide Awesome &amp; Perfect Features For You
