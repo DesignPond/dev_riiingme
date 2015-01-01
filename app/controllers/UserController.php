@@ -34,6 +34,7 @@ class UserController extends \BaseController {
 	{
 		// The authentification is not used for now, we are faking a user id
 		$id = 1;
+		setlocale(LC_ALL, 'fr_FR');
 
 		$riiinglink = $this->riiinglink->getRiiinglink(1);
 		$grouped    = $this->label->getLabelsForUserInGroups(1);

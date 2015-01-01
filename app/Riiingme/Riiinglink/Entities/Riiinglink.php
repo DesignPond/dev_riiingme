@@ -23,6 +23,34 @@ class Riiinglink extends BaseModel{
     protected static $messages = array(
     );
 
+    public function getUserPhotoAttribute($riiinglink)
+    {
+
+        if(isset($this->labels))
+        {
+            $photo = $this->labels->filter(function($item) {
+                return $item->type_id == 15;
+            })->first();
+        }
+
+        return (isset( $photo->label ) ?  $photo->label : 'avatar.jpg');
+
+    }
+
+    public function setDateNaissanceAttribute($riiinglink)
+    {
+
+        if(isset($this->labels))
+        {
+            $date = $this->labels->filter(function($item) {
+                return $item->type_id == 13;
+            })->first();
+        }
+
+        return (isset( $date->label ) ? \Carbon\Carbon::parse($date->label)->format('F j, Y') : '');
+
+    }
+
     /**
      * Invited infos belongs to host user through link
      *

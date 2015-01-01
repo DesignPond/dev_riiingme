@@ -10,15 +10,7 @@
                 <div class="col-md-5 text-center partage-user">
                     <div class="userPicto userPicto-host">
                         <div class="thumb rotate">
-                            <?php
-
-                                $photo = $riiinglink->labels->filter(function($item) {
-                                    return $item->type_id == 16;
-                                })->first();
-
-                                $host = (isset( $photo->label ) ?  $photo->label : 'avatar.jpg');
-                            ?>
-                            <img class="riiinglinkIcon" src="{{ asset('users/'.$host.'') }}" alt="" />
+                            <img class="riiinglinkIcon" src="{{ asset('users/'.$riiinglink->user_photo.'') }}" alt="" />
                         </div>
                         <h4 class="factTitle">Cindy Leschaud</h4>
                         <p>
@@ -33,16 +25,7 @@
                 <div class="col-md-5 text-center partage-user">
                     <div class="userPicto userPicto-invited">
                         <div class="thumb rotate">
-                            <?php
-
-                                $photo2 = $invited->labels->filter(function($item) {
-                                    return $item->type_id == 16;
-                                })->first();
-
-                                $invite = (isset( $photo2->label ) ?  $photo2->label : 'avatar.jpg');
-                            ?>
-                            <img src="{{ asset('users/'.$invite.'') }}" alt="" />
-
+                            <img src="{{ asset('users/'.$invited->user_photo.'') }}" alt="" />
                         </div>
                         <h4 class="factTitle">Coralie Leschaud</h4>
                     </div><!-- end of fact -->
@@ -51,7 +34,7 @@
 
             <?php
                 echo '<pre>';
-                //print_r($riiinglink2);
+                //print_r($invited->user_photo);
                 echo '</pre>';
             ?>
 
@@ -74,11 +57,11 @@
                                         <ul class="riiinglinkList partage-group">
                                             @foreach($group as $label)
                                                 <li class="Rlink <?php echo (in_array($label->id, $metas) ? ' used ' : '' ); ?>">
-                                                    <span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong>
-                                                    <div class="switch">
-                                                        <input class="cmn-toggle cmn-toggle-round-flat" <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
-                                                        <label for="cmn-toggle-4"></label>
-                                                    </div>
+                                                    <span>{{ $label->type->titre }}</span><strong>
+                                                        <?php  $thelabel = ($label->type_id == 13 && !empty($label->label) ? \Carbon\Carbon::parse($label->label)->formatLocalized('%d %B %Y') : $label->label); ?>
+                                                        {{ $thelabel }}
+                                                    </strong>
+                                                    <input <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -102,7 +85,10 @@
                                     <ul class="partage-group">
                                         @foreach($linkgroupe as $label2)
                                             <li class="used">
-                                                <span>{{ $types[$label2->type_id] }}</span><strong>{{ $label2->label }}</strong>
+                                                <span>{{ $types[$label2->type_id] }}</span><strong>
+                                                    <?php  $thelabel2 = ($label2->type_id == 13 && !empty($label2->label) ? \Carbon\Carbon::parse($label2->label)->formatLocalized('%d %B %Y') : $label2->label); ?>
+                                                    {{ $thelabel2 }}
+                                                </strong>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -128,10 +114,6 @@
             <div class="row">
                 <div class="col-md-12 sectionTitle">
 
-                    <div class="switch">
-                        <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
-                        <label for="cmn-toggle-4"></label>
-                    </div>
 
                     <h2 class="sectionHeader">
                         Don’t Hesitate, Seven Host Provide Awesome &amp; Perfect Features For You

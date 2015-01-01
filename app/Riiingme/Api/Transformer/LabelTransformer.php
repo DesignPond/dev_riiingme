@@ -8,9 +8,13 @@ class LabelTransformer extends Fractal\TransformerAbstract
 {
     public function transform(Label $label)
     {
+        // For date de naissance
+        // Parse to format
+        $thelabel = ($label->type_id == 13 && !empty($label->label) ?  \Carbon\Carbon::parse($label->label)->formatLocalized('%d %B %Y') : $label->label);
+
         return [
             'id'      => (int) $label->id,
-            'label'   => (isset($label->label) ? $label->label : ''),
+            'label'   => (isset($thelabel) ? $thelabel : ''),
             'type'  => [
                 'id'    => (int) $label->type->id,
                 'titre' => $label->type->titre,
