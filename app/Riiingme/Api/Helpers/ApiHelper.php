@@ -36,6 +36,10 @@ class ApiHelper{
 
             foreach($labels as $meta)
             {
+                if($meta->type_id == 13){
+                    $meta->label = $this->changeDateFormat($meta);
+                }
+
                 $data[$meta->groupe_id][] = $meta;
             }
         }
@@ -51,11 +55,22 @@ class ApiHelper{
         {
             foreach($labels as $meta)
             {
+                if($meta->type_id == 13){
+                    $meta->label = $this->changeDateFormat($meta);
+                }
+
                 $data[$meta->groupe_id][$meta->id] = $meta;
             }
         }
 
         return $data;
+    }
+
+    public function changeDateFormat($meta){
+
+        setlocale(LC_ALL, 'fr_FR');
+
+        return (!empty( $meta->label ) ? \Carbon\Carbon::parse($meta->label)->formatLocalized('%d %B %Y') : '');
     }
 
 }

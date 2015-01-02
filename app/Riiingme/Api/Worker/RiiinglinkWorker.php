@@ -41,10 +41,30 @@ class RiiinglinkWorker{
         return $this->riiinglink->findInvited($host_id);
     }
 
+    public function getRiiinglinkWithInvited($invited_id,$host_id){
+
+        return $this->riiinglink->findByHostAndInvited($invited_id,$host_id);
+    }
+
     public function setMetasForRiiinglink($id,$metas){
 
         $riiinglink = $this->riiinglink->find($id);
         $riiinglink->labels()->sync($metas);
+
+    }
+
+    public function listAllMetasFromRiiinglink($riiinglink){
+
+       $metas = [1 => [], 2 => [], 3 => []];
+
+       if( isset($riiinglink->labels) )
+       {
+           foreach($riiinglink->labels as $label){
+              $metas[$label->groupe_id][] = $label->id;
+           }
+       }
+
+       return $metas;
 
     }
 

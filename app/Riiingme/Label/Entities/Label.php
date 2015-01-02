@@ -30,14 +30,6 @@ class Label extends BaseModel{
     protected static $messages = array(
     );
 
-    public function setDateNaissanceAttribute($label)
-    {
-        if( $this->attributes['type_id'] == 13)
-        {
-            return (!empty( $this->label ) ? \Carbon\Carbon::parse($this->label)->format('F j, Y') : '');
-        }
-    }
-
     /**
      * Labels belongs to user
      *

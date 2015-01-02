@@ -79,7 +79,7 @@
 
                   <div class="logoWrapper">
                     <h1 class="logo">
-                      <a class="clearfix" href="/" title="Riiingme"><img src="images/logos/logo2-blue.png" /></a>
+                      <a class="clearfix" href="/" title="Riiingme"><img src="{{ asset('images/logos/logo2-blue.png') }}" /></a>
                     </h1><!-- end of logo -->
                   </div><!-- end of logoWrapper -->
 

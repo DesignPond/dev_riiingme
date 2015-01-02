@@ -24,12 +24,23 @@ class LabelsTableSeeder extends Seeder {
 			'032 718 21 30','078 690 00 23',
 			'','http://wwww.unine.ch');
 
-
 		$metas3 = array('','Coralie','Leschaud','coralie.leschaud@orange.ch',
 			'Orange', 'ARC','Marc Leschaud',
 			'La Voirde 19','2735','Bévilard','Suisse',
 			'032 318 21 40','078 543 06 23',
 			'1995-09-27','http://wwww.orange.ch','coralie.jpg');
+
+		$metas4 = array('','Cyril','Leschaud','cyril.leschaud@bluewin.ch',
+			'HNE', 'ASSC','',
+			'Rue du test 234','2300','La Chaux-de-Fond','Suisse',
+			'032 987 21 40','076 523 06 23',
+			'1987-06-19','http://wwww.hne.ch','');
+
+		$metas5 = array('','Céline','Leschaud','libelulle867@bluewin.ch',
+			'', 'Vendeuse','',
+			'Rue du collège 34','2735','Bévilard','Suisse',
+			'032 492 21 20','079 345 06 23',
+			'1984-05-20','','');
 
 		foreach($info as $index)
 		{
@@ -80,6 +91,48 @@ class LabelsTableSeeder extends Seeder {
 				'groupe_id' => 2
 			]);
 		}
+
+		foreach($info as $index)
+		{
+			Riiingme\Label\Entities\Label::create([
+				'label'     => $metas4[$index],
+				'user_id'   => 3,
+				'type_id'   => $index,
+				'groupe_id' => 1
+			]);
+		}
+
+		foreach($prive as $index)
+		{
+			Riiingme\Label\Entities\Label::create([
+				'label'     => $metas4[$index],
+				'user_id'   => 3,
+				'type_id'   => $index,
+				'groupe_id' => 2
+			]);
+		}
+
+
+		foreach($info as $index)
+		{
+			Riiingme\Label\Entities\Label::create([
+				'label'     => $metas5[$index],
+				'user_id'   => 4,
+				'type_id'   => $index,
+				'groupe_id' => 1
+			]);
+		}
+
+		foreach($prive as $index)
+		{
+			Riiingme\Label\Entities\Label::create([
+				'label'     => $metas5[$index],
+				'user_id'   => 4,
+				'type_id'   => $index,
+				'groupe_id' => 2
+			]);
+		}
+
 	}
 
 }

@@ -78,7 +78,23 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		/*
+		 * Current user
+		*/
+		$host_riiinglink = $this->riiinglink->getRiiinglink($id);
+		// We want all labels for current user in groups
+		$host_labels     = $this->label->getLabelsForUserInGroups($host_riiinglink->host_id);
+		// We want all labels shared from riiinglink
+		$host_metas      = $this->riiinglink->listAllMetasFromRiiinglink($host_riiinglink);
+
+		/*
+		 * Invited user from riiinglink
+		*/
+		$invited_riiinglink = $this->riiinglink->getRiiinglinkWithInvited($host_riiinglink->invited_id,$host_riiinglink->host_id);
+		// We want all labels for invited user in groups
+		$invited_labels     = $this->apiHelper->dispatchRiiinglinkInGroup($invited_riiinglink);
+
+		return View::make('site.users.show')->with(array('host_riiinglink' => $host_riiinglink, 'host_labels' => $host_labels, 'host_metas' => $host_metas, 'invited_riiinglink' => $invited_riiinglink, 'invited_labels' => $invited_labels ));
 	}
 
 	/**

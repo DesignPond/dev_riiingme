@@ -33,10 +33,30 @@ class Riiinglink extends BaseModel{
             })->first();
         }
 
-        return (isset( $photo->label ) ?  $photo->label : 'avatar.jpg');
+        return (!empty( $photo->label ) ?  $photo->label : 'avatar.jpg');
 
     }
 
+    public function getUserNameAttribute($riiinglink)
+    {
+        $name = '';
+
+        if(isset($this->labels))
+        {
+            $prenom = $this->labels->filter(function($item) {
+                return ($item->type_id == 1 ? $item : '');
+            })->first();
+
+            $nom = $this->labels->filter(function($item) {
+                return ($item->type_id == 2 ? $item : '');
+            })->first();
+
+           $name = $prenom->label.' '.$nom->label;
+        }
+
+        return $name;
+
+    }
     /**
      * Invited infos belongs to host user through link
      *

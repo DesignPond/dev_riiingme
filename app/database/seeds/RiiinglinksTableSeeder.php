@@ -29,6 +29,12 @@ class RiiinglinksTableSeeder extends Seeder {
             'invited_id' => 1,
         ]);
 
+
+        Riiingme\Riiinglink\Entities\Riiinglink::create([
+            'host_id'    => 3,
+            'invited_id' => 1,
+        ]);
+
 	}
 
 }

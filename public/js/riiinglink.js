@@ -9,6 +9,15 @@
         $(".riiinglinkList").addClass("isEditable");
         $(".partage-host").addClass("inEdit");
 
+        $(".riiinglinkList").each(function () {
+
+            var used   = $(this).find('li.Rlink').size();
+            var parent = $(this).parent();
+            if(used > 0){
+                parent.show();
+            }
+        });
+
     });
 
     $(".finishRiiinglink").on('click',function(e){
@@ -16,17 +25,27 @@
         $(this).hide();
         $(".updateRiiinglink").show();
         $(".riiinglinkList li").not(".used").hide();
+
+        $(".riiinglinkList").each(function () {
+
+            var used   = $(this).find('li.used').size();
+            var parent = $(this).parent();
+            if(used == 0){
+                parent.hide();
+            }
+        });
+
         $(".riiinglinkList").removeClass("isEditable");
         $(".partage-host").removeClass("inEdit");
 
         var riiinglink = $('#formRiiinglink').serialize();
 
         $.ajax({
-            url     : 'updateMetas',
+            url     : '/updateMetas',
             data    : { riiinglink: riiinglink },
             type    : "POST",
             success : function(data) {
-                if(data == 'ok')
+                if(data)
                 {
                     //console.log(data);
                 }
