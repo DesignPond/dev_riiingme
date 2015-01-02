@@ -66,25 +66,18 @@
          */
         function init()
         {
-
-            var $inputs = $el.find(":checkbox");
-            $inputs.hide();
-
-            var parent = $el.attr('id');
-                parent = '.' + parent + ' li';
-
-
-            var $Rlink	= $(".Rlink");
+            var $inputs = $el.find(":checkbox").hide();
+            var $Rlink	= $el.find(".Rlink");
 
             $Rlink.click(function()
             {
-                if( $el.hasClass("isEditable") ) {
+                if( $el.hasClass("isEditable") )
+                {
                     $theClickedButton = $(this);
 
                     //move up the DOM to the .zRadioWrapper and then select children. Remove .zSelected from all .zRadio
                     $theClickedButton.toggleClass("used");
                     $theClickedButton.show();
-
                     $theClickedButton.find(':checkbox').each(function () {
                         this.checked = !this.checked;
                         $(this).change()
@@ -93,19 +86,13 @@
             });
 
             // Pour parachever l'initialisation, on appelle la fonction hook
-            // qui va se charger de déclencher le callback éventuellement
-            // posé par l'utilisateur sur l’évènement 'onInit'.
             hook('onInit');
         }
 
-        function activate(item){
-
-        }
+        function activate(item){}
 
 
-        function deactivate(item){
-
-        }
+        function deactivate(item){}
 
         /*
          * GETTER/SETTER pour les options du plugin.
@@ -114,12 +101,10 @@
          */
         function option (key, val)
         {
-            if (val)
-            {
+            if (val){
                 options[key] = val;
             }
-            else
-            {
+            else{
                 return options[key];
             }
         }
@@ -220,7 +205,7 @@
 
     $('.riiinglinkList').riiinglink();
 
-
+/*
     $.fn.zInput = function(){
 
         var $inputs = this.find(":checkbox");
@@ -258,6 +243,7 @@
     }
 
     $("#affected").zInput();
+*/
 
 })(jQuery);
 

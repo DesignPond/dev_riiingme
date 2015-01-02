@@ -164,7 +164,7 @@
 }
 .partage-host .partage-group {
   background: #283871;
-  padding: 5px 0;
+  padding: 0 0 10px 0 ;
   -webkit-transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
@@ -178,8 +178,8 @@
 .partage-group li {
   width: 100%;
   margin: 4px auto;
-  line-height: 4px;
-  height: 24px;
+  line-height: 22px;
+  height: 22px;
   display: none;
   position: relative;
   opacity: 0.6;
@@ -201,7 +201,7 @@
 .partage-group.isEditable li {
   line-height: 28px;
   height: 28px;
-  margin: 4px auto;
+  margin: 3px auto;
   padding-left: 25px;
 }
 .partage-group.isEditable li:not(.used) {
@@ -216,24 +216,25 @@
 /*.partage-group.isEditable li:not(.used):hover{
   background: lighten(@dark, 8%);
 }*/
-.partage-group.isEditable li:hover {
+.riiinglinkList.isEditable li:hover {
   /*  background: darken(@dark, 10%);*/
   cursor: pointer;
+  border: 1px solid #31448c;
 }
 .partage-group.isEditable {
   padding-top: 30px;
-  padding-left: 20px;
+  padding-left: 30px;
 }
-.partage-host.inEdit .groupe-icons {
+.partage-host.inEdit .groupe-icons-edit {
   left: 5px;
   top: 5px;
-  -webkit-transition: all 400ms ease;
-  -moz-transition: all 400ms ease;
-  -ms-transition: all 400ms ease;
-  -o-transition: all 400ms ease;
-  transition: all 400ms ease;
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -ms-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease;
 }
-.partage-host.inEdit .groupe-icons .groupe-icon-info {
+.partage-host.inEdit .groupe-icons-edit .groupe-icon-info {
   width: 22px;
   height: 22px;
 }

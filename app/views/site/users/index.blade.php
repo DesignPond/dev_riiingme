@@ -34,7 +34,11 @@
 
             <?php
                 echo '<pre>';
-                //print_r($invited->user_photo);
+
+            //$infos = array_slice($grouped, 0, 1, true);
+            //$links = array_slice($grouped, 1, 2, true);
+
+                //print_r($array2);
                 echo '</pre>';
             ?>
 
@@ -47,20 +51,17 @@
                             <input type="hidden" name="riiinglink_id" value="{{ $riiinglink->id }}">
 
                             @if(!empty($grouped))
+
                                 @foreach($grouped as $index => $group)
 
                                     <div class="partage-icon">
-                                        <div class="groupe-icons">
+                                        <div class="groupe-icons <?php echo ($index > 1 ? 'groupe-icons-edit' : ''); ?>">
                                             <div class="groupe-icon-info groupe-icon-{{ $index }}"></div>
                                         </div>
-
-                                        <ul class="riiinglinkList partage-group">
+                                        <ul class="<?php echo ($index > 1 ? 'riiinglinkList' : ''); ?> partage-group">
                                             @foreach($group as $label)
                                                 <li class="Rlink <?php echo (in_array($label->id, $metas) ? ' used ' : '' ); ?>">
-                                                    <span>{{ $label->type->titre }}</span><strong>
-                                                        <?php  $thelabel = ($label->type_id == 13 && !empty($label->label) ? \Carbon\Carbon::parse($label->label)->formatLocalized('%d %B %Y') : $label->label); ?>
-                                                        {{ $thelabel }}
-                                                    </strong>
+                                                    <span>{{ $label->type->titre }}</span><strong>{{ $label->label }}</strong>
                                                     <input <?php echo (in_array($label->id, $metas) ? 'checked' : '' ); ?> name="metas[]" value="{{ $label->id }}" type="checkbox">
                                                 </li>
                                             @endforeach
@@ -86,8 +87,7 @@
                                         @foreach($linkgroupe as $label2)
                                             <li class="used">
                                                 <span>{{ $types[$label2->type_id] }}</span><strong>
-                                                    <?php  $thelabel2 = ($label2->type_id == 13 && !empty($label2->label) ? \Carbon\Carbon::parse($label2->label)->formatLocalized('%d %B %Y') : $label2->label); ?>
-                                                    {{ $thelabel2 }}
+                                                    {{ $label2->label }}
                                                 </strong>
                                             </li>
                                         @endforeach

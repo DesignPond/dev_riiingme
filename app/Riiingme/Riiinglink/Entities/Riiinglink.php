@@ -37,20 +37,6 @@ class Riiinglink extends BaseModel{
 
     }
 
-    public function setDateNaissanceAttribute($riiinglink)
-    {
-
-        if(isset($this->labels))
-        {
-            $date = $this->labels->filter(function($item) {
-                return $item->type_id == 13;
-            })->first();
-        }
-
-        return (isset( $date->label ) ? \Carbon\Carbon::parse($date->label)->format('F j, Y') : '');
-
-    }
-
     /**
      * Invited infos belongs to host user through link
      *
