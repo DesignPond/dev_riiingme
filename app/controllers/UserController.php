@@ -38,7 +38,7 @@ class UserController extends \BaseController {
 		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
 		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		return View::make('site.users.index')->with(array('riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+		return View::make('admin.users.index')->with(array('riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
 	}
 
 	/**
@@ -88,7 +88,7 @@ class UserController extends \BaseController {
 		// We want all labels for invited user in groups
 		$invited_labels     = $this->apiHelper->dispatchRiiinglinkInGroup($invited_riiinglink);
 
-		return View::make('site.users.show')->with(array('host_riiinglink' => $host_riiinglink, 'host_labels' => $host_labels, 'host_metas' => $host_metas, 'invited_riiinglink' => $invited_riiinglink, 'invited_labels' => $invited_labels ));
+		return View::make('admin.users.show')->with(array('host_riiinglink' => $host_riiinglink, 'host_labels' => $host_labels, 'host_metas' => $host_metas, 'invited_riiinglink' => $invited_riiinglink, 'invited_labels' => $invited_labels ));
 	}
 
 	/**

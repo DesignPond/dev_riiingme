@@ -294,3 +294,26 @@
 .hideLabel {
   display: none !important;
 }
+.riiinglinkGallery .riiinglinkItem {
+  width: 31%;
+  margin: 1%;
+  float: left;
+  background: #3498db;
+  padding: 5px;
+}
+.riiinglinkGallery .riiinglinkItem a {
+  line-height: 30px;
+  color: #fff;
+  font-weight: 700;
+}
+.riiinglinkGallery .riiinglinkItem .thumb {
+  height: auto;
+  width: 13%;
+  padding: 1px;
+  float: left;
+  margin-right: 8px;
+}
+.riiinglinkGallery .riiinglinkItem img {
+  max-width: 100%;
+  height: auto;
+}

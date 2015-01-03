@@ -30,11 +30,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<!--[if lt IE 9]><!-->
-<!-- css for ie -->
-<link href="<?php echo asset('css/ie.css');?>" media="screen" rel="stylesheet" type="text/css">
-<!--<![endif]-->
-
 </head>
 
 <body id="top" class="page">
