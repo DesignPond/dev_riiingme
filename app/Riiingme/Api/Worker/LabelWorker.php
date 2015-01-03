@@ -54,11 +54,48 @@ class LabelWorker{
         return $this->label->findByUser($user);
     }
 
+    public function getInfosLabelsForUser($user){
+
+        return $this->label->findInfosByUser($user);
+    }
+
     public function getLabelsForUserInGroups($user){
 
         $labels = $this->getLabelsForUser($user);
 
         return $this->apiHelper->dispatchLabelsInGroups($labels);
+    }
+
+
+    public function setInfosForRiiinglinksThumbs($riiinglinks){
+
+        if(!empty($riiinglinks)){
+
+            $types = $this->getTypes();
+
+            $invited = $riiinglinks->map(function($riiinglink) use ($types)
+            {
+                $invite = $this->getInfosLabelsForUser($riiinglink->invited_id);
+
+                if(!$invite->isEmpty())
+                {
+                    foreach($invite as $info)
+                    {
+                        $invited_info[$info->type_id] = $info->label;
+                    }
+
+                    $riiinglink->setAttribute('invited_name', $invited_info[1].' '.$invited_info[2]);
+                    $riiinglink->setAttribute('invited_photo', (isset($invited_info[15]) && !empty($invited_info[15]) ? $invited_info[15] : 'avatar.jpg'));
+
+                }
+
+                return $riiinglink;
+
+            });
+
+        }
+
+        return $invited;
     }
 
 

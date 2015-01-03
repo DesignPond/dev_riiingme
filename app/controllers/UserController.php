@@ -33,18 +33,12 @@ class UserController extends \BaseController {
 	public function index()
 	{
 		// The authentification is not used for now, we are faking a user id
-		$id = 1;
-		setlocale(LC_ALL, 'fr_FR');
+		$host_id = 1;
 
-		$riiinglink = $this->riiinglink->getRiiinglink(1);
-		$grouped    = $this->label->getLabelsForUserInGroups(1);
+		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
+		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		$metas = ( isset($riiinglink->labels) ? $riiinglink->labels->lists('id') : [] );
-
-		$invited      = $this->riiinglink->getRiiinglink(4);
-		$riiinglink2  = $this->apiHelper->dispatchRiiinglinkInGroup($invited);
-
-		return View::make('site.users.index')->with(array('riiinglink' => $riiinglink, 'grouped' => $grouped, 'metas' => $metas, 'riiinglink2' => $riiinglink2, 'invited' => $invited ));
+		return View::make('site.users.index')->with(array('riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
 	}
 
 	/**

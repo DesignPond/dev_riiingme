@@ -20,6 +20,16 @@ class LabelEloquent implements LabelInterface {
         return $this->label->where('user_id','=',$user)->with(array('type','groupe'))->get();
     }
 
+    public function findInfosByUser($user){
+
+        return $this->label->where('user_id','=',$user)
+            ->where(function($query)
+            {
+                $query->where('type_id','=',15)->orWhere('type_id', '=', 1)->orWhere('type_id', '=', 2);
+
+            })->get();
+    }
+
     public function create(array $data){
 
         $label = $this->label->create([

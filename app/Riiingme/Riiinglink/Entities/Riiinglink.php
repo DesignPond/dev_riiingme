@@ -77,6 +77,7 @@ class Riiinglink extends BaseModel{
         return $this->belongsTo('Riiingme\User\Entities\User','host_id','id');
     }
 
+
     /**
      * Metas through labels belongs to user
      *
@@ -86,7 +87,6 @@ class Riiinglink extends BaseModel{
 
         return $this->belongsToMany('Riiingme\Label\Entities\Label', 'metas');
     }
-
 
     /**
      * Metas for riiinglink
