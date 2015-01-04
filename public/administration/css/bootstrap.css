@@ -5210,6 +5210,8 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ddd;
 }
+
+
 .panel-primary {
   border-color: #428bca;
 }
@@ -5228,6 +5230,26 @@ a.list-group-item-danger.active:focus {
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #428bca;
 }
+
+.panel-blue {
+  border-color: #3498db;
+}
+.panel-blue > .panel-heading {
+  color: #fff;
+  background-color: #3498db;
+  border-color: #3498db;
+}
+.panel-blue > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #3498db;
+}
+.panel-blue > .panel-heading .badge {
+  color: #3498db;
+  background-color: #fff;
+}
+.panel-blue > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #3498db;
+}
+
 .panel-success {
   border-color: #d6e9c6;
 }

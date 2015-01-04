@@ -5,7 +5,7 @@ var less = require('gulp-less');
 gulp.task('less', function() {
 
     var combined = combiner.obj([
-        gulp.src('public/style.less'),
+        gulp.src('public/stylw.less'),
         less(),
         gulp.dest('public')
     ]);
@@ -32,9 +32,25 @@ gulp.task('less2', function() {
     return combined;
 });
 
-gulp.task('watch', ['less','less2'], function() {
-    gulp.watch('public/*.less', ['less']);
-    gulp.watch('public/administration/less/*.less', ['less2']);
+gulp.task('user', function() {
+
+    var combined = combiner.obj([
+        gulp.src('public/administration/less/user.less'),
+        less(),
+        gulp.dest('public/administration/css')
+    ]);
+
+    // any errors in the above streams will get caught
+    // by this listener, instead of being thrown:
+    combined.on('error', console.error.bind(console));
+
+    return combined;
 });
 
-gulp.task('default', ['less','less2', 'watch']);
+gulp.task('watch', ['less','less2','user'], function() {
+    gulp.watch('public/css/*.less', ['less']);
+    gulp.watch('public/administration/less/*.less', ['less2']);
+    gulp.watch('public/administration/less/user.less', ['user']);
+});
+
+gulp.task('default', ['less','less2','user', 'watch']);

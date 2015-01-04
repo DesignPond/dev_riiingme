@@ -2426,6 +2426,74 @@ fieldset[disabled] .btn-gplus.active {
 .bg-primary .icon-muted {
   color: #77c587 !important;
 }
+.bg-blue {
+  background-color: #3498db;
+  color: #cce5f6;
+}
+.bg-blue.lt,
+.bg-blue .lt {
+  background-color: #4aa3df;
+}
+.bg-blue.lter,
+.bg-blue .lter {
+  background-color: #5faee3;
+}
+.bg-blue.dk,
+.bg-blue .dk {
+  background-color: #258cd1;
+}
+.bg-blue.dker,
+.bg-blue .dker {
+  background-color: #217dbb;
+}
+.bg-blue .bg {
+  background-color: #3498db;
+}
+.bg-blue a {
+  color: #ffffff;
+}
+.bg-blue a:hover {
+  color: #ffffff;
+}
+.bg-blue a.list-group-item:hover,
+.bg-blue a.list-group-item:focus {
+  background-color: inherit;
+}
+.bg-blue .nav .caret {
+  border-top-color: #cce5f6;
+  border-bottom-color: #cce5f6;
+}
+.bg-blue .nav > li > a {
+  color: #ffffff;
+}
+.bg-blue .nav > li > a:hover,
+.bg-blue .nav > li > a:focus {
+  color: #ffffff;
+  background-color: #258cd1;
+}
+.bg-blue .nav > li > a:hover .caret,
+.bg-blue .nav > li > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.bg-blue .nav .open > a {
+  background-color: #258cd1;
+}
+.bg-blue.navbar .nav > li.active > a {
+  color: #ffffff;
+  background-color: #258cd1;
+}
+.bg-blue .open > a,
+.bg-blue .open > a:hover,
+.bg-blue .open > a:focus {
+  color: #ffffff;
+}
+.bg-blue .text-muted {
+  color: #b6daf2 !important;
+}
+.bg-blue .icon-muted {
+  color: #4aa3df !important;
+}
 .bg-success {
   background-color: #8ec165;
   color: #ebf4e4;
@@ -3272,4 +3340,118 @@ fieldset[disabled] .btn-gplus.active {
   .wrapper-lg {
     padding: 15px;
   }
+}
+/*
+* Sticky header
+*/
+.fixedHeader .scrollHeaderWrapper,
+.header.fixedHeader {
+  height: 64px;
+}
+.fixedHeader .logo {
+  margin-top: 14px;
+}
+.fixedHeader .logo a,
+.fixedHeader .logo a img {
+  height: 45px;
+}
+.fixedHeader .mainNav {
+  padding-top: 15px;
+}
+.riiinglinkIcon {
+  height: 150px;
+  z-index: 100;
+  position: absolute;
+  width: 50px;
+  left: 50%;
+  top: -50px;
+  margin-left: -20px;
+  display: none;
+}
+.riiinglinkIcon img {
+  height: 60px;
+  position: relative;
+  top: 100%;
+  transform: translateY(-50%);
+}
+.partage-host,
+.partage-invited {
+  width: 100%;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+.riiinglink .list-group-item {
+  padding: 6px 15px;
+  min-height: 18px;
+}
+.riiinglink .list-group {
+  margin-bottom: 0;
+}
+.groupe-icons {
+  width: 100%;
+  padding: 8px 8px;
+  height: auto;
+}
+.groupe-icons .groupe-icon-info {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  transition: all 0.3s linear 0s;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.groupe-icons .groupe-icon-info.groupe-icon-1 {
+  background-image: url("../../images/icons/info.svg");
+}
+.groupe-icons .groupe-icon-info.groupe-icon-2 {
+  background-image: url("../../images/icons/adresse.svg");
+}
+.groupe-icons .groupe-icon-info.groupe-icon-3 {
+  background-image: url("../../images/icons/work.svg");
+}
+.partage-invited .partage-group {
+  padding: 5px 0;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+.partage-group .list-group-item {
+  display: none;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+.partage-group .list-group-item.used,
+.partage-group.isEditable .list-group-item {
+  display: block;
+}
+.partage-group.isEditable .list-group-item:not(.used) {
+  background: #d0d0d0;
+  color: #393f4f;
+}
+.partage-group.isEditable .list-group-item:not(.used):hover {
+  background: #bbbbbb;
+}
+/*.partage-group.isEditable li:not(.used):hover{
+  background: lighten(@dark, 8%);
+}*/
+.riiinglinkList.isEditable .list-group-item:hover {
+  /*  background: darken(@dark, 10%);*/
+  cursor: pointer;
+}
+.finishRiiinglink,
+.hideGroup {
+  display: none;
+}
+.hideLabel {
+  display: none !important;
 }

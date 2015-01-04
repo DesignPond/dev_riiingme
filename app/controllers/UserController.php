@@ -4,16 +4,19 @@ use Riiingme\Api\Worker\RiiinglinkWorker;
 use Riiingme\Api\Worker\LabelWorker;
 
 use Riiingme\Api\Helpers\ApiHelper;
+use Riiingme\User\Repo\UserInterface;
 
 class UserController extends \BaseController {
 
 	protected $riiinglink;
 	protected $label;
+	protected $user;
 
-	public function __construct(RiiinglinkWorker $riiinglink, LabelWorker $label)
+	public function __construct(RiiinglinkWorker $riiinglink, LabelWorker $label, UserInterface $user)
 	{
 		$this->riiinglink = $riiinglink;
 		$this->label      = $label;
+		$this->user       = $user;
 
 		$this->apiHelper  = new ApiHelper;
 
@@ -35,10 +38,14 @@ class UserController extends \BaseController {
 		// The authentification is not used for now, we are faking a user id
 		$host_id = 1;
 
+		$user   = $this->user->find($host_id);
+		list($infos['user_name'], $infos['user_photo']) = $this->label->getNameAndPhoto($host_id);
+
 		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
 		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		return View::make('admin.users.index')->with(array('riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+		return View::make('admin.users.index')->with(array('user' => $user, 'infos' => $infos, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+
 	}
 
 	/**

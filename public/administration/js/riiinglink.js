@@ -5,7 +5,7 @@
         $(this).hide();
         $(".riiinglinkList li").show();
 
-        $(".finishRiiinglink").show();
+        $(".finishRiiinglink").css({ 'display': 'block' });
         $(".riiinglinkList").addClass("isEditable");
         $(".partage-host").addClass("inEdit");
 
@@ -30,9 +30,8 @@
 
             var used   = $(this).find('li.used').size();
             var parent = $(this).parent();
-            if(used == 0){
-                parent.hide();
-            }
+
+            //if(used == 0){ parent.hide();}
         });
 
         $(".riiinglinkList").removeClass("isEditable");
@@ -47,7 +46,6 @@
             success : function(data) {
                 if(data)
                 {
-                    //console.log(data);
                 }
             }
         });
@@ -85,7 +83,7 @@
          */
         function init()
         {
-            var $inputs = $el.find(":checkbox").hide();
+            var $inputs = $('.riiinglink').find(":checkbox").hide();
             var $Rlink	= $el.find(".Rlink");
 
             $Rlink.click(function()

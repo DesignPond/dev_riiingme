@@ -66,6 +66,23 @@ class LabelWorker{
         return $this->apiHelper->dispatchLabelsInGroups($labels);
     }
 
+    public function getNameAndPhoto($user_id){
+
+        $infos = $this->getInfosLabelsForUser($user_id);
+
+        if(!$infos->isEmpty())
+        {
+            foreach($infos as $info)
+            {
+                $invited_info[$info->type_id] = $info->label;
+            }
+
+            $invited_name  = $invited_info[1].' '.$invited_info[2];
+            $invited_photo = (isset($invited_info[15]) && !empty($invited_info[15]) ? $invited_info[15] : 'avatar.jpg');
+
+            return array($invited_name,$invited_photo);
+        }
+    }
 
     public function setInfosForRiiinglinksThumbs($riiinglinks){
 
@@ -75,19 +92,11 @@ class LabelWorker{
 
             $invited = $riiinglinks->map(function($riiinglink) use ($types)
             {
-                $invite = $this->getInfosLabelsForUser($riiinglink->invited_id);
 
-                if(!$invite->isEmpty())
-                {
-                    foreach($invite as $info)
-                    {
-                        $invited_info[$info->type_id] = $info->label;
-                    }
+                list($invited_name, $invited_photo) =  $this->getNameAndPhoto($riiinglink->invited_id);
 
-                    $riiinglink->setAttribute('invited_name', $invited_info[1].' '.$invited_info[2]);
-                    $riiinglink->setAttribute('invited_photo', (isset($invited_info[15]) && !empty($invited_info[15]) ? $invited_info[15] : 'avatar.jpg'));
-
-                }
+                $riiinglink->setAttribute('invited_name', $invited_name);
+                $riiinglink->setAttribute('invited_photo', $invited_photo);
 
                 return $riiinglink;
 

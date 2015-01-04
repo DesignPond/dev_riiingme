@@ -1,0 +1,165 @@
+@dark : #243266;
+@blue : #3498db;
+@footerblue :#10162d;
+@darker :#0b0f1e;
+@light : #fff;
+@lightGray : #f5f6f8;
+@darkGray : #393f4f;
+@grey: #d0d0d0;
+@greyHover: #bbbbbb;
+/*
+* Sticky header
+*/
+
+.fixedHeader .scrollHeaderWrapper,.header.fixedHeader{
+  height: 64px;
+}
+
+.fixedHeader .logo{
+  margin-top: 14px;
+}
+
+.fixedHeader .logo a,.fixedHeader .logo a img{
+  height: 45px;
+}
+
+.fixedHeader .mainNav{
+  padding-top: 15px;
+}
+
+.riiinglinkIcon{
+  height: 150px;
+  z-index: 100;
+  position: absolute;
+  width: 50px;
+  left: 50%;
+  top: -50px;
+  margin-left: -20px;
+  display: none;
+}
+
+.riiinglinkIcon img{
+  height: 60px;
+  position: relative;
+  top: 100%;
+  transform: translateY(-50%);
+}
+
+.partage-host,
+.partage-invited{
+  width: 100%;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+
+.riiinglink .list-group-item {
+  padding: 6px 15px;
+  min-height: 18px;
+}
+
+.riiinglink .list-group{
+  margin-bottom: 0;
+}
+
+.groupe-icons{
+  width:100%;
+  padding: 8px 8px;
+  height: auto;
+}
+
+.groupe-icons .groupe-icon-info {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width:20px;
+  height: 20px;
+  text-align: center;
+  transition: all 0.3s linear 0s;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-1 {
+  background-image: url("../../images/icons/info.svg");
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-2 {
+  background-image: url("../../images/icons/adresse.svg");
+}
+
+.groupe-icons .groupe-icon-info.groupe-icon-3 {
+  background-image: url("../../images/icons/work.svg");
+}
+
+.partage-invited .partage-group{
+  padding: 5px 0;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+
+.partage-group .list-group-item{
+  display: none;
+  -webkit-transition: all 600ms ease;
+  -moz-transition: all 600ms ease;
+  -ms-transition: all 600ms ease;
+  -o-transition: all 600ms ease;
+  transition: all 600ms ease;
+}
+
+.partage-group .list-group-item.used,.partage-group.isEditable .list-group-item{
+  display: block;
+}
+
+.partage-group.isEditable .list-group-item:not(.used){
+  background: @grey;
+  color: @darkGray;
+}
+
+.partage-group.isEditable .list-group-item:not(.used):hover{
+  background: @greyHover;
+}
+
+.partage-group.isEditable .list-group-item .badge{
+
+}
+
+.partage-invited .partage-group .list-group-item.active{
+
+}
+
+/*.partage-group.isEditable li:not(.used):hover{
+  background: lighten(@dark, 8%);
+}*/
+
+.riiinglinkList.isEditable .list-group-item:hover{
+  /*  background: darken(@dark, 10%);*/
+  cursor: pointer;
+
+}
+
+.partage-group.isEditable{
+
+}
+
+.partage-host .partage-group .list-group-item.used span{
+
+}
+
+.partage-invited .partage-group .list-group-item.used span{
+
+}
+
+.finishRiiinglink, .hideGroup{
+  display: none;
+}
+
+
+.hideLabel{
+  display: none !important;
+}
+

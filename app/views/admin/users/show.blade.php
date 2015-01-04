@@ -1,129 +1,142 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 @section('content')
 
-<!-- Facts -->
-<section class="facts section mainSection scrollAnchor graySection" id="facts">
-    <div class="sectionWrapper">
-        <div class="container">
+    <div class="row">
 
-            <div class="row">
-                <div class="col-md-5 text-center partage-user">
-                    <div class="userPicto userPicto-host">
-                        <div class="thumb rotate">
-                            <img class="riiinglinkIcon" src="{{ asset('users/'.$host_riiinglink->user_photo.'') }}" alt="" />
+        <div class="riiinglinkIcon">
+            <img src="{{ asset('images/riiinglink.svg') }}" alt="" />
+        </div><!-- end of facts wrapper -->
+
+        <div class="col-md-6">
+
+            <section class="panel panel-default">
+                <header class="panel-heading bg-danger lt no-border">
+                    <div class="clearfix">
+                        <a class="pull-left thumb avatar b-3x m-r" href="#">
+                            <img class="img-circle" src="{{ asset('users/'.$host_riiinglink->user_photo.'') }}">
+                        </a>
+                        <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs text-white">
+                                {{ $host_riiinglink->user_name }}
+                                <i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
+                            </div>
+                            <small class="text-muted">Art director</small>
                         </div>
-                        <h4 class="factTitle">{{ $host_riiinglink->user_name }}</h4>
-                        <p>
-                            <a href="#" class="btn btn-warning updateRiiinglink">update</a>
-                            <a href="#" class="btn btn-success finishRiiinglink">finish</a>
-                        </p>
-                    </div><!-- end of fact -->
-                </div><!-- end of facts wrapper -->
-                <div class="col-md-2 text-center riiinglinkIcon">
-                    <img src="{{ asset('images/riiinglink.svg') }}" alt="" />
-                </div><!-- end of facts wrapper -->
-                <div class="col-md-5 text-center partage-user">
-                    <div class="userPicto userPicto-invited">
-                        <div class="thumb rotate">
-                            <img src="{{ asset('users/'.$invited_riiinglink->user_photo.'') }}" alt="" />
+                    </div>
+                </header>
+                <div class="list-group no-radius alt">
+                    <a href="#" class="list-group-item updateRiiinglink">
+                        <span class="badge bg-success">25</span>
+                        <i class="fa fa-comment icon-muted"></i>
+                        update
+                    </a>
+                    <a href="#" class="list-group-item finishRiiinglink">
+                        <span class="badge bg-info">16</span>
+                        <i class="fa fa-envelope icon-muted"></i>
+                        finish
+                    </a>
+                </div>
+            </section>
+
+        </div><!-- end of facts wrapper -->
+
+        <div class="col-md-6">
+            <section class="panel panel-default">
+                <header class="panel-heading bg-blue lt no-border">
+                    <div class="clearfix">
+                        <a class="pull-left thumb avatar b-3x m-r" href="#">
+                            <img class="img-circle" src="{{ asset('users/'.$invited_riiinglink->user_photo.'') }}">
+                        </a>
+                        <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs text-white">
+                                {{ $invited_riiinglink->user_name }}
+                                <i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
+                            </div>
+                            <small class="text-muted">Art director</small>
                         </div>
-                        <h4 class="factTitle">{{ $invited_riiinglink->user_name }}</h4>
-                    </div><!-- end of fact -->
-                </div><!-- end of facts wrapper -->
-            </div><!-- end of row -->
+                    </div>
+                </header>
+                <div class="list-group no-radius alt">
 
-            <?php
-                echo '<pre>';
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-comment icon-muted"></i>update
+                    </a>
 
-            //$infos = array_slice($grouped, 0, 1, true);
-            //$links = array_slice($grouped, 1, 2, true);
+                </div>
+            </section>
 
-               // print_r($host_metas);
-                echo '</pre>';
-            ?>
+        </div><!-- end of col -->
+    </div><!-- end of row -->
+<br/>
 
-            <div class="row factsContents">
-                <div class="col-md-12 riiinglink">
+    <div class="row">
 
-                    <div class="partage-host partage-riiinglink">
-                        <form id="formRiiinglink">
+        <div class="col-md-6">
+            <div class="riiinglink">
+                <div class="partage-host partage-riiinglink">
 
-                            <input type="hidden" name="riiinglink_id" value="{{ $host_riiinglink->id }}">
+                    <form id="formRiiinglink">
+                    <input type="hidden" name="riiinglink_id" value="{{ $host_riiinglink->id }}">
 
-                            @if(!empty($host_labels))
-                                @foreach($host_labels as $host_index => $host_group)
+                        @if(!empty($host_labels))
+                            @foreach($host_labels as $host_index => $host_group)
+
+                            <section class="panel panel-default">
+                                <header class="panel-heading">
+                                    <div class="groupe-icon-info groupe-icon-{{ $host_index }}">{{ $groupes[$host_index] }}</div>
+                                </header>
+                                <div class="panel-body riiinglink">
 
                                     <div class="partage-icon <?php echo (count($host_metas[$host_index]) == 0 ? 'hideGroup' : '' ); ?>">
-                                        <div class="groupe-icons <?php echo ($host_index > 1 ? 'groupe-icons-edit' : ''); ?>">
-                                            <div class="groupe-icon-info groupe-icon-{{ $host_index }}"></div>
-                                        </div>
-
-                                        <ul class="<?php echo ($host_index > 1 ? 'riiinglinkList' : ''); ?> partage-group">
+                                        <div class="<?php echo ($host_index > 1 ? 'riiinglinkList' : ''); ?> partage-group list-group bg-white">
                                             @foreach($host_group as $host)
-                                                <li class="Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?><?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
-                                                    <span>{{ $host->type->titre }}</span><strong>{{ $host->label }}</strong>
+                                                <div class="list-group-item Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?><?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
+                                                    <span class="badge bg-info">{{ $host->type->titre }}</span><strong>{{ $host->label}} &nbsp;</strong>
                                                     <input <?php echo (in_array($host->id, $host_metas[$host_index]) ? 'checked' : '' ); ?> name="metas[]" value="{{ $host->id }}" type="checkbox">
-                                                </li>
+                                                </div>
                                             @endforeach
-                                        </ul>
+                                        </div>
                                     </div>
 
-                                @endforeach
-                            @endif
-
-                        </form>
-                    </div>
-
-                    <div class="partage-invited partage-riiinglink">
-                        @if(!empty($invited_labels))
-                            @foreach($invited_labels as $invited_index => $invited_group)
-
-                                <div class="partage-icon">
-                                    <div class="groupe-icons">
-                                        <div class="groupe-icon-info groupe-icon-{{ $invited_index }}"></div>
-                                    </div>
-                                    <ul class="partage-group">
-                                        @foreach($invited_group as $invited)
-                                            <li class="used">
-                                                <span>{{ $types[$invited->type_id] }}</span><strong>
-                                                    {{ $invited->label }}
-                                                </strong>
-                                            </li>
-                                        @endforeach
-                                    </ul>
                                 </div>
+                            </section>
 
                             @endforeach
                         @endif
-                    </div>
+                    </form>
 
-                </div><!-- end of fact img -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="riiinglink">
 
-            </div><!-- end of row -->
+                @if(!empty($invited_labels))
+                    @foreach($invited_labels as $invited_index => $invited_group)
 
-        </div><!-- end of container -->
-    </div><!-- end of section wrapper -->
-</section><!-- end of facts section -->
-<!-- Features -->
-<section class="features section mainSection scrollAnchor lightSection" id="features">
-    <div class="sectionWrapper">
-        <div class="container">
+                        <section class="panel panel-default">
+                            <header class="panel-heading">
+                                <div class="groupe-icon-info groupe-icon-{{ $invited_index }}">{{ $groupes[$invited_index] }}</div>
+                            </header>
+                            <div class="panel-body">
+                                <div class="partage-icon">
+                                    <div class="partage-group list-group bg-white">
+                                        @foreach($invited_group as $invited)
+                                            <div class="list-group-item used <?php echo ($invited->type_id == 15 ? 'hideLabel' : ''); ?>">
+                                                <span class="badge bg-success">{{ $types[$invited->type_id] }}</span><strong>{{ $invited->label }}</strong>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-            <div class="row">
-                <div class="col-md-12 sectionTitle">
+                    @endforeach
+                @endif
+            </div>
+        </div>
 
+    </div>
 
-                    <h2 class="sectionHeader">
-                        Don’t Hesitate, Seven Host Provide Awesome &amp; Perfect Features For You
-                        <span class="generalBorder"></span>
-                    </h2><!-- end of sectionHeader -->
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.</p>
-                </div><!-- end of section title -->
-            </div><!-- end of row -->
-
-            </div><!-- end of row -->
-        </div><!-- end of container -->
-    </div><!-- end of section wrapper -->
-</section><!-- end features section -->
 
 @stop
