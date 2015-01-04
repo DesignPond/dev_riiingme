@@ -14,8 +14,8 @@
               <form class="loginForm" method="POST">
                 <input class="loginName" id="loginName" name="loginName" placeholder="Name" type="text">
                 <input class="loginPassword" id="loginPassword" name="loginPassword" placeholder="Password" type="password">
-                  <input type="checkbox" name="remember" id="remember">
-                  <label for="remember">Remember Me</label>
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
                 <button class="generalBtn loginBtn" type="submit">Login</button>
               </form>
             </li>

@@ -1,12 +1,8 @@
 @extends('layouts.master')
 @section('content')
 
-
-  <!-- homepage header -->
-  @include('partials.header')
-
- <!-- Welcome -->
- <section class="welcome welcome2 section mainSection scrollAnchor lightSection" id="welcome">
+  <!-- Welcome -->
+  <section class="welcome welcome2 section mainSection scrollAnchor lightSection" id="welcome">
     <div class="sectionWrapper">
       <div class="container">
 
@@ -44,10 +40,10 @@
         </div><!-- end of row -->
       </div><!-- end of container -->
     </div><!-- end of section wrapper -->
-    </section><!-- end welcome section -->
+  </section><!-- end welcome section -->
 
-    <!-- Pricing -->
-    <section class="pricing pricing2 section mainSection scrollAnchor graySection" id="pricing">
+  <!-- Pricing -->
+  <section class="pricing pricing2 section mainSection scrollAnchor graySection" id="pricing">
     <div class="sectionWrapper">
       <div class="container">
         <div class="row">
@@ -83,7 +79,7 @@
             <div class="pricingTable">
               <header class="pricingHeader clearfix">
                 <h3 class="pricingTitle planTitle">
-                 Plan Professionnel<br><span>Idéal pour les PME</span>
+                  Plan Professionnel<br><span>Idéal pour les PME</span>
                 </h3>
                 <div class="pricingPerMonth">50 CHF/Mois</div>
               </header><!-- end pricing header -->
@@ -121,6 +117,6 @@
         </div><!-- end of row-->
       </div><!-- end of container -->
     </div><!-- end of section wrapper -->
-    </section><!-- end of pricing section -->
+  </section><!-- end of pricing section -->
 
 @stop

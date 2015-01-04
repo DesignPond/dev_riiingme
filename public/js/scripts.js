@@ -28,7 +28,7 @@ This file includes all cusomized javascript and all plugins libraries options
   
   jQuerywindow.resize(function(){
     //-- fixed heights for some slider elements --
-
+    //jQuery('#slider  , .slider .item > img , #banner , #banner .item').css({ 'height' : "783px" });
   });
 
   jQuerywindow.trigger('resize');
@@ -144,8 +144,37 @@ This file includes all cusomized javascript and all plugins libraries options
   //-- homeSlider_1 and postSlider --
   jQuery(document).ready(function() {
 
+    //Init the carousel
+    jQuery(".homeSlider_1 , .postSlider").owlCarousel({
+      animateOut: 'fadeOut',
+      items:1,
+      margin:0,
+      loop:true,
+      autoplay:true,
+      autoplayTimeout:8000,
+      autoplayHoverPause:false,
+      nav: true,
+      dots: false,
+      stagePadding:0,
+      smartSpeed:1000,
+      responsive:{
+        0:{
+          items:1
+        },
+        768:{
+          items:1
+        },
+        1000:{
+          items:1
+        }
+      }
+    });
+
+  });
+  //--------------------------------------------------------------------------------------------
+
   //-- homeSlider_2 --
-/*  jQuery(document).ready(function() {
+  jQuery(document).ready(function() {
 
     var owl = jQuery(".homeSlider_2");
 
@@ -162,16 +191,9 @@ This file includes all cusomized javascript and all plugins libraries options
       responsive:{
           0:{
               items:1
-          },
-          768:{
-              items:1
-          },
-          1000:{
-              items:1
           }
         }
-    });*/
-
+    });
   });
   //--------------------------------------------------------------------------------------------
 

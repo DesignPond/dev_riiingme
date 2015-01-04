@@ -1,11 +1,10 @@
-@import url('bootstrap.css');
-@import url('css3-animations.css');
-@import url('font-awesome.css');
+@import url('css/bootstrap.css');
+@import url('css/css3-animations.css');
+@import url('css/font-awesome.css');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext');
 /*=============================================================================
   
   Stylesheet Documentation
-
 
   Imported Css
   -------------
@@ -1416,6 +1415,21 @@ hr,
   line-height: 30px;
 }
 /* --- OWL carousel Slider Styles --------------------- */
+#slider {
+  background: #243266;
+}
+#captions {
+  z-index: 100;
+}
+#captions .captions h3,
+#captions .captions p {
+  color: #fff;
+  opacity: 1;
+  margin: 0;
+}
+#captions .captions h3 {
+  margin: 40px 0 40px 0;
+}
 .slider {
   overflow: hidden;
   position: relative;
@@ -1778,7 +1792,7 @@ hr,
 }
 /* mouse grab icon */
 .grabbing {
-  cursor: url('../images/grabbing.png') 8 8, move;
+  cursor: url('images/grabbing.png') 8 8, move;
 }
 /* fix */
 .owl-carousel .owl-wrapper,
@@ -3067,22 +3081,22 @@ hr,
   display: inline-block;
 }
 .singleService .servicesBg-1 {
-  background-image: url('../images/service-1.png');
+  background-image: url('images/service-1.png');
 }
 .singleService .servicesBg-2 {
-  background-image: url('../images/service-2.png');
+  background-image: url('images/service-2.png');
 }
 .singleService .servicesBg-3 {
-  background-image: url('../images/service-3.png');
+  background-image: url('images/service-3.png');
 }
 .singleService .servicesBg-4 {
-  background-image: url('../images/service-4.png');
+  background-image: url('images/service-4.png');
 }
 .singleService .servicesBg-5 {
-  background-image: url('../images/service-5.png');
+  background-image: url('images/service-5.png');
 }
 .singleService .servicesBg-6 {
-  background-image: url('../images/service-6.png');
+  background-image: url('images/service-6.png');
 }
 .singleService a {
   background-color: #243266;
@@ -3174,7 +3188,7 @@ hr,
   -ms-transition: all 0.4s ease-in-out;
   -khtml-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background: #ffffff url('../images/plan-icon-pink.png') center center no-repeat;
+  background: #ffffff url('images/plan-icon-pink.png') center center no-repeat;
 }
 .pricingTable .pricingHeader {
   border: 1px solid #ff6b6b;
@@ -3968,16 +3982,16 @@ img.fnone {
   vertical-align: middle;
 }
 .fact .factIcon1 {
-  background: #243266 url('../images/fact-1-pink.png') no-repeat center center;
+  background: #243266 url('images/fact-1-pink.png') no-repeat center center;
 }
 .fact .factIcon2 {
-  background: #243266 url('../images/fact-2-pink.png') no-repeat center center;
+  background: #243266 url('images/fact-2-pink.png') no-repeat center center;
 }
 .fact .factIcon3 {
-  background: #243266 url('../images/fact-3-pink.png') no-repeat center center;
+  background: #243266 url('images/fact-3-pink.png') no-repeat center center;
 }
 .fact .factIcon4 {
-  background: #243266 url('../images/fact-4-pink.png') no-repeat center bottom;
+  background: #243266 url('images/fact-4-pink.png') no-repeat center bottom;
 }
 .fact .factTitle {
   font-weight: 700;
@@ -5834,7 +5848,7 @@ img.fnone {
 }
 .aboutBox .aboutBoxBody .singleOffer {
   padding: 20px;
-  background: url('../images/offer.jpg') center center no-repeat;
+  background: url('images/offer.jpg') center center no-repeat;
   background-size: 100% 100%;
   position: relative;
 }
@@ -6476,7 +6490,7 @@ img.fnone {
 /* --- Page info  --------------------- */
 .pageInfo {
   padding: 45px 0;
-  background: url('../images/page-info-bg.png') no-repeat;
+  background: url('images/page-info-bg.png') no-repeat;
   background-attachment: fixed;
   position: relative;
   border-bottom: 1px solid #30333c;
@@ -6560,22 +6574,22 @@ img.fnone {
 }
 /* follow */
 .colorFulSocial li.facebook a {
-  background: url('../images/share-btns.png') 0 0 no-repeat;
+  background: url('images/share-btns.png') 0 0 no-repeat;
 }
 .colorFulSocial li.twitter a {
-  background: url('../images/share-btns.png') 0 -32px no-repeat;
+  background: url('images/share-btns.png') 0 -32px no-repeat;
 }
 .colorFulSocial li.googleplus a {
-  background: url('../images/share-btns.png') 0 -64px no-repeat;
+  background: url('images/share-btns.png') 0 -64px no-repeat;
 }
 .colorFulSocial li.email a {
-  background: url('../images/share-btns.png') 0 -96px no-repeat;
+  background: url('images/share-btns.png') 0 -96px no-repeat;
 }
 .colorFulSocial li.youtube a {
-  background: url('../images/share-btns.png') 0 -128px no-repeat;
+  background: url('images/share-btns.png') 0 -128px no-repeat;
 }
 .colorFulSocial li.pinterest a {
-  background: url('../images/share-btns.png') 0 -160px no-repeat;
+  background: url('images/share-btns.png') 0 -160px no-repeat;
 }
 /* --- ShortCodes --------------------- */
 /* --- newsletter --------------------- */
@@ -6633,7 +6647,7 @@ img.fnone {
   display: block;
   text-align: center;
   line-height: 32px;
-  background-image: url('../images/social-list.png');
+  background-image: url('images/social-list.png');
   background-repeat: no-repeat;
   color: #ffffff;
 }
@@ -6906,7 +6920,7 @@ img.fnone {
   border-radius: 2px 2px 2px 2px;
   height: 38px;
   line-height: 38px;
-  background-image: url('../images/social-list-large.png');
+  background-image: url('images/social-list-large.png');
 }
 .socialList.largeSocialList li a.facebook {
   background-position: 0px 0px;
@@ -7875,11 +7889,11 @@ img.fnone {
   left: 50%;
 }
 .body-boxed {
-  background: transparent url('../images/patterns/bg8.png') repeat left top;
+  background: transparent url('images/patterns/bg8.png') repeat left top;
 }
 /* body boxed 2 */
 .body-boxed-2 {
-  background: transparent url('../images/bg-body.jpg') no-repeat center center fixed;
+  background: transparent url('images/bg-body.jpg') no-repeat center center fixed;
   background-size: 100% 100%;
 }
 .body-boxed-2 .allWrapper {

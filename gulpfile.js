@@ -5,9 +5,9 @@ var less = require('gulp-less');
 gulp.task('less', function() {
 
     var combined = combiner.obj([
-        gulp.src('public/css/*.less'),
+        gulp.src('public/style.less'),
         less(),
-        gulp.dest('public/css')
+        gulp.dest('public')
     ]);
 
     // any errors in the above streams will get caught
@@ -33,7 +33,7 @@ gulp.task('less2', function() {
 });
 
 gulp.task('watch', ['less','less2'], function() {
-    gulp.watch('public/css/*.less', ['less']);
+    gulp.watch('public/*.less', ['less']);
     gulp.watch('public/administration/less/*.less', ['less2']);
 });
 
