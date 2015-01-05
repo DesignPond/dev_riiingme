@@ -3,20 +3,16 @@
 
 
 <?php
-    echo '<pre>';
-
-//$infos = array_slice($grouped, 0, 1, true);
-//$links = array_slice($grouped, 1, 2, true);
-
+    //echo '<pre>';
     //print_r($user);
-    echo '</pre>';
+    //echo '</pre>';
 ?>
 
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4 riiinglink">
         <section class="panel panel-default">
-            <header class="panel-heading bg-danger lt no-border">
+            <header class="panel-heading bg-info lt no-border">
                 <div class="clearfix">
                     <a href="#" class="pull-left thumb avatar b-3x m-r">
                         <img src="{{ asset('users/'.$infos['user_photo']) }}" class="img-circle">
@@ -26,48 +22,34 @@
                             {{ $infos['user_name'] }}
                             <i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
                         </div>
-                        <small class="text-muted">Art director</small>
+                        <small class="text-muted">Vos informations</small>
                     </div>
                 </div>
             </header>
-            <div class="list-group no-radius alt">
-                <a class="list-group-item" href="#">
-                    <span class="badge bg-success">25</span>
-                    <i class="fa fa-comment icon-muted"></i>
-                    Messages
-                </a>
-                <a class="list-group-item" href="#">
-                    <span class="badge bg-info">16</span>
-                    <i class="fa fa-envelope icon-muted"></i>
-                    Inbox
-                </a>
-                <a class="list-group-item" href="#">
-                    <span class="badge bg-light">5</span>
-                    <i class="fa fa-eye icon-muted"></i>
-                    Profile visits
-                </a>
-            </div>
-        </section>
-        <section class="panel panel-info">
-            <div class="panel-body">
-                <a href="#" class="thumb pull-right m-l">
-                    <img src="images/avatar.jpg" class="img-circle">
-                </a>
-                <div class="clear">
-                    <a href="#" class="text-info">@Mike Mcalidek <i class="icon-twitter"></i></a>
-                    <small class="block text-muted">2,415 followers / 225 tweets</small>
-                    <a href="#" class="btn btn-xs btn-success m-t-xs">Follow</a>
+
+            @if(!empty($user_labels))
+                <div class="list-group no-radius alt">
+                    @foreach($user_labels as $labels)
+                        @foreach($labels as $label)
+                            <a class="list-group-item" href="#">
+                                <span class="badge bg-danger">{{ $types[$label->type_id] }}</span>
+                                <?php echo (isset($label->label ) ? $label->label  : '&nbsp;'); ?>
+                            </a>
+                        @endforeach
+                    @endforeach
                 </div>
-            </div>
+            @else
+               <p><a class="btn btn-xs btn-info" href="{{ url('user/'.$thumb->id) }}">Mettre à jour vos infos</a></p>
+            @endif
         </section>
 
+
     </div><!-- end of col-->
-    <div class="col-md-9">
+    <div class="col-md-8">
 
             @if(!empty($thumbs))
 
                 <?php $group_thumbs = $thumbs->chunk(4); ?>
-
 
                 @foreach($group_thumbs as $group)
                     <div class="row">

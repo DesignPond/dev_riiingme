@@ -41,10 +41,12 @@ class UserController extends \BaseController {
 		$user   = $this->user->find($host_id);
 		list($infos['user_name'], $infos['user_photo']) = $this->label->getNameAndPhoto($host_id);
 
+		$user_labels     = $this->label->getLabelsForUserInGroups($host_id);
+
 		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
 		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		return View::make('admin.users.index')->with(array('user' => $user, 'infos' => $infos, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+		return View::make('admin.users.index')->with(array('user' => $user, 'user_labels' => $user_labels, 'infos' => $infos, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
 
 	}
 
