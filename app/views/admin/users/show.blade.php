@@ -88,14 +88,43 @@
                                 <div class="panel-body riiinglink">
 
                                     <div class="partage-icon <?php echo (count($host_metas[$host_index]) == 0 ? 'hideGroup' : '' ); ?>">
-                                        <div class="<?php echo ($host_index > 1 ? 'riiinglinkList' : ''); ?> partage-group list-group bg-white">
+
+                                        <div class="<?php echo ($host_index > 1 ? 'riiinglinkList' : ''); ?> partage-group">
+
                                             @foreach($host_group as $host)
-                                                <div class="list-group-item Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?><?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
-                                                    <span class="badge bg-info">{{ $host->type->titre }}</span><strong>{{ $host->label}} &nbsp;</strong>
-                                                    <input <?php echo (in_array($host->id, $host_metas[$host_index]) ? 'checked' : '' ); ?> name="metas[]" value="{{ $host->id }}" type="checkbox">
-                                                </div>
+                                                @if(in_array($host->id, $host_metas[$host_index]))
+
+                                                    <article class="media display-rlink Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?>">
+                                                        <span class="pull-left thumb-sm"><i class="fa fa-link fa-1x icon-success"></i></span>
+                                                        <div class="media-body">
+                                                            <div class="pull-right media-xs text-center text-muted">
+                                                                <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                            </div>
+                                                            <p class="h5 text-info">{{ $host->label }}</p>
+                                                            <input checked name="metas[]" value="{{ $host->id }}" type="checkbox">
+                                                        </div>
+                                                    </article>
+                                                    <div class="line pull-in <?php echo ($host->type_id == 15 ? 'hide' : ''); ?>"></div>
+
+                                                @else
+
+                                                    <article class="media display-rlink Rlink <?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
+                                                        <span class="pull-left thumb-sm"><i class="fa fa-minus-circle fa-1x"></i></span>
+                                                        <div class="media-body">
+                                                            <div class="pull-right media-xs text-center text-danger">
+                                                                <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                            </div>
+                                                            <p class="h5">{{ $host->label }}</p>
+                                                            <input name="metas[]" value="{{ $host->id }}" type="checkbox">
+                                                        </div>
+                                                    </article>
+                                                    <div class="line pull-in <?php echo ($host->type_id == 15 ? 'hide' : ''); ?>"></div>
+
+                                                @endif
                                             @endforeach
+
                                         </div>
+
                                     </div>
 
                                 </div>

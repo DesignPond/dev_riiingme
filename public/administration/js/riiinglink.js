@@ -3,11 +3,9 @@
     $(".updateRiiinglink").on('click',function(e){
         e.preventDefault();
         $(this).hide();
-        $(".riiinglinkList li").show();
 
         $(".finishRiiinglink").css({ 'display': 'block' });
         $(".riiinglinkList").addClass("isEditable");
-        $(".partage-host").addClass("inEdit");
 
         $(".riiinglinkList").each(function () {
 
@@ -24,7 +22,6 @@
         e.preventDefault();
         $(this).hide();
         $(".updateRiiinglink").show();
-        $(".riiinglinkList li").not(".used").hide();
 
         $(".riiinglinkList").each(function () {
 
@@ -35,7 +32,6 @@
         });
 
         $(".riiinglinkList").removeClass("isEditable");
-        $(".partage-host").removeClass("inEdit");
 
         var riiinglink = $('#formRiiinglink').serialize();
 
