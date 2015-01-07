@@ -7,6 +7,7 @@
 @darkGray : #393f4f;
 @grey: #d0d0d0;
 @greyHover: #bbbbbb;
+@red: #ffe9e9;
 /*
 * Sticky header
 */
@@ -95,6 +96,7 @@
 
 .partage-group .display-rlink{
   display: none;
+  padding: 0 15px;
   -webkit-transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
@@ -102,16 +104,17 @@
   transition: all 600ms ease;
 }
 
-.partage-group .display-rlink.used,.partage-group.isEditable .display-rlink{
+.partage-group .display-rlink.used,
+.partage-group.isEditable .display-rlink{
   display: block;
 }
 
 .partage-group.isEditable .display-rlink:not(.used){
-  background: #f5f5f5;
+  background: @red;
 }
 
 .partage-group.isEditable .display-rlink:not(.used):hover{
-  background: #ededed;
+  background: darken(@red, 5%);
 }
 
 .partage-group .line:last-child{
@@ -131,10 +134,8 @@
   cursor: pointer;
 }
 
-
-
 .partage-host .panel-body {
-  padding: 0 15px;
+  padding: 0;
 }
 
 .partage-host .partage-group .display-rlink.used span{

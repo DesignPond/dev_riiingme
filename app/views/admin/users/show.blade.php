@@ -94,32 +94,36 @@
                                             @foreach($host_group as $host)
                                                 @if(in_array($host->id, $host_metas[$host_index]))
 
-                                                    <article class="media display-rlink Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?>">
-                                                        <span class="pull-left thumb-sm"><i class="fa fa-link fa-1x icon-success"></i></span>
-                                                        <div class="media-body">
-                                                            <div class="pull-right media-xs text-center text-muted">
-                                                                <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                    <div class="display-rlink Rlink <?php echo (in_array($host->id, $host_metas[$host_index]) ? ' used ' : '' ); ?>">
+                                                        <article class="media">
+                                                            <span class="pull-left thumb-sm">
+                                                                <i class="fa fa-link fa-1x"></i>
+                                                            </span>
+                                                            <div class="media-body">
+                                                                <div class="pull-right media-xs text-center text-muted">
+                                                                    <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                                </div>
+                                                                <p class="h5 text-info">{{ $host->label }}</p>
+                                                                <input checked name="metas[]" value="{{ $host->id }}" type="checkbox">
                                                             </div>
-                                                            <p class="h5 text-info">{{ $host->label }}</p>
-                                                            <input checked name="metas[]" value="{{ $host->id }}" type="checkbox">
-                                                        </div>
-                                                    </article>
-                                                    <div class="line pull-in <?php echo ($host->type_id == 15 ? 'hide' : ''); ?>"></div>
+                                                        </article>
+                                                        <div class="line pull-in <?php echo ($host->type_id == 15 ? 'hide' : ''); ?>"></div>
+                                                    </div>
 
                                                 @else
-
-                                                    <article class="media display-rlink Rlink <?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
-                                                        <span class="pull-left thumb-sm"><i class="fa fa-minus-circle fa-1x"></i></span>
-                                                        <div class="media-body">
-                                                            <div class="pull-right media-xs text-center text-danger">
-                                                                <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                    <div class="display-rlink Rlink <?php echo ($host->type_id == 15 ? 'hideLabel' : ''); ?>">
+                                                        <article class="media">
+                                                            <span class="pull-left thumb-sm"><i class="fa fa-minus-circle fa-1x"></i></span>
+                                                            <div class="media-body">
+                                                                <div class="pull-right media-xs text-center text-danger">
+                                                                    <strong class="h5">{{ $host->type->titre }}</strong><br>
+                                                                </div>
+                                                                <p class="h5">{{ $host->label }}</p>
+                                                                <input name="metas[]" value="{{ $host->id }}" type="checkbox">
                                                             </div>
-                                                            <p class="h5">{{ $host->label }}</p>
-                                                            <input name="metas[]" value="{{ $host->id }}" type="checkbox">
-                                                        </div>
-                                                    </article>
-                                                    <div class="line pull-in <?php echo ($host->type_id == 15 ? 'hide' : ''); ?>"></div>
-
+                                                        </article>
+                                                        <div class="line pull-in"></div>
+                                                    </div>
                                                 @endif
                                             @endforeach
 

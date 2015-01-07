@@ -3417,6 +3417,7 @@ fieldset[disabled] .btn-gplus.active {
 }
 .partage-group .display-rlink {
   display: none;
+  padding: 0 15px;
   -webkit-transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
@@ -3428,10 +3429,10 @@ fieldset[disabled] .btn-gplus.active {
   display: block;
 }
 .partage-group.isEditable .display-rlink:not(.used) {
-  background: #f5f5f5;
+  background: #ffe9e9;
 }
 .partage-group.isEditable .display-rlink:not(.used):hover {
-  background: #ededed;
+  background: #ffcfcf;
 }
 .partage-group .line:last-child {
   display: block;
@@ -3444,7 +3445,7 @@ fieldset[disabled] .btn-gplus.active {
   cursor: pointer;
 }
 .partage-host .panel-body {
-  padding: 0 15px;
+  padding: 0;
 }
 .finishRiiinglink,
 .hideGroup,

@@ -90,10 +90,17 @@
 
                     //move up the DOM to the .zRadioWrapper and then select children. Remove .zSelected from all .zRadio
                     $theClickedButton.toggleClass("used");
+
+                    var icon = $theClickedButton.find('span i.fa');
+                    var text = $theClickedButton.find('.media-body .h5');
+
+                    icon.toggleClass("fa-link fa-minus-circle");
+                    text.toggleClass("text-info");
+
                     $theClickedButton.show();
                     $theClickedButton.find(':checkbox').each(function () {
                         this.checked = !this.checked;
-                        $(this).change()
+                        $(this).change();
                     });
                 }
             });
