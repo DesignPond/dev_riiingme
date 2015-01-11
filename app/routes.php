@@ -10,6 +10,8 @@ Route::get('/', array('as' => 'home', 'uses' => 'SiteController@index'));
 Route::get('about', array('as' => 'about', 'uses' => 'SiteController@about'));
 Route::get('contact', array('as' => 'contact', 'uses' => 'SiteController@contact'));
 
+Route::get('user/edit', array('as' => 'edit', 'uses' => 'UserController@edit'));
+Route::get('user/see', array('as' => 'see', 'uses' => 'UserController@see'));
 Route::resource('user', 'UserController');
 
 Route::post('updateMetas', 'RiiinglinksController@updateMetas');

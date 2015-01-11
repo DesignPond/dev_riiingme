@@ -92,7 +92,8 @@
                     $theClickedButton.toggleClass("used");
 
                     var icon = $theClickedButton.find('span i.fa');
-                    var text = $theClickedButton.find('.media-body .h5');
+                    var text = $theClickedButton.find('.media-body p.h5');
+
 
                     icon.toggleClass("fa-link fa-minus-circle");
                     text.toggleClass("text-info");

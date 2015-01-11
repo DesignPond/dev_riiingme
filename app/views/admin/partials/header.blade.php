@@ -11,8 +11,7 @@
     <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
         <li class="hidden-xs">
             <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
-                <i class="fa fa-bell"></i>
-                <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+                <i class="fa fa-bell"></i><span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
             </a>
             <section class="dropdown-menu aside-xl">
                 <section class="panel bg-white">
@@ -51,9 +50,9 @@
                         <div class="form-group wrapper m-b-none">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
-                    </span>
+                                <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
+                                </span>
                             </div>
                         </div>
                     </form>
@@ -65,7 +64,7 @@
             <span class="thumb-sm avatar pull-left">
               <img src="images/avatar.jpg">
             </span>
-                John.Smith <b class="caret"></b>
+                Cindy Leschaud <b class="caret"></b>
             </a>
             <ul class="dropdown-menu animated fadeInRight">
                 <span class="arrow top"></span>

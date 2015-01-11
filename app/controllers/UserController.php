@@ -51,6 +51,24 @@ class UserController extends \BaseController {
 	}
 
 	/**
+	 * Display a listing of the resource.
+	 * GET /user
+	 *
+	 * @return Response
+	 */
+	public function see()
+	{
+		// The authentification is not used for now, we are faking a user id
+		$host_id = 1;
+
+		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
+		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
+
+		return View::make('admin.users.see')->with(array('riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+
+	}
+
+	/**
 	 * Show the form for creating a new resource.
 	 * GET /user/create
 	 *
@@ -102,14 +120,20 @@ class UserController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /user/{id}/edit
-	 *
-	 * @param  int  $id
+	 * GET /user/edit
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
-		//
+		// The authentification is not used for now, we are faking a user id
+		$host_id = 1;
+
+		$user   = $this->user->find($host_id);
+		list($infos['user_name'], $infos['user_photo']) = $this->label->getNameAndPhoto($host_id);
+
+		$user_labels     = $this->label->getLabelsForUserInGroups($host_id);
+
+		return View::make('admin.users.edit')->with(array('user' => $user, 'user_labels' => $user_labels, 'infos' => $infos));
 	}
 
 	/**
