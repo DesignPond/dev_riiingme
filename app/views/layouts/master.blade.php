@@ -81,9 +81,9 @@
 
         </section><!-- end of Page Header -->
 
-    @if (Request::is('/'))
-        <!-- Homepage slider  -->
-        @include('partials.header')
+        @if (Request::is('/'))
+            <!-- Homepage slider  -->
+            @include('partials.header')
         @endif
 
         <!-- Contenu -->

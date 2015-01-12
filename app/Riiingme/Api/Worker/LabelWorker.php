@@ -96,14 +96,12 @@ class LabelWorker{
 
             $invited = $riiinglinks->map(function($riiinglink) use ($types)
             {
-
                 list($invited_name, $invited_photo) =  $this->getNameAndPhoto($riiinglink->invited_id);
 
                 $riiinglink->setAttribute('invited_name', $invited_name);
                 $riiinglink->setAttribute('invited_photo', $invited_photo);
 
                 return $riiinglink;
-
             });
 
         }

@@ -56,11 +56,6 @@
                             <li class="active">Riiinglink</li>
                         </ul>
 
-                        <div class="m-b-md">
-                            <h3 class="m-b-none">Riiinglink</h3>
-                            <small>Welcome back, Cindy Leschaud</small>
-                        </div>
-
                         <!-- Contenu -->
                         @yield('content')
                         <!-- Fin contenu -->

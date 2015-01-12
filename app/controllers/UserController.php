@@ -137,6 +137,7 @@ class UserController extends \BaseController {
 		$host_id = 1;
 
 		$user_labels = $this->label->getLabelsForUserInGroups($host_id);
+		$user_labels = $this->apiHelper->typesLabelsInGroups($user_labels);
 
 		return View::make('admin.users.edit')->with(array('user_labels' => $user_labels));
 	}

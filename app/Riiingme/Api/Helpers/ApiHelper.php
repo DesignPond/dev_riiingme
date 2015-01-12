@@ -1,5 +1,7 @@
 <?php namespace Riiingme\Api\Helpers;
 
+use Illuminate\Support\Collection;
+
 class ApiHelper{
 
     public function typesMap($types, $unused){
@@ -64,6 +66,26 @@ class ApiHelper{
         }
 
         return $data;
+    }
+
+    public function typesLabelsInGroups($data){
+
+        $collection = array();
+
+        if(!empty($data))
+        {
+            foreach($data as $groupe => $item)
+            {
+                foreach($item as $label)
+                {
+                    $collection[$groupe][$label->type_id] = $label;
+                }
+            }
+
+            return $collection;
+        }
+
+        return [];
     }
 
     public function changeDateFormat($meta){
