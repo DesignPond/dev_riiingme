@@ -22,9 +22,21 @@ class UserController extends \BaseController {
 
 		$types   = $this->label->getTypes('titre','id');
 		$groupes = $this->label->getGroupes('titre','id');
+		$groupes_types = $this->label->getGroupesTypes();
+
+		// The authentification is not used for now, we are faking a user id
+		$host_id = 1;
+
+		$user  = $this->user->find($host_id);
+
+		list($user_name, $user_photo) = $this->label->getNameAndPhoto($host_id);
+
+		View::share('user_name', $user_name);
+		View::share('user_photo', $user_photo);
 
 		View::share('types', $types);
 		View::share('groupes', $groupes);
+		View::share('groupes_types', $groupes_types);
 	}
 
 	/**
@@ -38,15 +50,11 @@ class UserController extends \BaseController {
 		// The authentification is not used for now, we are faking a user id
 		$host_id = 1;
 
-		$user   = $this->user->find($host_id);
-		list($infos['user_name'], $infos['user_photo']) = $this->label->getNameAndPhoto($host_id);
-
-		$user_labels     = $this->label->getLabelsForUserInGroups($host_id);
-
+		$user_labels = $this->label->getLabelsForUserInGroups($host_id);
 		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
 		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		return View::make('admin.users.index')->with(array('user' => $user, 'user_labels' => $user_labels, 'infos' => $infos, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+		return View::make('admin.users.index')->with(array('user_labels' => $user_labels, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
 
 	}
 
@@ -128,12 +136,9 @@ class UserController extends \BaseController {
 		// The authentification is not used for now, we are faking a user id
 		$host_id = 1;
 
-		$user   = $this->user->find($host_id);
-		list($infos['user_name'], $infos['user_photo']) = $this->label->getNameAndPhoto($host_id);
+		$user_labels = $this->label->getLabelsForUserInGroups($host_id);
 
-		$user_labels     = $this->label->getLabelsForUserInGroups($host_id);
-
-		return View::make('admin.users.edit')->with(array('user' => $user, 'user_labels' => $user_labels, 'infos' => $infos));
+		return View::make('admin.users.edit')->with(array('user_labels' => $user_labels));
 	}
 
 	/**

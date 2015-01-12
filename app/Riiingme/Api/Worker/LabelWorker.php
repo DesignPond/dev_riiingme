@@ -29,6 +29,10 @@ class LabelWorker{
         return $this->groupe->getAll()->lists('titre','id');
     }
 
+    public function getGroupesTypes(){
+        return $this->groupe->getAll();
+    }
+
     public function getLabel($id){
 
         return $this->label->find($id);

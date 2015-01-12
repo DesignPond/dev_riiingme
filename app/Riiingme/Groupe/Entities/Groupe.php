@@ -23,4 +23,12 @@ class Groupe extends BaseModel{
     protected static $messages = array(
     );
 
+    /**
+     * types belongs to groupes
+     */
+    public function groupe_type()
+    {
+        return $this->belongsToMany('\Riiingme\Type\Entities\Type', 'groupe_type', 'groupe_id', 'type_id');
+    }
+
 }

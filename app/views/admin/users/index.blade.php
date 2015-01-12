@@ -10,11 +10,11 @@
                     <header class="panel-heading bg-danger lt no-border">
                         <div class="clearfix">
                             <a class="pull-left thumb avatar b-3x m-r" href="#">
-                                <img src="{{ asset('users/'.$infos['user_photo']) }}" class="img-circle">
+                                <img src="{{ asset('users/'.$user_photo) }}" class="img-circle">
                             </a>
                             <div class="clear">
                                 <div class="h3 m-t-xs m-b-xs text-white">
-                                    {{ $infos['user_name'] }}
+                                    {{ $user_name }}
                                     <i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
                                 </div>
                                 <small class="text-muted">Bienvenue</small>
@@ -37,18 +37,6 @@
                             <i class="fa fa-eye icon-muted"></i>
                             Profile visits
                         </a>
-                    </div>
-                </section>
-                <section class="panel panel-info">
-                    <div class="panel-body">
-                        <a class="thumb pull-right m-l" href="#">
-                            <img class="img-circle" src="images/avatar.jpg">
-                        </a>
-                        <div class="clear">
-                            <a class="text-info" href="#">@Mike Mcalidek <i class="icon-twitter"></i></a>
-                            <small class="block text-muted">2,415 followers / 225 tweets</small>
-                            <a class="btn btn-xs btn-success m-t-xs" href="#">Follow</a>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -108,10 +96,10 @@
                     <div class="inline">
                         <div data-animate="1000" data-line-cap="butt" data-size="130" data-scale-color="false" data-track-color="#f5f5f5" data-bar-color="#4cc0c1" data-line-width="5" data-percent="75" class="easypiechart easyPieChart" style="width: 130px; height: 130px; line-height: 130px;">
                             <div class="thumb-lg">
-                                <img class="img-circle" src="{{ asset('users/'.$infos['user_photo']) }}">
+                                <img class="img-circle" src="{{ asset('users/'.$user_photo) }}">
                             </div>
                             <canvas height="130" width="130"></canvas></div>
-                        <div class="h4 m-t m-b-xs">{{ $infos['user_name'] }}</div>
+                        <div class="h4 m-t m-b-xs">{{ $user_name }}</div>
                         <small class="text-muted m-b">Web developpeur</small>
                     </div>
                 </div>

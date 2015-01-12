@@ -30,4 +30,5 @@ class Type extends BaseModel{
     protected static $messages = array(
     );
 
+
 }

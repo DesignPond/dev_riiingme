@@ -130,3 +130,12 @@
 .hideLabel {
   display: none !important;
 }
+.list-group {
+  margin-bottom: 0;
+}
+.riiinglink .panel-body {
+  padding-bottom: 0;
+}
+.list-group .line:last-child {
+  margin-bottom: 0;
+}

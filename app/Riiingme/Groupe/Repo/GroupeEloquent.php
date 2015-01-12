@@ -8,11 +8,12 @@ class GroupeEloquent implements GroupeInterface {
 
         $this->groupe = $groupe;
     }
+
     public function getAll(){
 
-        return $this->groupe->all();
-
+        return $this->groupe->with(array('groupe_type'))->get();
     }
+
     public function find($id){
 
         return $this->groupe->findOrFail($id);
