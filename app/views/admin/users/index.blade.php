@@ -4,7 +4,7 @@
     <section class="vbox">
         <section class="scrollable">
             <section class="hbox stretch">
-                <aside class="aside-lg bg-light lter b-r">
+                <aside class="aside-xl bg-light lter b-r">
                     <section class="vbox">
                         <section class="scrollable">
                             <div class="wrapper">
@@ -13,43 +13,22 @@
                                         <img src="{{ asset('users/'.$user_photo) }}" class="img-circle">
                                     </a>
                                     <div class="clear">
-                                        <div class="h3 m-t-xs m-b-xs">{{ $user_name }}</div>
-                                        <small class="text-muted"><i class="fa fa-map-marker"></i> Suisse</small>
+                                        <div class="h4 m-t-xs m-b-xs">{{ $user_name }}</div>
                                     </div>
                                 </div>
                                 <div class="panel wrapper panel-success">
                                     <div class="row">
-                                        <div class="col-xs-4">
+                                        <div class="col-xs-12">
                                             <a href="#">
-                                                <span class="m-b-xs h4 block">245</span>
-                                                <small class="text-muted">Followers</small>
-                                            </a>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <a href="#">
-                                                <span class="m-b-xs h4 block">55</span>
-                                                <small class="text-muted">Following</small>
-                                            </a>
-                                        </div>
-                                        <div class="col-xs-4">
-                                            <a href="#">
-                                                <span class="m-b-xs h4 block">2,035</span>
-                                                <small class="text-muted">Tweets</small>
+                                                <small class="text-muted">Inscrit le</small>
+                                                <span class="m-b-xs h5 block">{{ $user->created_at->formatLocalized('%d %B %Y') }}</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="btn-group btn-group-justified m-b">
-                                    <a class="btn btn-primary btn-rounded" data-toggle="button">
-                            <span class="text">
-                              <i class="fa fa-eye"></i> Follow
-                            </span>
-                            <span class="text-active">
-                              <i class="fa fa-eye-slash"></i> Following
-                            </span>
-                                    </a>
-                                    <a class="btn btn-dark btn-rounded" data-loading-text="Connecting">
-                                        <i class="fa fa-comment-o"></i> Chat
+                                    <a class="btn btn-primary btn-rounded" data-loading-text="Connecting">
+                                        <i class="fa fa-cloud-upload"></i> &nbsp;Changer de plan
                                     </a>
                                 </div>
                                 <div>
@@ -57,13 +36,7 @@
                                     <p>Artist</p>
                                     <small class="text-uc text-xs text-muted">info</small>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
-                                    <div class="line"></div>
-                                    <small class="text-uc text-xs text-muted">connection</small>
-                                    <p class="m-t-sm">
-                                        <a href="#" class="btn btn-rounded btn-twitter btn-icon"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" class="btn btn-rounded btn-facebook btn-icon"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" class="btn btn-rounded btn-gplus btn-icon"><i class="fa fa-google-plus"></i></a>
-                                    </p>
+
                                 </div>
                             </div>
                         </section>
@@ -82,216 +55,16 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="activity">
                                     <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 minuts ago</small>
-                                                <strong class="block">Drew Wllon</strong>
-                                                <small>Wellcome and play this web application template ... </small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 hour ago</small>
-                                                <strong class="block">Jonathan George</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">2 hours ago</small>
-                                                <strong class="block">Josh Long</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 day ago</small>
-                                                <strong class="block">Jack Dorsty</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 days ago</small>
-                                                <strong class="block">Morgen Kntooh</strong>
-                                                <small>Mobile first web app for startup...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">Jun 21</small>
-                                                <strong class="block">Yoha Omish</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">May 10</small>
-                                                <strong class="block">Gole Lido</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">Jan 2</small>
-                                                <strong class="block">Jonthan Snow</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item" href="#email-content" data-toggle="class:show">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 minuts ago</small>
-                                                <strong class="block">Drew Wllon</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 hour ago</small>
-                                                <strong class="block">Jonathan George</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">2 hours ago</small>
-                                                <strong class="block">Josh Long</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 day ago</small>
-                                                <strong class="block">Jack Dorsty</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 days ago</small>
-                                                <strong class="block">Morgen Kntooh</strong>
-                                                <small>Mobile first web app for startup...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">Jun 21</small>
-                                                <strong class="block">Yoha Omish</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">May 10</small>
-                                                <strong class="block">Gole Lido</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">Jan 2</small>
-                                                <strong class="block">Jonthan Snow</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item" href="#email-content" data-toggle="class:show">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 minuts ago</small>
-                                                <strong class="block">Drew Wllon</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 hour ago</small>
-                                                <strong class="block">Jonathan George</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">2 hours ago</small>
-                                                <strong class="block">Josh Long</strong>
-                                                <small>Vestibulum ullamcorper sodales nisi nec...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="images/avatar_default.jpg" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">1 day ago</small>
-                                                <strong class="block">Jack Dorsty</strong>
-                                                <small>Morbi nec nunc condimentum...</small>
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#" class="thumb-sm pull-left m-r-sm">
-                                                <img src="{{ url('administration/images/avatar.jpg') }}" class="img-circle">
-                                            </a>
-                                            <a href="#" class="clear">
-                                                <small class="pull-right">3 days ago</small>
-                                                <strong class="block">Morgen Kntooh</strong>
-                                                <small>Mobile first web app for startup...</small>
-                                            </a>
-                                        </li>
+                                            @foreach($thumbs as $thumb)
+                                                <li class="list-group-item">
+                                                    <a href="{{ url('user/'.$thumb->id) }}" class="thumb-sm pull-left m-r-sm">
+                                                        <img src="{{ asset('users/'.$thumb['invited_photo']) }}" class="img-circle">
+                                                    </a>
+                                                    <a href="{{ url('user/'.$thumb->id) }}" class="clear">
+                                                        <strong class="block">{{ $thumb['invited_name'] }}</strong>
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                     </ul>
                                 </div>
                                 <div class="tab-pane" id="events">
@@ -312,18 +85,7 @@
                     <section class="vbox">
                         <section class="scrollable">
                             <div class="wrapper">
-                                <section class="panel panel-default">
-                                    <form>
-                                        <textarea class="form-control no-border" rows="3" placeholder="What are you doing..."></textarea>
-                                    </form>
-                                    <footer class="panel-footer bg-light lter">
-                                        <button class="btn btn-info pull-right btn-sm">POST</button>
-                                        <ul class="nav nav-pills nav-sm">
-                                            <li><a href="#"><i class="fa fa-camera text-muted"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-video-camera text-muted"></i></a></li>
-                                        </ul>
-                                    </footer>
-                                </section>
+
                                 <section class="panel panel-default">
                                     <h4 class="font-thin padder">Latest Tweets</h4>
                                     <ul class="list-group">

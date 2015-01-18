@@ -139,3 +139,15 @@
 .list-group .line:last-child {
   margin-bottom: 0;
 }
+#activity .list-group-item {
+  line-height: 30px;
+  min-height: 30px;
+}
+.alignVertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.line-last {
+  margin-bottom: 0;
+}

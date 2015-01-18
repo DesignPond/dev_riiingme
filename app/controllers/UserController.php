@@ -50,11 +50,12 @@ class UserController extends \BaseController {
 		// The authentification is not used for now, we are faking a user id
 		$host_id = 1;
 
+		$user        = $this->user->find($host_id);
 		$user_labels = $this->label->getLabelsForUserInGroups($host_id);
 		$riiinglinks = $this->riiinglink->getRiiinglinksForHost($host_id);
 		$thumbs      = $this->label->setInfosForRiiinglinksThumbs($riiinglinks);
 
-		return View::make('admin.users.index')->with(array('user_labels' => $user_labels, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
+		return View::make('admin.users.index')->with(array('user' => $user ,'user_labels' => $user_labels, 'riiinglinks' => $riiinglinks, 'thumbs' => $thumbs));
 
 	}
 

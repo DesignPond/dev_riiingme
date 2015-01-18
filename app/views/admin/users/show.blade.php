@@ -16,16 +16,18 @@
                         </a>
                         <div class="clear">
                             <div class="h3 m-t-xs m-b-xs text-white">
-                                {{ $host_riiinglink->user_name }}<i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
+                                {{ $host_riiinglink->user_name }}
                             </div>
                             <small class="text-muted">Art director</small>
+
+                            <span class="pull-right">
+                                <a href="#" class="updateRiiinglink btn-rounded btn btn-xs btn-primary">Mettre à jour</a>
+                                <a href="#" class="finishRiiinglink btn-rounded btn btn-xs btn-default">Terminer</a>
+                            </span>
+
                         </div>
                     </div>
                 </header>
-                <div class="list-group no-radius alt">
-                    <a href="#" class="list-group-item updateRiiinglink">update</a>
-                    <a href="#" class="list-group-item finishRiiinglink">finish</a>
-                </div>
             </section>
         </div><!-- end of facts wrapper -->
         <div class="col-md-1">
@@ -40,17 +42,12 @@
                         </a>
                         <div class="clear">
                             <div class="h3 m-t-xs m-b-xs text-white">
-                                {{ $invited_riiinglink->user_name }}<i class="fa fa-circle text-white pull-right text-xs m-t-sm"></i>
+                                {{ $invited_riiinglink->user_name }}
                             </div>
                             <small class="text-muted">Infos partagés</small>
                         </div>
                     </div>
                 </header>
-                <div class="list-group no-radius alt">
-                    <a href="#" class="list-group-item">
-                        &nbsp;
-                    </a>
-                </div>
             </section>
         </div><!-- end of col -->
     </div><!-- end of row -->
@@ -147,7 +144,7 @@
                             </header>
                             <div class="panel-body">
                                 <div class="partage-icon">
-                                    <div class="partage-group list-group bg-white">
+                                    <div class="partage-group">
                                         <?php $i = 1; ?>
                                         @foreach($invited_group as $invited)
 
@@ -163,7 +160,8 @@
                                                 </article>
                                                 <?php
                                                     $count = ($invited_index > 1 ? count($invited_group) : count($invited_group) -1);
-                                                    echo ($i < $count && $invited->type_id != 15 ? '<div class="line pull-in"></div>' : '');
+                                                    $last = ($i == $count ? 'line-last' : '');
+                                                    echo ( $invited->type_id != 15 ? '<div class="line pull-in '.$last.'"></div>' : '');
                                                     $i++;
                                                 ?>
                                             </div>
