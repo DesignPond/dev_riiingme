@@ -51,7 +51,7 @@ class Riiinglink extends BaseModel{
                 return ($item->type_id == 2 ? $item : '');
             })->first();
 
-           $name = $prenom->label.' '.$nom->label;
+           $name = (isset($prenom->label) ? $prenom->label : '').' '.(isset($nom->label) ? $nom->label : '');
         }
 
         return $name;

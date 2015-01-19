@@ -34,21 +34,23 @@
             <h2 class="text-center text-blue"><i class="fa fa-refresh"></i></h2>
         </div>
         <div class="col-md-5">
+            @if(isset($invited_riiinglink))
             <section class="panel panel-default">
                 <header class="panel-heading bg-blue lt no-border">
                     <div class="clearfix">
                         <a class="pull-left thumb avatar b-3x m-r" href="#">
-                            <img class="img-circle" src="{{ asset('users/'.$invited_riiinglink->user_photo.'') }}">
+                            <img class="img-circle" src="{{ asset('users/'.$invited_riiinglink->invited_photo.'') }}">
                         </a>
                         <div class="clear">
                             <div class="h3 m-t-xs m-b-xs text-white">
-                                {{ $invited_riiinglink->user_name }}
+                                {{ $invited_riiinglink->invited_name }}
                             </div>
                             <small class="text-muted">Infos partagés</small>
                         </div>
                     </div>
                 </header>
             </section>
+            @endif
         </div><!-- end of col -->
     </div><!-- end of row -->
 
